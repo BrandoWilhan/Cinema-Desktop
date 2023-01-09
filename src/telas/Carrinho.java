@@ -38,7 +38,7 @@ public class Carrinho extends javax.swing.JFrame
 
         btnVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/back32.png"))); // NOI18N
         btnVoltar.setText("Voltar");
-        btnHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/home32.png"))); // NOI18N
+        btnHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/home32.png"))); // NOI18N
 
         btnFinalizar.setFont(new java.awt.Font("Liberation Sans", 1, 24)); // NOI18N
         btnFinalizar.setText("Finalizar");
