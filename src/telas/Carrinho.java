@@ -5,13 +5,13 @@ package telas;
  *
  * @author mugen
  */
-public class CarrinhoNew extends javax.swing.JFrame
+public class Carrinho extends javax.swing.JFrame
 {
 
     /**
      * Creates new form Carrinho
      */
-    public CarrinhoNew()
+    public Carrinho()
     {
         initComponents();
     }
@@ -140,17 +140,19 @@ public class CarrinhoNew extends javax.swing.JFrame
             }
         } catch (ClassNotFoundException ex)
         {
-            java.util.logging.Logger.getLogger(CarrinhoNew.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Carrinho.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex)
         {
-            java.util.logging.Logger.getLogger(CarrinhoNew.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Carrinho.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex)
         {
-            java.util.logging.Logger.getLogger(CarrinhoNew.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Carrinho.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex)
         {
-            java.util.logging.Logger.getLogger(CarrinhoNew.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Carrinho.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
@@ -159,7 +161,7 @@ public class CarrinhoNew extends javax.swing.JFrame
         {
             public void run()
             {
-                new CarrinhoNew().setVisible(true);
+                new Carrinho().setVisible(true);
             }
         });
     }
