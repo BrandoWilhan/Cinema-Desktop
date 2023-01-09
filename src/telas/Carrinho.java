@@ -56,7 +56,7 @@ public class Carrinho extends javax.swing.JFrame
         btnCancelar.setFont(new java.awt.Font("Liberation Sans", 1, 24)); // NOI18N
         btnCancelar.setText("Cancelar");
 
-        compra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cart32.png"))); // NOI18N
+        compra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/cart32.png"))); // NOI18N
         compra.setText("Compra");
 
         tableCompra.setModel(new javax.swing.table.DefaultTableModel(
