@@ -23,8 +23,7 @@ public class Carrinho extends javax.swing.JFrame
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         btnVoltar = new javax.swing.JButton();
         btnHome = new javax.swing.JButton();
@@ -37,9 +36,10 @@ public class Carrinho extends javax.swing.JFrame
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btnVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back32.png"))); // NOI18N
+        btnVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/back32.png"))); // NOI18N
         btnVoltar.setText("Voltar");
 
+<<<<<<< HEAD
         btnHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/home32.png"))); // NOI18N
 
         btnFinalizar.setFont(new java.awt.Font("Liberation Sans", 1, 24)); // NOI18N
@@ -75,6 +75,9 @@ public class Carrinho extends javax.swing.JFrame
             }
         ));
         jScrollPane1.setViewportView(tableCompra);
+=======
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/home32.png"))); // NOI18N
+>>>>>>> BrenoBeleza
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
