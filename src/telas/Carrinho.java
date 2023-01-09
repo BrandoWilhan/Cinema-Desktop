@@ -37,10 +37,10 @@ public class Carrinho extends javax.swing.JFrame
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btnHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/home32.png"))); // NOI18N
+        btnHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/home32.png"))); // NOI18N
 
         btnVoltar.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
-        btnVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/back32.png"))); // NOI18N
+        btnVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/back32.png"))); // NOI18N
         btnVoltar.setText("Voltar");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -67,7 +67,7 @@ public class Carrinho extends javax.swing.JFrame
         btnCancelar.setFont(new java.awt.Font("DejaVu Sans", 1, 24)); // NOI18N
         btnCancelar.setText("jButton1");
 
-        lblCompra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/cart32.png"))); // NOI18N
+        lblCompra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/cart32.png"))); // NOI18N
         lblCompra.setText("Compra");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
