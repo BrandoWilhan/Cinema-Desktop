@@ -1,2 +1,4 @@
 # CINEMA APP
-test
+Project UML:
+
+[alt text](https://github.com/BrandoWilhan/Cinema-Desktop/blob/main/Cinema.png)
