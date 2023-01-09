@@ -38,8 +38,6 @@ public class Carrinho extends javax.swing.JFrame
 
         btnVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/back32.png"))); // NOI18N
         btnVoltar.setText("Voltar");
-
-<<<<<<< HEAD
         btnHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/home32.png"))); // NOI18N
 
         btnFinalizar.setFont(new java.awt.Font("Liberation Sans", 1, 24)); // NOI18N
@@ -75,9 +73,6 @@ public class Carrinho extends javax.swing.JFrame
             }
         ));
         jScrollPane1.setViewportView(tableCompra);
-=======
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/home32.png"))); // NOI18N
->>>>>>> BrenoBeleza
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
