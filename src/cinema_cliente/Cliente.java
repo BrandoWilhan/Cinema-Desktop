@@ -13,9 +13,13 @@ public class Cliente
     // cartao
     ArrayList<Cartao> cartoes;
 
-    public Cliente()
+    public Cliente(boolean estudante, String nome, String cpfCliente, short idade, ArrayList<Cartao> cartoes)
     {
-        this.cartoes = new ArrayList();
+        this.estudante = estudante;
+        this.nome = nome;
+        this.cpfCliente = cpfCliente;
+        this.idade = idade;
+        this.cartoes = cartoes;
     }
 
     public Cliente(boolean estudante, String nome, String cpfCliente, short idade)
@@ -24,9 +28,10 @@ public class Cliente
         this.nome = nome;
         this.cpfCliente = cpfCliente;
         this.idade = idade;
-        this.cartoes = new ArrayList();
     }
 
+    
+    
     public boolean isEstudante()
     {
         return estudante;

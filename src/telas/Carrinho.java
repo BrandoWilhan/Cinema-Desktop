@@ -1,5 +1,8 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ */
 package telas;
-
 
 /**
  *
@@ -26,24 +29,40 @@ public class Carrinho extends javax.swing.JFrame
     private void initComponents()
     {
 
-        btnHome = new javax.swing.JButton();
         btnVoltar = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        btnRemover = new javax.swing.JButton();
+        btnHome = new javax.swing.JButton();
         btnFinalizar = new javax.swing.JButton();
+        btnRemover = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tableCompras = new javax.swing.JTable();
         btnCancelar = new javax.swing.JButton();
-        lblCompra = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btnHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/home32.png"))); // NOI18N
-
-        btnVoltar.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
+        btnVoltar.setFont(new java.awt.Font("DejaVu Sans", 0, 18)); // NOI18N
         btnVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/back32.png"))); // NOI18N
         btnVoltar.setText("Voltar");
+        btnVoltar.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                btnVoltarActionPerformed(evt);
+            }
+        });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        btnHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/home32.png"))); // NOI18N
+
+        btnFinalizar.setFont(new java.awt.Font("DejaVu Sans", 1, 24)); // NOI18N
+        btnFinalizar.setText("Finalizar");
+
+        btnRemover.setFont(new java.awt.Font("DejaVu Sans", 1, 24)); // NOI18N
+        btnRemover.setText("Remover");
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/cart32.png"))); // NOI18N
+        jLabel1.setText("Compra");
+
+        tableCompras.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][]
             {
                 {},
@@ -56,67 +75,61 @@ public class Carrinho extends javax.swing.JFrame
 
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
-
-        btnRemover.setFont(new java.awt.Font("DejaVu Sans", 1, 24)); // NOI18N
-        btnRemover.setText("jButton1");
-
-        btnFinalizar.setFont(new java.awt.Font("DejaVu Sans", 1, 24)); // NOI18N
-        btnFinalizar.setText("jButton1");
+        jScrollPane1.setViewportView(tableCompras);
 
         btnCancelar.setFont(new java.awt.Font("DejaVu Sans", 1, 24)); // NOI18N
-        btnCancelar.setText("jButton1");
-
-        lblCompra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/cart32.png"))); // NOI18N
-        lblCompra.setText("Compra");
+        btnCancelar.setText("Cancelar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnVoltar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 710, Short.MAX_VALUE)
-                        .addComponent(btnHome))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(207, 207, 207)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblCompra)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jScrollPane1)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(btnFinalizar)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(btnRemover)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(btnCancelar))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap()
+                .addComponent(btnVoltar)
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnHome)
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(130, 130, 130)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(btnFinalizar)
+                            .addGap(48, 48, 48)
+                            .addComponent(btnRemover)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnCancelar))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 542, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(188, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnHome)
-                    .addComponent(btnVoltar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblCompra)
-                .addGap(11, 11, 11)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnVoltar)
+                    .addComponent(btnHome))
+                .addGap(34, 34, 34)
+                .addComponent(jLabel1)
                 .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
+                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnRemover)
                     .addComponent(btnFinalizar)
+                    .addComponent(btnRemover)
                     .addComponent(btnCancelar))
-                .addContainerGap(80, Short.MAX_VALUE))
+                .addGap(119, 119, 119))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnVoltarActionPerformed
+    {//GEN-HEADEREND:event_btnVoltarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVoltarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -152,9 +165,6 @@ public class Carrinho extends javax.swing.JFrame
             java.util.logging.Logger.getLogger(Carrinho.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable()
@@ -172,8 +182,8 @@ public class Carrinho extends javax.swing.JFrame
     private javax.swing.JButton btnHome;
     private javax.swing.JButton btnRemover;
     private javax.swing.JButton btnVoltar;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JLabel lblCompra;
+    private javax.swing.JTable tableCompras;
     // End of variables declaration//GEN-END:variables
 }
