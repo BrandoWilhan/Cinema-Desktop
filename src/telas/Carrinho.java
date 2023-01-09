@@ -36,7 +36,7 @@ public class Carrinho extends javax.swing.JFrame
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btnVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/back32.png"))); // NOI18N
+        btnVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/back32.png"))); // NOI18N
         btnVoltar.setText("Voltar");
         btnHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/home32.png"))); // NOI18N
 
