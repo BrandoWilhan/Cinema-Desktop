@@ -1,4 +1,4 @@
-package cinema;
+package cinema_cliente;
 
 
 import java.util.ArrayList;

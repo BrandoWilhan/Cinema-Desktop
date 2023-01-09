@@ -1,5 +1,5 @@
 
-package cinema;
+package cinema_cliente;
 
 /**
  *
