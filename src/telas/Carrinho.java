@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package telas;
 
 /**
@@ -60,6 +57,7 @@ public class Carrinho extends javax.swing.JFrame
         btnRemover.setFont(new java.awt.Font("DejaVu Sans", 1, 24)); // NOI18N
         btnRemover.setText("Remover");
 
+        jLabel1.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/cart32.png"))); // NOI18N
         jLabel1.setText("Compra");
 
