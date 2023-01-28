@@ -27,7 +27,6 @@ public class Ingresso extends javax.swing.JFrame
     {
 
         jDesktopPane1 = new javax.swing.JDesktopPane();
-        brnCarrinho = new javax.swing.JButton();
         btnVoltar = new javax.swing.JButton();
         btnHome = new javax.swing.JButton();
         lblIngresso = new javax.swing.JLabel();
@@ -39,8 +38,6 @@ public class Ingresso extends javax.swing.JFrame
         lblFilmes = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        brnCarrinho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/cart32.png"))); // NOI18N
 
         btnVoltar.setFont(new java.awt.Font("DejaVu Sans", 0, 18)); // NOI18N
         btnVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/back32.png"))); // NOI18N
@@ -85,7 +82,6 @@ public class Ingresso extends javax.swing.JFrame
         lblFilmes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/icon claquete.png"))); // NOI18N
         lblFilmes.setText("Filmes");
 
-        jDesktopPane1.setLayer(brnCarrinho, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(btnVoltar, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(btnHome, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(lblIngresso, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -113,9 +109,7 @@ public class Ingresso extends javax.swing.JFrame
                                 .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblFilmes))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 211, Short.MAX_VALUE)
-                .addComponent(brnCarrinho)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 255, Short.MAX_VALUE)
                 .addComponent(btnHome)
                 .addGap(10, 10, 10))
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
@@ -128,9 +122,7 @@ public class Ingresso extends javax.swing.JFrame
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(brnCarrinho)
-                    .addComponent(btnHome))
+                .addComponent(btnHome)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
                 .addContainerGap()
@@ -216,7 +208,6 @@ public class Ingresso extends javax.swing.JFrame
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton brnCarrinho;
     private javax.swing.JButton btnConfirmar;
     private javax.swing.JButton btnHome;
     private javax.swing.JButton btnPesquisar;
