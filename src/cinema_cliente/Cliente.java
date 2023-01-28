@@ -6,25 +6,25 @@ import java.util.ArrayList;
  
 public class Cliente
 {
-    private boolean estudante;
+//    private boolean estudante;
     private String nome;
     private String cpfCliente;
     private short idade;
     // cartao
     ArrayList<Cartao> cartoes;
 
-    public Cliente(boolean estudante, String nome, String cpfCliente, short idade, ArrayList<Cartao> cartoes)
+    public Cliente( String nome, String cpfCliente, short idade, ArrayList<Cartao> cartoes)
     {
-        this.estudante = estudante;
+//        this.estudante = estudante;
         this.nome = nome;
         this.cpfCliente = cpfCliente;
         this.idade = idade;
         this.cartoes = cartoes;
     }
 
-    public Cliente(boolean estudante, String nome, String cpfCliente, short idade)
+    public Cliente(String nome, String cpfCliente, short idade)
     {
-        this.estudante = estudante;
+//        this.estudante = estudante;
         this.nome = nome;
         this.cpfCliente = cpfCliente;
         this.idade = idade;
@@ -32,15 +32,15 @@ public class Cliente
 
     
     
-    public boolean isEstudante()
-    {
-        return estudante;
-    }
-
-    public void setEstudante(boolean estudante)
-    {
-        this.estudante = estudante;
-    }
+//    public boolean isEstudante()
+//    {
+//        return estudante;
+//    }
+//
+//    public void setEstudante(boolean estudante)
+//    {
+//        this.estudante = estudante;
+//    }
 
     public String getNome()
     {

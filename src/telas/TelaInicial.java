@@ -4,6 +4,8 @@
  */
 package telas;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author breno
@@ -13,10 +15,54 @@ public class TelaInicial extends javax.swing.JFrame {
     /**
      * Creates new form TelaInicial
      */
-    public TelaInicial() {
+    
+    Lanche telaLanche;
+    Carrinho telaCarrinho;
+    Ingresso telaIngresso;
+    Cadastro telaCadastro;
+    Login telaLogin;
+    
+    public TelaInicial(Lanche telaLanche, Carrinho telaCarrinho, Ingresso telaIngresso, Cadastro telaCadastro, Login telaLogin) {
         initComponents();
+        this.telaLanche = telaLanche;
+        this.telaCarrinho = telaCarrinho;
+        this.telaIngresso = telaIngresso;
+        this.telaCadastro = telaCadastro;
+        this.telaLogin = telaLogin;
+    }
+//    public TelaInicial() {
+//        initComponents();
+//     
+//    }
+
+    public Lanche getTelaLanche() {
+        return telaLanche;
     }
 
+    public void setTelaLanche(Lanche telaLanche) {
+        this.telaLanche = telaLanche;
+    }
+
+    public Carrinho getTelaCarrinho() {
+        return telaCarrinho;
+    }
+
+    public void setTelaCarrinho(Carrinho telaCarrinho) {
+        this.telaCarrinho = telaCarrinho;
+    }
+
+    public Ingresso getTelaIngresso() {
+        return telaIngresso;
+    }
+
+    public void setTelaIngresso(Ingresso telaIngresso) {
+        this.telaIngresso = telaIngresso;
+    }
+    
+    
+    
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -24,52 +70,62 @@ public class TelaInicial extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         jDesktopPane1 = new javax.swing.JDesktopPane();
-        jButton3 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        btnCarrinho = new javax.swing.JButton();
+        btnLogin = new javax.swing.JButton();
+        btnCadastro = new javax.swing.JButton();
+        btnIngressos = new javax.swing.JButton();
+        btnLanche = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Autoatendimento");
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/cart32.png"))); // NOI18N
-        jButton3.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
-                jButton3ActionPerformed(evt);
+        btnCarrinho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/cart32.png"))); // NOI18N
+        btnCarrinho.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCarrinhoActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Login");
-
-        jButton1.setText("Cadastro");
-
-        jButton4.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/tickets96.png"))); // NOI18N
-        jButton4.setText("Ingressos");
-        jButton4.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
-                jButton4ActionPerformed(evt);
+        btnLogin.setText("Login");
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoginActionPerformed(evt);
             }
         });
 
-        jButton5.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/popcorn_initial_96.png"))); // NOI18N
-        jButton5.setText("Lanche");
+        btnCadastro.setText("Cadastro");
+        btnCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastroActionPerformed(evt);
+            }
+        });
 
-        jDesktopPane1.setLayer(jButton3, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jButton2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jButton4, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jButton5, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        btnIngressos.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        btnIngressos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/tickets96.png"))); // NOI18N
+        btnIngressos.setText("Ingressos");
+        btnIngressos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIngressosActionPerformed(evt);
+            }
+        });
+
+        btnLanche.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        btnLanche.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/popcorn_initial_96.png"))); // NOI18N
+        btnLanche.setText("Lanche");
+        btnLanche.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLancheActionPerformed(evt);
+            }
+        });
+
+        jDesktopPane1.setLayer(btnCarrinho, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(btnLogin, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(btnCadastro, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(btnIngressos, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(btnLanche, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -77,17 +133,17 @@ public class TelaInicial extends javax.swing.JFrame {
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addComponent(jButton1)
+                .addComponent(btnCadastro)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
+                .addComponent(btnLogin)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton3)
+                .addComponent(btnCarrinho)
                 .addGap(40, 40, 40))
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
                 .addGap(254, 254, 254)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnIngressos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnLanche, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(267, Short.MAX_VALUE))
         );
         jDesktopPane1Layout.setVerticalGroup(
@@ -96,13 +152,13 @@ public class TelaInicial extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton2)
-                        .addComponent(jButton1))
-                    .addComponent(jButton3))
+                        .addComponent(btnLogin)
+                        .addComponent(btnCadastro))
+                    .addComponent(btnCarrinho))
                 .addGap(109, 109, 109)
-                .addComponent(jButton4)
+                .addComponent(btnIngressos)
                 .addGap(18, 18, 18)
-                .addComponent(jButton5)
+                .addComponent(btnLanche)
                 .addContainerGap(122, Short.MAX_VALUE))
         );
 
@@ -121,13 +177,47 @@ public class TelaInicial extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void btnIngressosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngressosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+//        telaIngresso.setTelaInicial(this);
+        telaIngresso.setVisible(true);
+        setVisible(false);        
+        
+    }//GEN-LAST:event_btnIngressosActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btnCarrinhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarrinhoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+        
+//        telaCarrinho.setTelaInicial(this);
+        telaCarrinho.setVisible(true);
+        setVisible(false);
+        
+        
+    }//GEN-LAST:event_btnCarrinhoActionPerformed
+
+    private void btnLancheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLancheActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+        telaLanche.setTelaInicial(this);
+        telaLanche.setVisible(true);
+//        
+    }//GEN-LAST:event_btnLancheActionPerformed
+
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+        telaLogin.setTelaCadastro(telaCadastro);
+        telaLogin.setTelaInicial(this);
+        telaLogin.setVisible(true);
+    }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void btnCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+        telaCadastro.setTelaInicial(this);
+        telaCadastro.setTelaLogin(telaLogin);
+        telaCadastro.setVisible(true);
+    }//GEN-LAST:event_btnCadastroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -159,17 +249,27 @@ public class TelaInicial extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaInicial().setVisible(true);
+                
+//                  new TelaInicial().setVisible(true);
+                Lanche telaLanche = new Lanche();
+                Carrinho telaCarrinho = new Carrinho();
+                Ingresso telaIngresso = new Ingresso();
+                Cadastro telaCadastro = new Cadastro();
+                Login telaLogin = new Login();
+                new TelaInicial(telaLanche, telaCarrinho, telaIngresso, telaCadastro, telaLogin).setVisible(true);
+                
+                
+                
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton btnCadastro;
+    private javax.swing.JButton btnCarrinho;
+    private javax.swing.JButton btnIngressos;
+    private javax.swing.JButton btnLanche;
+    private javax.swing.JButton btnLogin;
     private javax.swing.JDesktopPane jDesktopPane1;
     // End of variables declaration//GEN-END:variables
 }
