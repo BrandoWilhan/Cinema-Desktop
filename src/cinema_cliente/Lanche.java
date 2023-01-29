@@ -11,15 +11,51 @@ package cinema_cliente;
 public class Lanche {
     
     private float precoTotal;
-    Pipoca pipoca = new Pipoca();
-    Bebida bebida = new Bebida();
-    Chocolate chocolate = new Chocolate();
+    Pipoca pipoca;
+    Bebida bebida;
+    Chocolate chocolate;
 
-    public Lanche() {
+    public Lanche(Pipoca pipoca, Bebida bebida, Chocolate chocolate) {
+        this.pipoca = pipoca;
+        this.bebida = bebida;
+        this.chocolate = chocolate;
     }
     
+
+    public float getPrecoTotal() {
+        return precoTotal;
+    }
+
+    public void setPrecoTotal(float precoTotal) {
+        this.precoTotal = precoTotal;
+    }
+
+    public Pipoca getPipoca() {
+        return pipoca;
+    }
+
+    public void setPipoca(Pipoca pipoca) {
+        this.pipoca = pipoca;
+    }
+
+    public Bebida getBebida() {
+        return bebida;
+    }
+
+    public void setBebida(Bebida bebida) {
+        this.bebida = bebida;
+    }
+
+    public Chocolate getChocolate() {
+        return chocolate;
+    }
+
+    public void setChocolate(Chocolate chocolate) {
+        this.chocolate = chocolate;
+    }   
+    
     public float calculoPrecoTotal(){
-        precoTotal = pipoca.getQuantidade()*pipoca.getPreco() + bebida.getQuantidade()*bebida.getPreco() + chocolate.getQuantidade()*chocolate.getPreco();
+        precoTotal = pipoca.calculoPreco() + bebida.calculoPreco() + chocolate.calculoPreco();
         return precoTotal;
     }
     

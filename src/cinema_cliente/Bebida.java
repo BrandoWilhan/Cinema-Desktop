@@ -8,36 +8,29 @@ package cinema_cliente;
  *
  * @author breno
  */
-public class Bebida {
+public class Bebida extends ModeloLanches implements InterfaceValorLanche{
     private char tipo, tamanho;
     private String sabor;
-    private float preco;
-    private int quantidade;
 
-    public Bebida(char tipo, char tamanho, String sabor, float preco, int quantidadeSuco, int quantidadeRefrigerante) {
+    public Bebida(char tipo, char tamanho, String sabor, int quantidadePeq, int quantidadeMed, int quantidadeGnd) {
+        super(quantidadePeq, quantidadeMed, quantidadeGnd);
+        this.precoPeq = 4.50f;
+        this.precoMed = 6.50f;
+        this.precoGnd = 8.50f;
         this.tipo = tipo;
         this.tamanho = tamanho;
         this.sabor = sabor;
-        this.preco = preco;
-        this.quantidade = quantidade;
+        
     }
 
-    public int getQuantidade() {
-        return quantidade;
+    public Bebida(int quantidadePeq, int quantidadeMed, int quantidadeGnd) {
+        super(quantidadePeq, quantidadeMed, quantidadeGnd);
+        this.precoPeq = 4.50f;
+        this.precoMed = 6.50f;
+        this.precoGnd = 8.50f;
     }
-
-    public void setQuantidade(int quantidade) {
-        this.quantidade = quantidade;
-    }
-
-
-
-
-    public Bebida() {
-    }
-    
-    
-
+   
+   
     public char getTipo() {
         return tipo;
     }
@@ -61,15 +54,9 @@ public class Bebida {
     public void setSabor(String sabor) {
         this.sabor = sabor;
     }
-
-    public float getPreco() {
-        return preco;
+    
+    @Override
+    public float calculoPreco(){
+        return quantidadePeq*precoPeq+quantidadeMed*precoMed+quantidadeGnd+precoGnd;
     }
-
-    public void setPreco(float preco) {
-        this.preco = preco;
-    }
-    
-    
-    
 }
