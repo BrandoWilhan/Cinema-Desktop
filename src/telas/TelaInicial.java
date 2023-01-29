@@ -21,14 +21,16 @@ public class TelaInicial extends javax.swing.JFrame {
     Ingresso telaIngresso;
     Cadastro telaCadastro;
     Login telaLogin;
+    Pagamento telaPagamento;
     
-    public TelaInicial(Lanche telaLanche, Carrinho telaCarrinho, Ingresso telaIngresso, Cadastro telaCadastro, Login telaLogin) {
+    public TelaInicial(Lanche telaLanche, Carrinho telaCarrinho, Ingresso telaIngresso, Cadastro telaCadastro, Login telaLogin, Pagamento telaPagamento) {
         initComponents();
         this.telaLanche = telaLanche;
         this.telaCarrinho = telaCarrinho;
         this.telaIngresso = telaIngresso;
         this.telaCadastro = telaCadastro;
         this.telaLogin = telaLogin;
+        this.telaPagamento = telaPagamento;
     }
 //    public TelaInicial() {
 //        initComponents();
@@ -256,7 +258,8 @@ public class TelaInicial extends javax.swing.JFrame {
                 Ingresso telaIngresso = new Ingresso();
                 Cadastro telaCadastro = new Cadastro();
                 Login telaLogin = new Login();
-                new TelaInicial(telaLanche, telaCarrinho, telaIngresso, telaCadastro, telaLogin).setVisible(true);
+                Pagamento telaPagamento = new Pagamento();
+                new TelaInicial(telaLanche, telaCarrinho, telaIngresso, telaCadastro, telaLogin, telaPagamento).setVisible(true);
                 
                 
                 
