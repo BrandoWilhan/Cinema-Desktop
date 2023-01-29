@@ -8,30 +8,19 @@ package cinema_cliente;
  *
  * @author breno
  */
-public class Pipoca {
+public class Pipoca extends ModeloLanches implements InterfaceValorLanche{
     private char tamanho;
-    private float preco;
-    private int quantidade;
     
 
-    public Pipoca(char tamanho, float preco, int quantidade) {
+    public Pipoca(char tamanho, int quantidadePeq, int quantidadeMed, int quantidadeGnd) {
+        super(quantidadePeq, quantidadeMed, quantidadeGnd);
         this.tamanho = tamanho;
-        this.preco = preco;
-        this.quantidade = quantidade;
+        this.precoPeq = 14.0f;
+        this.precoMed = 18.0f;
+        this.precoGnd = 22.0f;
     }    
 
-    public Pipoca() {
-    }
 
-    public int getQuantidade() {
-        return quantidade;
-    }
-
-    public void setQuantidade(int quantidade) {
-        this.quantidade = quantidade;
-    }
-    
-    
     
     public char getTamanho() {
         return tamanho;
@@ -40,14 +29,9 @@ public class Pipoca {
     public void setTamanho(char tamanho) {
         this.tamanho = tamanho;
     }
-
-    public float getPreco() {
-        return preco;
-    }
-
-    public void setPreco(float preco) {
-        this.preco = preco;
-    }
-
     
+    @Override
+    public float calculoPreco(){
+        return quantidadePeq*precoPeq+quantidadeMed*precoMed+quantidadeGnd+precoGnd;
+    }
 }
