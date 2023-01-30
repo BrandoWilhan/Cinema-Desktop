@@ -8,10 +8,11 @@ package cinema_cliente;
 public class Sala {
     
     private int numeroSala;
-    private int capacidade;
-    private boolean TresD;
-    private float horarioAbertura;
-    private float horarioFecha;
+    private boolean fileiraA[] = {true, true, true, true, true, true};
+    private boolean fileiraB[] = {true, true, true, true, true, true};
+    private boolean fileiraC[] = {true, true, true, true, true, true};
+    private boolean fileiraD[] = {true, true, true, true};
+    
     
     private Cinema cinema;
     private Filme filme;
@@ -19,73 +20,64 @@ public class Sala {
     public Sala() {
     }
 
-    public Sala(int numeroSala, int capacidade, boolean TresD, float horarioAbertura, float horarioFecha) {
+    public Sala(int numeroSala) {
         this.numeroSala = numeroSala;
-        this.capacidade = capacidade;
-        this.TresD = TresD;
-        this.horarioAbertura = horarioAbertura;
-        this.horarioFecha = horarioFecha;
-    }
-
-    public Sala(int numeroSala, int capacidade, boolean TresD, float horarioAbertura, float horarioFecha, Cinema cinema) {
-        this.numeroSala = numeroSala;
-        this.capacidade = capacidade;
-        this.TresD = TresD;
-        this.horarioAbertura = horarioAbertura;
-        this.horarioFecha = horarioFecha;
-        this.cinema = cinema;
     }
 
     public int getNumeroSala() {
         return numeroSala;
     }
 
-    public int getCapacidade() {
-        return capacidade;
+    public boolean[] getFileiraA() {
+        return fileiraA;
     }
 
-    public boolean isTresD() {
-        return TresD;
+    public boolean[] getFileiraB() {
+        return fileiraB;
     }
 
-    public float getHorarioAbertura() {
-        return horarioAbertura;
+    public boolean[] getFileiraC() {
+        return fileiraC;
     }
 
-    public float getHorarioFecha() {
-        return horarioFecha;
+    public boolean[] getFileiraD() {
+        return fileiraD;
     }
 
     public Cinema getCinema() {
         return cinema;
     }
 
+    public Filme getFilme() {
+        return filme;
+    }
+
     public void setNumeroSala(int numeroSala) {
         this.numeroSala = numeroSala;
     }
 
-    public void setCapacidade(int capacidade) {
-        this.capacidade = capacidade;
+    public void setFileiraA(boolean[] fileiraA) {
+        this.fileiraA = fileiraA;
     }
 
-    public void setTresD(boolean TresD) {
-        this.TresD = TresD;
+    public void setFileiraB(boolean[] fileiraB) {
+        this.fileiraB = fileiraB;
     }
 
-    public void setHorarioAbertura(float horarioAbertura) {
-        this.horarioAbertura = horarioAbertura;
+    public void setFileiraC(boolean[] fileiraC) {
+        this.fileiraC = fileiraC;
     }
 
-    public void setHorarioFecha(float horarioFecha) {
-        this.horarioFecha = horarioFecha;
+    public void setFileiraD(boolean[] fileiraD) {
+        this.fileiraD = fileiraD;
     }
 
     public void setCinema(Cinema cinema) {
         this.cinema = cinema;
     }
 
-
-    
-    
+    public void setFilme(Filme filme) {
+        this.filme = filme;
+    }
     
 }

@@ -4,21 +4,29 @@
  */
 package telas;
 
+import java.util.ArrayList;
+import javax.swing.JToggleButton;
+
 /**
  *
  * @author joaou
  */
 public class Assentos extends javax.swing.JFrame {
 
-    private Object telaIngresso;
-
     /**
      * Creates new form Assentosframe
      */
-    
-    
+
     public Assentos() {
         initComponents();
+    }
+    
+    JToggleButton[] botoes = new JToggleButton[22];
+    
+    public void desativarSelecionados(JToggleButton buttons){
+        if(buttons.isSelected()){
+            buttons.setEnabled(false);
+        }
     }
 
     /**
@@ -77,6 +85,11 @@ public class Assentos extends javax.swing.JFrame {
 
         bttnConfirmar1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         bttnConfirmar1.setText("Confirmar");
+        bttnConfirmar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnConfirmar1ActionPerformed(evt);
+            }
+        });
 
         bttC5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/chair_seat_furniture_icon_209747.png"))); // NOI18N
         bttC5.setText("C5");
@@ -303,6 +316,7 @@ public class Assentos extends javax.swing.JFrame {
 
     private void bttD1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttD1ActionPerformed
         // TODO add your handling code here:
+
     }//GEN-LAST:event_bttD1ActionPerformed
 
     private void bttD2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttD2ActionPerformed
@@ -317,13 +331,9 @@ public class Assentos extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_bttD4ActionPerformed
 
-    private void bttC1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttC1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bttC1ActionPerformed
-
     private void bttnA1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnA1ActionPerformed
         // TODO add your handling code here:
-        
+           
     }//GEN-LAST:event_bttnA1ActionPerformed
 
     private void bttnA6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnA6ActionPerformed
@@ -333,6 +343,36 @@ public class Assentos extends javax.swing.JFrame {
     private void bttnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnVoltarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_bttnVoltarActionPerformed
+
+    private void bttC1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttC1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bttC1ActionPerformed
+
+    private void bttnConfirmar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnConfirmar1ActionPerformed
+        // TODO add your handling code here:
+        desativarSelecionados(bttnA1);
+        desativarSelecionados(bttnA2);
+        desativarSelecionados(bttnA3);
+        desativarSelecionados(bttnA4);
+        desativarSelecionados(bttnA5);
+        desativarSelecionados(bttnA6);
+        desativarSelecionados(bttnB1);
+        desativarSelecionados(bttnB2);
+        desativarSelecionados(bttnB3);
+        desativarSelecionados(bttnB4);
+        desativarSelecionados(bttnB5);
+        desativarSelecionados(bttnB6);
+        desativarSelecionados(bttC1);
+        desativarSelecionados(bttC2);
+        desativarSelecionados(bttC3);
+        desativarSelecionados(bttC4);
+        desativarSelecionados(bttC5);
+        desativarSelecionados(bttC6);
+        desativarSelecionados(bttD1);
+        desativarSelecionados(bttD2);
+        desativarSelecionados(bttD3);
+        desativarSelecionados(bttD4);
+    }//GEN-LAST:event_bttnConfirmar1ActionPerformed
 
     /**
      * @param args the command line arguments

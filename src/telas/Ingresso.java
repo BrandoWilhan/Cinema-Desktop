@@ -32,7 +32,13 @@ public class Ingresso extends javax.swing.JFrame
             {"Top Gun: Maverick", "12", "3", "16:00"}
             
         };
-        DefaultTableModel model = new DefaultTableModel(data, columns);
+        DefaultTableModel model = new DefaultTableModel(data, columns){
+            @Override
+            //Impedir de ser possível de editar
+            public boolean isCellEditable(int row, int column) {
+            return false;
+    }
+        };
         tblFilmes.setModel(model);
     }
     /**
@@ -106,8 +112,22 @@ public class Ingresso extends javax.swing.JFrame
             new String [] {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(tblFilmes);
+        if (tblFilmes.getColumnModel().getColumnCount() > 0) {
+            tblFilmes.getColumnModel().getColumn(0).setHeaderValue("Title 1");
+            tblFilmes.getColumnModel().getColumn(1).setHeaderValue("Title 2");
+            tblFilmes.getColumnModel().getColumn(2).setHeaderValue("Title 3");
+            tblFilmes.getColumnModel().getColumn(3).setHeaderValue("Title 4");
+        }
 
         jDesktopPane1.setLayer(btnHome, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(lblIngresso, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -214,10 +234,15 @@ public class Ingresso extends javax.swing.JFrame
         int quantidadeTotal;
         int ingressoMeia = (Integer) spnQuantidadeMeia.getValue();
         int ingressoInteira = (Integer) spnQuantidadeInteira.getValue();
+        int filmeSelecionado = tblFilmes.getSelectedRow();
         quantidadeTotal = ingressoInteira + ingressoMeia;
         
         spnQuantidadeInteira.setValue(0);
         spnQuantidadeMeia.setValue(0);
+        
+        if(filmeSelecionado == -1 || quantidadeTotal == 0){
+            JOptionPane.showMessageDialog(this, "Por favor, selecione um Filme e uma quantidade de Ingressos", "Nenhum Filme Selecionado", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnConfirmarActionPerformed
 
     private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
