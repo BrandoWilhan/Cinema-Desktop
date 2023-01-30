@@ -18,11 +18,12 @@ public class Cliente {
         this.idade = idade;
         this.cartoes = cartoes;
     }
-
-    public Cliente(String nome, String cpfCliente, short idade) {
+    
+    public Cliente(String nome, String cpfCliente, short idade, Cartao cartao) {
         this.nome = nome;
         this.cpfCliente = cpfCliente;
         this.idade = idade;
+        this.setCartoes(cartoes);
     }
 
     public Cliente() {
@@ -58,6 +59,14 @@ public class Cliente {
 
     public void setCartoes(ArrayList<Cartao> cartoes) {
         this.cartoes = cartoes;
+    }
+    
+    public Cartao getCartoes(int index) {
+        return cartoes.get(index);
+    }
+
+    public void setCartoes(Cartao cartao) {
+        this.cartoes.add(cartao);
     }
 
     
