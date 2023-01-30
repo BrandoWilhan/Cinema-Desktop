@@ -182,6 +182,7 @@ public class TelaInicial extends javax.swing.JFrame {
     private void btnIngressosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngressosActionPerformed
         // TODO add your handling code here:
 //        telaIngresso.setTelaInicial(this);
+        telaIngresso.setTelaInicial(this);
         telaIngresso.setVisible(true);
         setVisible(false);        
         
