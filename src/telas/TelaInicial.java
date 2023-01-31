@@ -194,6 +194,7 @@ public class TelaInicial extends javax.swing.JFrame {
         // TODO add your handling code here:
         setVisible(false);
         telaLanche.setTelaInicial(this);
+        telaLanche.setTelaCarrinho(telaCarrinho);
         telaLanche.setVisible(true);
 //        
     }//GEN-LAST:event_btnLancheActionPerformed

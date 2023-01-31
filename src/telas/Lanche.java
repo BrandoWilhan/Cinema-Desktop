@@ -12,7 +12,9 @@ public class Lanche extends javax.swing.JFrame {
      */
     
     TelaInicial telaInicial;
-    Carrinho telaCarrinho = telaInicial.getTelaCarrinho();
+    Carrinho telaCarrinho;
+    
+    
 //    
 //    public Lanche(TelaInicial telaInicial){
 //        initComponents();
@@ -23,9 +25,11 @@ public class Lanche extends javax.swing.JFrame {
     
     public Lanche(){
         initComponents();
+       
     }
     
-
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -486,17 +490,17 @@ public class Lanche extends javax.swing.JFrame {
         this.telaInicial = telaInicial;
     }
     
-//    public void setTelaCarrinho(Carrinho telaCarrinho){
-//        this.telaCarrinho = telaCarrinho;
-//    }
+    public void setTelaCarrinho(Carrinho telaCarrinho){
+        this.telaCarrinho = telaCarrinho;
+    }
 
     public TelaInicial getTelaInicial() {
         return telaInicial;
     }
 
-//    public Carrinho getTelaCarrinho() {
-//        return telaCarrinho;
-//    }
+    public Carrinho getTelaCarrinho() {
+        return telaCarrinho;
+    }
 //    
     
     
@@ -545,6 +549,7 @@ public class Lanche extends javax.swing.JFrame {
 
     private void btnLancheCarrinhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLancheCarrinhoActionPerformed
         // TODO add your handling code here:
+        
         telaCarrinho.setTelaInicial(telaInicial);
         telaCarrinho.setVisible(true);
         setVisible(false);
