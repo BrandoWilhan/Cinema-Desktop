@@ -10,11 +10,11 @@ import java.util.Date;
 public class Compra {
     private int idCompra;
     private float valorTotal;
-    private Date data;
+    private String data;
     ArrayList<Ingresso> ingressos;
     ArrayList<Lanche> lanches;
 
-    public Compra(int idCompra, float valorTotal, Date data) {
+    public Compra(int idCompra, float valorTotal, String data) {
         this.idCompra = idCompra;
         this.valorTotal = valorTotal;
         this.data = data;
@@ -70,11 +70,11 @@ public class Compra {
         this.valorTotal = valorTotal;
     }
 
-    public Date getData() {
+    public String getData() {
         return data;
     }
 
-    public void setData(Date data) {
+    public void setData(String data) {
         this.data = data;
     }
         
