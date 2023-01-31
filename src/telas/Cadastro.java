@@ -5,8 +5,15 @@
 package telas;
 
 import cinema_cliente.Cliente;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,7 +25,15 @@ public class Cadastro extends javax.swing.JFrame {
     TelaInicial telaInicial;
     Login telaLogin;
     ArrayList <Cliente> clientes = new ArrayList();
-    ArrayList <char[]> senhas = new ArrayList();
+    
+    Map<String,String> senhas = new HashMap<String,String>();
+    
+    
+    
+    
+    
+    
+    
     /**
      * Creates new form Cadastro
      */
@@ -40,6 +55,22 @@ public class Cadastro extends javax.swing.JFrame {
 
     public void setTelaLogin(Login telaLogin) {
         this.telaLogin = telaLogin;
+    }
+
+    public ArrayList<Cliente> getClientes() {
+        return clientes;
+    }
+
+    public void setClientes(ArrayList<Cliente> clientes) {
+        this.clientes = clientes;
+    }
+
+    public Map<String, String> getSenhas() {
+        return senhas;
+    }
+
+    public void setSenhas(Map<String, String> senhas) {
+        this.senhas = senhas;
     }
     
     
@@ -199,6 +230,15 @@ public class Cadastro extends javax.swing.JFrame {
 
     private void btnCancelarCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarCadastroActionPerformed
         // TODO add your handling code here:
+        
+        txtNomeCadastro.setText("");
+        txtCpfCadastro.setText("");
+        txtIdadeCadastro.setText("");
+        pswCadastro.setText("");
+        pswCadastroConfirma.setText("");
+        
+        
+        
         telaInicial.setVisible(true);
         setVisible(false);
         
@@ -207,23 +247,23 @@ public class Cadastro extends javax.swing.JFrame {
 
     private void btnSalvarCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarCadastroActionPerformed
         // TODO add your handling code here:
+        
         String nome = txtNomeCadastro.getText();
         String cpf = txtCpfCadastro.getText();
-        short idade = (short) Integer.parseInt(txtIdadeCadastro.getText());
-        Cliente clt = new Cliente(nome, cpf, idade);
-        
-  
-        
+        String dataNascimento = txtIdadeCadastro.getText();
+        String senha = pswCadastro.getText();
         if (nome.equals("") || cpf.equals("") || txtIdadeCadastro.getText().equals("")){    
             JOptionPane.showMessageDialog(null, "Todos os campos devem ser preenchidos!", "Mensagem de Erro", JOptionPane.ERROR_MESSAGE);
+        
+        
+        }else if (!senha.equals(pswCadastroConfirma.getText())){
+            JOptionPane.showMessageDialog(null, "As senhas não são idênticas!", "Mensagem de Erro", JOptionPane.ERROR_MESSAGE);
+        }else{
+//            
+            Cliente clt = new Cliente(nome, cpf, dataNascimento);
             
-        }else if (pswCadastro.getPassword() == pswCadastroConfirma.getPassword()){
-            JOptionPane.showMessageDialog(null, "As senhas não são idênticas", "Mensagem de Erro", JOptionPane.ERROR_MESSAGE);
-        }
-        else{
             clientes.add(clt);
-            senhas.add(pswCadastro.getPassword());
-            
+            senhas.put(cpf, senha);
             txtNomeCadastro.setText("");
             txtCpfCadastro.setText("");
             txtIdadeCadastro.setText("");
