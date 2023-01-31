@@ -10,9 +10,13 @@ package telas;
  */
 public class Assentos extends javax.swing.JFrame {
 
+    private Object telaIngresso;
+
     /**
      * Creates new form Assentosframe
      */
+    
+    
     public Assentos() {
         initComponents();
     }
@@ -37,7 +41,7 @@ public class Assentos extends javax.swing.JFrame {
         bttD3 = new javax.swing.JToggleButton();
         bttD4 = new javax.swing.JToggleButton();
         bttnA6 = new javax.swing.JToggleButton();
-        bttnA7 = new javax.swing.JToggleButton();
+        bttnA1 = new javax.swing.JToggleButton();
         bttnB1 = new javax.swing.JToggleButton();
         bttnB3 = new javax.swing.JToggleButton();
         bttnB4 = new javax.swing.JToggleButton();
@@ -45,10 +49,10 @@ public class Assentos extends javax.swing.JFrame {
         bttnB6 = new javax.swing.JToggleButton();
         bttC1 = new javax.swing.JToggleButton();
         bttC2 = new javax.swing.JToggleButton();
-        bttnA1 = new javax.swing.JToggleButton();
         bttnA2 = new javax.swing.JToggleButton();
         bttnA3 = new javax.swing.JToggleButton();
         bttnA4 = new javax.swing.JToggleButton();
+        bttnA5 = new javax.swing.JToggleButton();
         bttnB2 = new javax.swing.JToggleButton();
         bttC3 = new javax.swing.JToggleButton();
         bttC4 = new javax.swing.JToggleButton();
@@ -62,6 +66,11 @@ public class Assentos extends javax.swing.JFrame {
         bttnVoltar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         bttnVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/back32.png"))); // NOI18N
         bttnVoltar.setText("Voltar");
+        bttnVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnVoltarActionPerformed(evt);
+            }
+        });
 
         bttnCancelar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         bttnCancelar.setText("Cancelar");
@@ -109,12 +118,17 @@ public class Assentos extends javax.swing.JFrame {
 
         bttnA6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/chair_seat_furniture_icon_209747.png"))); // NOI18N
         bttnA6.setText("A6");
-
-        bttnA7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/chair_seat_furniture_icon_209747.png"))); // NOI18N
-        bttnA7.setText("A1");
-        bttnA7.addActionListener(new java.awt.event.ActionListener() {
+        bttnA6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bttnA7ActionPerformed(evt);
+                bttnA6ActionPerformed(evt);
+            }
+        });
+
+        bttnA1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/chair_seat_furniture_icon_209747.png"))); // NOI18N
+        bttnA1.setText("A1");
+        bttnA1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnA1ActionPerformed(evt);
             }
         });
 
@@ -144,17 +158,17 @@ public class Assentos extends javax.swing.JFrame {
         bttC2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/chair_seat_furniture_icon_209747.png"))); // NOI18N
         bttC2.setText("C2");
 
-        bttnA1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/chair_seat_furniture_icon_209747.png"))); // NOI18N
-        bttnA1.setText("A2");
-
         bttnA2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/chair_seat_furniture_icon_209747.png"))); // NOI18N
-        bttnA2.setText("A3");
+        bttnA2.setText("A2");
 
         bttnA3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/chair_seat_furniture_icon_209747.png"))); // NOI18N
-        bttnA3.setText("A4");
+        bttnA3.setText("A3");
 
         bttnA4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/chair_seat_furniture_icon_209747.png"))); // NOI18N
-        bttnA4.setText("A5");
+        bttnA4.setText("A4");
+
+        bttnA5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/chair_seat_furniture_icon_209747.png"))); // NOI18N
+        bttnA5.setText("A5");
 
         bttnB2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/chair_seat_furniture_icon_209747.png"))); // NOI18N
         bttnB2.setText("B2");
@@ -223,15 +237,15 @@ public class Assentos extends javax.swing.JFrame {
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                 .addComponent(bttC6, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(bttnA7, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(bttnA1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(12, 12, 12)
-                                .addComponent(bttnA2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(bttnA2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(12, 12, 12)
                                 .addComponent(bttnA3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(bttnA4, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(bttnA5, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(bttnA6, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(102, 102, 102))))
@@ -249,12 +263,12 @@ public class Assentos extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bttnA2, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bttnA1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bttnA3, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bttnA2, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bttnA4, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bttnA5, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bttnA6, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bttnA7, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(bttnA1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bttnB1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -307,9 +321,18 @@ public class Assentos extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_bttC1ActionPerformed
 
-    private void bttnA7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnA7ActionPerformed
+    private void bttnA1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnA1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_bttnA7ActionPerformed
+        
+    }//GEN-LAST:event_bttnA1ActionPerformed
+
+    private void bttnA6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnA6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bttnA6ActionPerformed
+
+    private void bttnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnVoltarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bttnVoltarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -344,7 +367,8 @@ public class Assentos extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Assentos().setVisible(true);
+                new Assentos().setVisible(true);   
+                
             }
         });
     }
@@ -364,8 +388,8 @@ public class Assentos extends javax.swing.JFrame {
     private javax.swing.JToggleButton bttnA2;
     private javax.swing.JToggleButton bttnA3;
     private javax.swing.JToggleButton bttnA4;
+    private javax.swing.JToggleButton bttnA5;
     private javax.swing.JToggleButton bttnA6;
-    private javax.swing.JToggleButton bttnA7;
     private javax.swing.JToggleButton bttnB1;
     private javax.swing.JToggleButton bttnB2;
     private javax.swing.JToggleButton bttnB3;

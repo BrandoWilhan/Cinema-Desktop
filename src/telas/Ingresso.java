@@ -1,6 +1,11 @@
 
 package telas;
 
+import cinema_cliente.Sala;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author mugen
@@ -11,11 +16,25 @@ public class Ingresso extends javax.swing.JFrame
     /**
      * Creates new form Ingresso
      */
+    TelaInicial telaInicial; 
+    
     public Ingresso()
     {
         initComponents();
+        populateTable();
     }
-
+    
+    
+    public void populateTable(){
+        String columns[] = {"Nome do Filme", "Classificação Indicativa", "Sala", "Horário"};
+        String data [][] = {{"Avatar: O Caminho da Água", "14", "1", "14:00"}, {"Pantera Negra: Wakanda para Sempre", "12", "2", "14:00"},
+            {"O Homem do Norte", "18", "3", "14:00"}, {"Não, Não Olhe", "14", "1", "16:00"}, {"The Batman", "13", "2", "16:00"}, 
+            {"Top Gun: Maverick", "12", "3", "16:00"}
+            
+        };
+        DefaultTableModel model = new DefaultTableModel(data, columns);
+        tblFilmes.setModel(model);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -23,73 +42,83 @@ public class Ingresso extends javax.swing.JFrame
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         jDesktopPane1 = new javax.swing.JDesktopPane();
-        btnVoltar = new javax.swing.JButton();
         btnHome = new javax.swing.JButton();
         lblIngresso = new javax.swing.JLabel();
-        jSpinner1 = new javax.swing.JSpinner();
+        spnQuantidadeMeia = new javax.swing.JSpinner();
         btnConfirmar = new javax.swing.JButton();
         btnPesquisar = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         lblFilmes = new javax.swing.JLabel();
+        lblIngressoMeia = new javax.swing.JLabel();
+        spnQuantidadeInteira = new javax.swing.JSpinner();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblFilmes = new javax.swing.JTable();
+        txtPesquisarFilme = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btnVoltar.setFont(new java.awt.Font("DejaVu Sans", 0, 18)); // NOI18N
-        btnVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/back32.png"))); // NOI18N
-        btnVoltar.setText("Voltar");
-
         btnHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/home32.png"))); // NOI18N
+        btnHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHomeActionPerformed(evt);
+            }
+        });
 
         lblIngresso.setFont(new java.awt.Font("Segoe UI", 1, 14)
         );
         lblIngresso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/concertticket_83678.png"))); // NOI18N
-        lblIngresso.setText("Ingresso(s)");
+        lblIngresso.setText("Ingresso(s) Meia");
 
         btnConfirmar.setFont(new java.awt.Font("Segoe UI", 1, 24));
         btnConfirmar.setText("Confirmar");
-
-        btnPesquisar.setFont(new java.awt.Font("Segoe UI", 1, 24));
-        btnPesquisar.setText("Pesquisar");
-        btnPesquisar.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
-                btnPesquisarActionPerformed(evt);
+        btnConfirmar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfirmarActionPerformed(evt);
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][]
-            {
-                {},
-                {},
-                {},
-                {}
-            },
-            new String []
-            {
-
+        btnPesquisar.setFont(new java.awt.Font("Segoe UI", 1, 24));
+        btnPesquisar.setText("Pesquisar");
+        btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisarActionPerformed(evt);
             }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        });
 
         lblFilmes.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         lblFilmes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/icon claquete.png"))); // NOI18N
         lblFilmes.setText("Filmes");
 
-        jDesktopPane1.setLayer(btnVoltar, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        lblIngressoMeia.setFont(new java.awt.Font("Segoe UI", 1, 14)
+        );
+        lblIngressoMeia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/concertticket_83678.png"))); // NOI18N
+        lblIngressoMeia.setText("Ingresso(s) Inteira");
+
+        tblFilmes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tblFilmes);
+
         jDesktopPane1.setLayer(btnHome, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(lblIngresso, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jSpinner1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(spnQuantidadeMeia, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(btnConfirmar, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(btnPesquisar, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(lblFilmes, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(lblIngressoMeia, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(spnQuantidadeInteira, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(txtPesquisarFilme, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -98,48 +127,52 @@ public class Ingresso extends javax.swing.JFrame
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnVoltar))
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
                         .addGap(120, 120, 120)
                         .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblFilmes)
+                            .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                                    .addComponent(lblIngressoMeia, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(spnQuantidadeInteira, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtPesquisarFilme, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(btnPesquisar))
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 695, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                                .addComponent(lblIngresso)
-                                .addGap(43, 43, 43)
-                                .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblFilmes))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 255, Short.MAX_VALUE)
-                .addComponent(btnHome)
-                .addGap(10, 10, 10))
-            .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addGap(124, 124, 124)
-                .addComponent(btnConfirmar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnPesquisar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(btnConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblIngresso, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(spnQuantidadeMeia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addComponent(btnHome)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jDesktopPane1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnVoltar)
-                .addGap(16, 16, 16)
+                .addComponent(btnHome)
+                .addGap(18, 18, 18)
                 .addComponent(lblFilmes)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(61, 61, 61)
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblIngressoMeia)
+                    .addComponent(spnQuantidadeInteira, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPesquisar)
+                    .addComponent(txtPesquisarFilme, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblIngresso)
-                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnPesquisar)
-                    .addComponent(btnConfirmar))
-                .addContainerGap(91, Short.MAX_VALUE))
+                    .addComponent(spnQuantidadeMeia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(56, 56, 56)
+                .addComponent(btnConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -157,10 +190,39 @@ public class Ingresso extends javax.swing.JFrame
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnPesquisarActionPerformed
     {//GEN-HEADEREND:event_btnPesquisarActionPerformed
-        // TODO add your handling code here:
+        DefaultTableModel obj = (DefaultTableModel)tblFilmes.getModel();
+        int i;
+        for (i = 0; i < obj.getRowCount(); i++) {
+            if(txtPesquisarFilme.getText().equals(obj.getValueAt(i, 0))){
+                JOptionPane.showMessageDialog(this, "Filme Encontrado!");
+                break;
+            }
+        }
+            if (i==obj.getRowCount()){
+                JOptionPane.showMessageDialog(this, "Por favor, confira se digitou corretamente o filme que procura", "Filme Não Encontrado", JOptionPane.ERROR_MESSAGE);
+            
+        }
+        
+// TODO add your handling code here:
     }//GEN-LAST:event_btnPesquisarActionPerformed
+
+    private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
+        // TODO add your handling code here:
+        int quantidadeTotal;
+        int ingressoMeia = (Integer) spnQuantidadeMeia.getValue();
+        int ingressoInteira = (Integer) spnQuantidadeInteira.getValue();
+        quantidadeTotal = ingressoInteira + ingressoMeia;
+        
+        spnQuantidadeInteira.setValue(0);
+        spnQuantidadeMeia.setValue(0);
+    }//GEN-LAST:event_btnConfirmarActionPerformed
+
+    private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnHomeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -211,12 +273,14 @@ public class Ingresso extends javax.swing.JFrame
     private javax.swing.JButton btnConfirmar;
     private javax.swing.JButton btnHome;
     private javax.swing.JButton btnPesquisar;
-    private javax.swing.JButton btnVoltar;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblFilmes;
     private javax.swing.JLabel lblIngresso;
+    private javax.swing.JLabel lblIngressoMeia;
+    private javax.swing.JSpinner spnQuantidadeInteira;
+    private javax.swing.JSpinner spnQuantidadeMeia;
+    private javax.swing.JTable tblFilmes;
+    private javax.swing.JTextField txtPesquisarFilme;
     // End of variables declaration//GEN-END:variables
 }
