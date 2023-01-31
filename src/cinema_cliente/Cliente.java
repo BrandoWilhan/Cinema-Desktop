@@ -24,7 +24,7 @@ public class Cliente {
         this.nome = nome;
         this.cpfCliente = cpfCliente;
         this.dataNascimento = dataNascimento;
-
+    }
 
 
     public Cliente() {

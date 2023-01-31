@@ -14,6 +14,7 @@ public class Carrinho extends javax.swing.JFrame {
     private Compra compra = new Compra(0, 1, "31/01/2023");
     private Ingresso ingresso = new Ingresso(455, true, 50.0d, 18.0f);
     private TelaInicial telaInicial;
+    
 
     public TelaInicial getTelaInicial() {
         return telaInicial;
