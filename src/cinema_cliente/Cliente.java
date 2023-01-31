@@ -24,6 +24,11 @@ public class Cliente {
         this.cpfCliente = cpfCliente;
         this.idade = idade;
     }
+    public Cliente(String nome, String cpfCliente, short idade) {
+        this.nome = nome;
+        this.cpfCliente = cpfCliente;
+        this.idade = idade;
+    }
 
     public Cliente() {
     }

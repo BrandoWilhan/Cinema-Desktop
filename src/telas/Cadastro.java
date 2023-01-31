@@ -5,8 +5,14 @@
 package telas;
 
 import cinema_cliente.Cliente;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -207,23 +213,40 @@ public class Cadastro extends javax.swing.JFrame {
 
     private void btnSalvarCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarCadastroActionPerformed
         // TODO add your handling code here:
+        
         String nome = txtNomeCadastro.getText();
         String cpf = txtCpfCadastro.getText();
         short idade = (short) Integer.parseInt(txtIdadeCadastro.getText());
         Cliente clt = new Cliente(nome, cpf, idade);
         
-  
+        
         
         if (nome.equals("") || cpf.equals("") || txtIdadeCadastro.getText().equals("")){    
             JOptionPane.showMessageDialog(null, "Todos os campos devem ser preenchidos!", "Mensagem de Erro", JOptionPane.ERROR_MESSAGE);
+        
+        
+        }else if (!pswCadastro.getText().equals(pswCadastroConfirma.getText())){
+            JOptionPane.showMessageDialog(null, "As senhas não são idênticas!", "Mensagem de Erro", JOptionPane.ERROR_MESSAGE);
+        }else{
             
-        }else if (pswCadastro.getPassword() == pswCadastroConfirma.getPassword()){
-            JOptionPane.showMessageDialog(null, "As senhas não são idênticas", "Mensagem de Erro", JOptionPane.ERROR_MESSAGE);
-        }
-        else{
+            File arquivo = new File("C:/Users/breno/Documents/GitHub/Cinema-Desktop/src/telas/newfile");
+            try {
+                FileWriter fw = new FileWriter(arquivo, true);
+                BufferedWriter bw = new BufferedWriter(fw);
+                bw.write("asdfsd");
+                bw.close();
+                fw.close();
+                        
+            } catch (IOException ex) {
+                Logger.getLogger(Cadastro.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            
+            
+            
+            
             clientes.add(clt);
             senhas.add(pswCadastro.getPassword());
-            
             txtNomeCadastro.setText("");
             txtCpfCadastro.setText("");
             txtIdadeCadastro.setText("");
