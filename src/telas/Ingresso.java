@@ -1,7 +1,9 @@
 
 package telas;
 
+import cinema_cliente.Filme;
 import cinema_cliente.Sala;
+import cinema_cliente.Ticket;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
@@ -16,14 +18,14 @@ public class Ingresso extends javax.swing.JFrame
     /**
      * Creates new form Ingresso
      */
-    TelaInicial telaInicial; 
-    
+    TelaInicial telaInicial;
+
     public Ingresso()
     {
         initComponents();
         populateTable();
     }
-    
+
         public TelaInicial getTelaInicial() {
         return telaInicial;
     }
@@ -31,14 +33,27 @@ public class Ingresso extends javax.swing.JFrame
     public void setTelaInicial(TelaInicial telaInicial) {
         this.telaInicial = telaInicial;
     }
-        
     
+    Sala sala1 = new Sala("1");
+    Sala sala2 = new Sala("2");
+    Sala sala3 = new Sala("3");
+    
+    Filme filme1 = new Filme("Avatar: O Caminho da Água", "14", sala1);
+    Filme filme2 = new Filme("Pantera Negra: Wakanda para Sempre", "12", sala2);
+    Filme filme3 = new Filme("O Homem do Norte", "18", sala3);
+    Filme filme4 = new Filme("Não, Não Olhe", "14", sala1);
+    Filme filme5 = new Filme("The Batman", "13", sala2);
+    Filme filme6 = new Filme("Top Gun: Maverick", "12", sala3);
+
     
     public void populateTable(){
         String columns[] = {"Nome do Filme", "Classificação Indicativa", "Sala", "Horário"};
-        String data [][] = {{"Avatar: O Caminho da Água", "14", "1", "14:00"}, {"Pantera Negra: Wakanda para Sempre", "12", "2", "14:00"},
-            {"O Homem do Norte", "18", "3", "14:00"}, {"Não, Não Olhe", "14", "1", "16:00"}, {"The Batman", "13", "2", "16:00"}, 
-            {"Top Gun: Maverick", "12", "3", "16:00"}
+        String data [][] = {{filme1.getTitulo(), filme1.getClassificacao(), filme1.getSala().getNumeroSala(), "14:00"}, 
+            {filme2.getTitulo(), filme2.getClassificacao(), filme2.getSala().getNumeroSala(), "14:00"},
+            {filme3.getTitulo(), filme3.getClassificacao(), filme3.getSala().getNumeroSala(), "14:00"}, 
+            {filme4.getTitulo(), filme4.getClassificacao(), filme4.getSala().getNumeroSala(), "16:00"}, 
+            {filme5.getTitulo(), filme5.getClassificacao(), filme5.getSala().getNumeroSala(), "16:00"}, 
+            {filme6.getTitulo(), filme6.getClassificacao(), filme6.getSala().getNumeroSala(), "16:00"}
             
         };
         DefaultTableModel model = new DefaultTableModel(data, columns){
@@ -257,15 +272,31 @@ public class Ingresso extends javax.swing.JFrame
         int quantidadeTotal;
         int ingressoMeia = (Integer) spnQuantidadeMeia.getValue();
         int ingressoInteira = (Integer) spnQuantidadeInteira.getValue();
-        int filmeSelecionado = tblFilmes.getSelectedRow();
+        int filmeSelecionadoaux = tblFilmes.getSelectedRow();
         quantidadeTotal = ingressoInteira + ingressoMeia;
+        Filme filmeSelecionado = null;
+        
+        System.out.println(filmeSelecionadoaux);
+        
+        if(filmeSelecionadoaux == 0) filmeSelecionado = filme1;
+        if(filmeSelecionadoaux == 1) filmeSelecionado = filme2;
+        if(filmeSelecionadoaux == 2) filmeSelecionado = filme3;
+        if(filmeSelecionadoaux == 3) filmeSelecionado = filme4;
+        if(filmeSelecionadoaux == 4) filmeSelecionado = filme5;
+        if(filmeSelecionadoaux == 5) filmeSelecionado = filme6;
         
         spnQuantidadeInteira.setValue(0);
         spnQuantidadeMeia.setValue(0);
+
         
-        if(filmeSelecionado == -1 || quantidadeTotal == 0){
+        if(filmeSelecionadoaux == -1 || quantidadeTotal == 0){
             JOptionPane.showMessageDialog(this, "Por favor, selecione um Filme e uma quantidade de Ingressos", "Nenhum Filme Selecionado", JOptionPane.ERROR_MESSAGE);
+        } else {
+            //instância do ingresso
+            Ticket ingresso = new Ticket(ingressoInteira, ingressoMeia, quantidadeTotal, filmeSelecionado);
         }
+            
+ 
     }//GEN-LAST:event_btnConfirmarActionPerformed
 
     private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed

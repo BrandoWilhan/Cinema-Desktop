@@ -13,14 +13,14 @@ public class Item {
     // Lanche compõe Item
     ArrayList<Lanche> lanches;
     // Ingresso compõe Item
-    ArrayList<Ingresso> ingressos;
+    ArrayList<Ticket> ingressos;
 
     public Item(int idItem) {
         this.idItem = idItem;
         this.quantidade++;
     }
     
-    public Item(int idItem, ArrayList<Lanche> lanches, ArrayList<Ingresso> ingressos) {
+    public Item(int idItem, ArrayList<Lanche> lanches, ArrayList<Ticket> ingressos) {
         this.idItem = idItem;
         this.lanches = lanches;
         this.ingressos = ingressos;
@@ -50,11 +50,11 @@ public class Item {
         this.lanches = lanches;
     }
 
-    public ArrayList<Ingresso> getIngressos() {
+    public ArrayList<Ticket> getIngressos() {
         return ingressos;
     }
 
-    public void setIngressos(ArrayList<Ingresso> ingressos) {
+    public void setIngressos(ArrayList<Ticket> ingressos) {
         this.ingressos = ingressos;
     }
     
@@ -66,11 +66,11 @@ public class Item {
         this.lanches.add(lanche);
     }
 
-    public Ingresso getIngressos(int index) {
+    public Ticket getIngressos(int index) {
         return this.ingressos.get(index);
     }
 
-    public void setIngressos(Ingresso ingresso) {
+    public void setIngressos(Ticket ingresso) {
         this.ingressos.add(ingresso);
     }
     

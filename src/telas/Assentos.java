@@ -16,18 +16,69 @@ public class Assentos extends javax.swing.JFrame {
     /**
      * Creates new form Assentosframe
      */
-
+    
     public Assentos() {
         initComponents();
     }
+
+    public Assentos(int quantidadeTotal) {
+        this.quantidadeTotal = quantidadeTotal;
+    }
+
+    public int getQuantidadeTotal() {
+        return quantidadeTotal;
+    }
     
-    JToggleButton[] botoes = new JToggleButton[22];
+
+    
+    private int quantidadeTotal;
+    
+    ArrayList<JToggleButton> buttons = new ArrayList<>();
+    ArrayList<String> selecionados = new ArrayList<>();
+    //ArrayList<String> ocupados = new ArrayList<>();
+    
+    public void adicionarList(){
+        buttons.add(bttnA1);
+        buttons.add(bttnA2);
+        buttons.add(bttnA3);
+        buttons.add(bttnA4);
+        buttons.add(bttnA5);
+        buttons.add(bttnA6);
+        buttons.add(bttnB1);
+        buttons.add(bttnB2);
+        buttons.add(bttnB3);
+        buttons.add(bttnB4);
+        buttons.add(bttnB5);
+        buttons.add(bttnB6);
+        buttons.add(bttC1);
+        buttons.add(bttC2);
+        buttons.add(bttC3);
+        buttons.add(bttC4);
+        buttons.add(bttC5);
+        buttons.add(bttC6);
+        buttons.add(bttD1);
+        buttons.add(bttD2);
+        buttons.add(bttD3);
+        buttons.add(bttD4);
+    }
+    
+    //public void adicionarOcupados(JToggleButton button){
+        //if(button.isEnabled() == false)
+    //}
     
     public void desativarSelecionados(JToggleButton buttons){
         if(buttons.isSelected()){
             buttons.setEnabled(false);
+            buttons.setSelected(false);
+            selecionados.add(buttons.getText());
         }
     }
+
+    public ArrayList<String> getSelecionados() {
+        return selecionados;
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -82,6 +133,11 @@ public class Assentos extends javax.swing.JFrame {
 
         bttnCancelar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         bttnCancelar.setText("Cancelar");
+        bttnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnCancelarActionPerformed(evt);
+            }
+        });
 
         bttnConfirmar1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         bttnConfirmar1.setText("Confirmar");
@@ -333,7 +389,7 @@ public class Assentos extends javax.swing.JFrame {
 
     private void bttnA1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnA1ActionPerformed
         // TODO add your handling code here:
-           
+        
     }//GEN-LAST:event_bttnA1ActionPerformed
 
     private void bttnA6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnA6ActionPerformed
@@ -342,6 +398,7 @@ public class Assentos extends javax.swing.JFrame {
 
     private void bttnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnVoltarActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_bttnVoltarActionPerformed
 
     private void bttC1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttC1ActionPerformed
@@ -350,29 +407,25 @@ public class Assentos extends javax.swing.JFrame {
 
     private void bttnConfirmar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnConfirmar1ActionPerformed
         // TODO add your handling code here:
-        desativarSelecionados(bttnA1);
-        desativarSelecionados(bttnA2);
-        desativarSelecionados(bttnA3);
-        desativarSelecionados(bttnA4);
-        desativarSelecionados(bttnA5);
-        desativarSelecionados(bttnA6);
-        desativarSelecionados(bttnB1);
-        desativarSelecionados(bttnB2);
-        desativarSelecionados(bttnB3);
-        desativarSelecionados(bttnB4);
-        desativarSelecionados(bttnB5);
-        desativarSelecionados(bttnB6);
-        desativarSelecionados(bttC1);
-        desativarSelecionados(bttC2);
-        desativarSelecionados(bttC3);
-        desativarSelecionados(bttC4);
-        desativarSelecionados(bttC5);
-        desativarSelecionados(bttC6);
-        desativarSelecionados(bttD1);
-        desativarSelecionados(bttD2);
-        desativarSelecionados(bttD3);
-        desativarSelecionados(bttD4);
+        adicionarList();
+        selecionados.clear();
+        for (int i = 0; i < 22; i++) {
+            desativarSelecionados(buttons.get(i));
+            System.out.println(selecionados);
+            //System.out.println(quantidadeTotal);
+        }
+
     }//GEN-LAST:event_bttnConfirmar1ActionPerformed
+
+    private void bttnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnCancelarActionPerformed
+        // TODO add your handling code here:
+        adicionarList();
+        for (int i = 0; i < 22; i++) {
+            if(buttons.get(i).isSelected() || selecionados.contains(buttons.get(i).getText())){
+                buttons.get(i).setSelected(false);
+            }
+        }
+    }//GEN-LAST:event_bttnCancelarActionPerformed
 
     /**
      * @param args the command line arguments

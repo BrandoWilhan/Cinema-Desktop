@@ -10,57 +10,66 @@ package cinema_cliente;
  */
 public class Filme {
  
-    private String titulo, diretor, duracao, sinopse;
+    private String titulo, classificacao;
     private String[] elenco;
+    private Sala sala;
     Genero genero = new Genero();
 
-    public Filme(String titulo, String diretor, String duracao, String sinopse, String[] elenco) {
-        this.titulo = titulo;
-        this.diretor = diretor;
-        this.duracao = duracao;
-        this.sinopse = sinopse;
-        this.elenco = elenco;
+    public Filme() {
     }
+
+    public Filme(String titulo, String classificacao, Sala sala) {
+        this.titulo = titulo;
+        this.classificacao = classificacao;
+        this.sala = sala;
+    }
+   
 
     public String getTitulo() {
         return titulo;
     }
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
-    public String getDiretor() {
-        return diretor;
-    }
-
-    public void setDiretor(String diretor) {
-        this.diretor = diretor;
-    }
-
-    public String getDuracao() {
-        return duracao;
-    }
-
-    public void setDuracao(String duracao) {
-        this.duracao = duracao;
-    }
-
-    public String getSinopse() {
-        return sinopse;
-    }
-
-    public void setSinopse(String sinopse) {
-        this.sinopse = sinopse;
+    public String getClassificacao() {
+        return classificacao;
     }
 
     public String[] getElenco() {
         return elenco;
     }
 
+    public Sala getSala() {
+        return sala;
+    }
+
+    public Genero getGenero() {
+        return genero;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public void setClassificacao(String classificacao) {
+        this.classificacao = classificacao;
+    }
+
     public void setElenco(String[] elenco) {
         this.elenco = elenco;
     }
+
+    public void setSala(Sala sala) {
+        this.sala = sala;
+    }
+
+    public void setGenero(Genero genero) {
+        this.genero = genero;
+    }
+    
+    
+
+    
+
+
     
     
     

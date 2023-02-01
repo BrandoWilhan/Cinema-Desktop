@@ -7,12 +7,7 @@ package cinema_cliente;
  */
 public class Sala {
     
-    private int numeroSala;
-    private boolean fileiraA[] = {true, true, true, true, true, true};
-    private boolean fileiraB[] = {true, true, true, true, true, true};
-    private boolean fileiraC[] = {true, true, true, true, true, true};
-    private boolean fileiraD[] = {true, true, true, true};
-    
+    private String numeroSala;
     
     private Cinema cinema;
     private Filme filme;
@@ -20,28 +15,12 @@ public class Sala {
     public Sala() {
     }
 
-    public Sala(int numeroSala) {
+    public Sala(String numeroSala) {
         this.numeroSala = numeroSala;
     }
 
-    public int getNumeroSala() {
+    public String getNumeroSala() {
         return numeroSala;
-    }
-
-    public boolean[] getFileiraA() {
-        return fileiraA;
-    }
-
-    public boolean[] getFileiraB() {
-        return fileiraB;
-    }
-
-    public boolean[] getFileiraC() {
-        return fileiraC;
-    }
-
-    public boolean[] getFileiraD() {
-        return fileiraD;
     }
 
     public Cinema getCinema() {
@@ -52,24 +31,8 @@ public class Sala {
         return filme;
     }
 
-    public void setNumeroSala(int numeroSala) {
+    public void setNumeroSala(String numeroSala) {
         this.numeroSala = numeroSala;
-    }
-
-    public void setFileiraA(boolean[] fileiraA) {
-        this.fileiraA = fileiraA;
-    }
-
-    public void setFileiraB(boolean[] fileiraB) {
-        this.fileiraB = fileiraB;
-    }
-
-    public void setFileiraC(boolean[] fileiraC) {
-        this.fileiraC = fileiraC;
-    }
-
-    public void setFileiraD(boolean[] fileiraD) {
-        this.fileiraD = fileiraD;
     }
 
     public void setCinema(Cinema cinema) {
@@ -79,5 +42,7 @@ public class Sala {
     public void setFilme(Filme filme) {
         this.filme = filme;
     }
+
+    
     
 }
