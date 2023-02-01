@@ -4,6 +4,7 @@
  */
 package telas;
 
+import java.util.ArrayList;
 import javax.swing.JFrame;
 
 /**
@@ -17,14 +18,18 @@ public class TelaInicial extends javax.swing.JFrame {
      */
     
     Lanche telaLanche;
-    Carrinho telaCarrinho;
-    Ingresso telaIngresso;
+    Carrinho telaCarrinho; //instanciando cada uma das telas do programa centralizadamente
+    Ingresso telaIngresso; 
     Cadastro telaCadastro;
     Login telaLogin;
     Pagamento telaPagamento;
-    Assentos telaAssento;
+//    Assentos telaAssento;
+    ArrayList<Assentos> telasAssentos = new ArrayList<>(6);
     
-    public TelaInicial(Lanche telaLanche, Carrinho telaCarrinho, Ingresso telaIngresso, Cadastro telaCadastro, Login telaLogin, Pagamento telaPagamento, Assentos telaAssento) {
+    
+    
+    
+    public TelaInicial(Lanche telaLanche, Carrinho telaCarrinho, Ingresso telaIngresso, Cadastro telaCadastro, Login telaLogin, Pagamento telaPagamento, ArrayList<Assentos> telasAssentos) {
         initComponents();
         this.telaLanche = telaLanche;
         this.telaCarrinho = telaCarrinho;
@@ -32,8 +37,24 @@ public class TelaInicial extends javax.swing.JFrame {
         this.telaCadastro = telaCadastro;
         this.telaLogin = telaLogin;
         this.telaPagamento = telaPagamento;
-        this.telaAssento = telaAssento;
+        this.telasAssentos = telasAssentos;
     }
+    
+    
+    
+//    public TelaInicial(Lanche telaLanche, Ingresso telaIngresso, Cadastro telaCadastro,
+//            Login telaLogin, Pagamento telaPagamento, ArrayList<Assentos> telasAssentos) {
+//        initComponents();
+//        this.telaLanche = telaLanche;
+//        this.telaIngresso = telaIngresso;
+//        this.telaCadastro = telaCadastro;
+//        this.telaLogin = telaLogin;
+//        this.telaPagamento = telaPagamento;
+//        this.telasAssentos = telasAssentos;
+//    }
+    
+    
+    
 //    public TelaInicial() {
 //        initComponents();
 //     
@@ -181,7 +202,7 @@ public class TelaInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_btnIngressosActionPerformed
 
     private void btnCarrinhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarrinhoActionPerformed
-        // TODO add your handling code here:
+        // Metódo para abrir a tela Carrinho ao apertar o botão da Tela Inicial
         
 //        telaCarrinho.setTelaInicial(this);
         telaCarrinho.setVisible(true);
@@ -191,16 +212,16 @@ public class TelaInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCarrinhoActionPerformed
 
     private void btnLancheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLancheActionPerformed
-        // TODO add your handling code here:
+        // Metódo para abrir a tela Lanche ao apertar o botão da Tela Inicial
         setVisible(false);
         telaLanche.setTelaInicial(this);
-        telaLanche.setTelaCarrinho(telaCarrinho);
+//        telaLanche.setTelaCarrinho(telaCarrinho);
         telaLanche.setVisible(true);
 //        
     }//GEN-LAST:event_btnLancheActionPerformed
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        // TODO add your handling code here:
+//        Metódo para abrir a tela Login ao apertar o botão da Tela Inicial
         setVisible(false);
         telaLogin.setTelaCadastro(telaCadastro);
         
@@ -209,7 +230,7 @@ public class TelaInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void btnCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroActionPerformed
-        // TODO add your handling code here:
+        // Metódo para abrir a tela Cadastro ao apertar o botão da Tela Inicial
         setVisible(false);
         telaCadastro.setTelaInicial(this);
         telaCadastro.setTelaLogin(telaLogin);
@@ -247,16 +268,15 @@ public class TelaInicial extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 
-//                  new TelaInicial().setVisible(true);
                 
-                Lanche telaLanche = new Lanche();
+                Lanche telaLanche = new Lanche(); // Criando todas as telas para centralizar informações na Tela Inicial
                 Carrinho telaCarrinho = new Carrinho();
                 Ingresso telaIngresso = new Ingresso();
                 Cadastro telaCadastro = new Cadastro();
                 Login telaLogin = new Login();
                 Pagamento telaPagamento = new Pagamento();
-                Assentos telaAssento = new Assentos();
-                new TelaInicial(telaLanche, telaCarrinho, telaIngresso, telaCadastro, telaLogin, telaPagamento, telaAssento).setVisible(true);
+                ArrayList<Assentos> telasAssentos = new ArrayList<>(6);
+                new TelaInicial(telaLanche, telaCarrinho, telaIngresso, telaCadastro, telaLogin, telaPagamento, telasAssentos).setVisible(true);
                 
                 
                 
