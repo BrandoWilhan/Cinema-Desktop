@@ -12,8 +12,8 @@ public class Lanche extends javax.swing.JFrame {
      */
     
     TelaInicial telaInicial;
-    Carrinho telaCarrinho;
-    
+    Carrinho telaCarrinho = telaInicial.getTelaCarrinho();
+//    
 //    public Lanche(TelaInicial telaInicial){
 //        initComponents();
 //        this.telaInicial = telaInicial;
@@ -486,23 +486,29 @@ public class Lanche extends javax.swing.JFrame {
         this.telaInicial = telaInicial;
     }
     
-    public void setTelaCarrinho(Carrinho telaCarrinho){
-        this.telaCarrinho = telaCarrinho;
-    }
+//    public void setTelaCarrinho(Carrinho telaCarrinho){
+//        this.telaCarrinho = telaCarrinho;
+//    }
 
     public TelaInicial getTelaInicial() {
         return telaInicial;
     }
 
-    public Carrinho getTelaCarrinho() {
-        return telaCarrinho;
-    }
-    
+//    public Carrinho getTelaCarrinho() {
+//        return telaCarrinho;
+//    }
+//    
     
     
     
     private void btnConfirmarLancheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarLancheActionPerformed
         // TODO add your handling code here:
+        telaCarrinho.setTelaInicial(telaInicial);
+        telaCarrinho.setVisible(true);
+        setVisible(false);
+        
+        
+        
     }//GEN-LAST:event_btnConfirmarLancheActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnVoltarActionPerformed
@@ -539,7 +545,7 @@ public class Lanche extends javax.swing.JFrame {
 
     private void btnLancheCarrinhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLancheCarrinhoActionPerformed
         // TODO add your handling code here:
-        telaCarrinho = telaInicial.getTelaCarrinho();
+        telaCarrinho.setTelaInicial(telaInicial);
         telaCarrinho.setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_btnLancheCarrinhoActionPerformed
