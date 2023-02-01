@@ -17,6 +17,8 @@ public class Assentos extends javax.swing.JFrame {
      * Creates new form Assentosframe
      */
     
+    Ingresso telaIngresso;
+    TelaInicial telaInicial;
     public Assentos() {
         initComponents();
     }
@@ -398,7 +400,9 @@ public class Assentos extends javax.swing.JFrame {
 
     private void bttnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnVoltarActionPerformed
         // TODO add your handling code here:
-        
+        //telaIngresso = telaInicial.telaIngresso;
+        //telaIngresso.setVisible(true);
+        setVisible(false);
     }//GEN-LAST:event_bttnVoltarActionPerformed
 
     private void bttC1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttC1ActionPerformed

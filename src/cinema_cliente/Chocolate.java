@@ -8,17 +8,16 @@ package cinema_cliente;
  *
  * @author breno
  */
-public class Chocolate implements InterfaceValorLanche{
+public class Chocolate extends ModeloLanches implements InterfaceValorLanche{
 
-    private String sabor;
     private float preco;
-    private int quantidade;
+    private int quantidadeLeite, quantidadeMeioAmargo;
 
-    public Chocolate(String sabor, int quantidade) {
-        
+    public Chocolate(int quantidadeLeite, int quantidadeMeioAmargo) {
+        super(quantidadeLeite, quantidadeMeioAmargo);
         this.preco = 4.0f;
-        this.sabor = sabor;
-        this.quantidade = quantidade;
+//        this.quantidadeLeite = quantidadeLeite;
+//        this.quantidadeMeioAmargo = quantidadeMeioAmargo;
     }
 
     public float getPreco() {
@@ -29,28 +28,25 @@ public class Chocolate implements InterfaceValorLanche{
         this.preco = preco;
     }
 
-    public int getQuantidade() {
-        return quantidade;
+    public int getQuantidadeLeite() {
+        return quantidadeLeite;
     }
 
-    public void setQuantidade(int quantidade) {
-        this.quantidade = quantidade;
+    public void setQuantidadeLeite(int quantidadeLeite) {
+        this.quantidadeLeite = quantidadeLeite;
     }
 
-   
-    
-    
-    public String getSabor() {
-        return sabor;
+    public int getQuantidadeMeioAmargo() {
+        return quantidadeMeioAmargo;
     }
 
-    public void setSabor(String sabor) {
-        this.sabor = sabor;
+    public void setQuantidadeMeioAmargo(int quantidadeMeioAmargo) {
+        this.quantidadeMeioAmargo = quantidadeMeioAmargo;
     }
-    
+
     @Override
     public float calculoPreco(){
-        return quantidade*preco;
+        return (quantidadeLeite+quantidadeMeioAmargo)*preco;
     }
     
 }

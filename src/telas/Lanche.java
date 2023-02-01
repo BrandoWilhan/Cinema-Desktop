@@ -1,6 +1,14 @@
 
 package telas;
 
+import cinema_cliente.Bebida;
+import cinema_cliente.Chocolate;
+import cinema_cliente.LancheItens;
+import cinema_cliente.ModeloLanches;
+import cinema_cliente.Pipoca;
+import java.util.ArrayList;
+import javax.swing.JSpinner;
+
 /**
  *
  * @author breno
@@ -13,7 +21,12 @@ public class Lanche extends javax.swing.JFrame {
     
     TelaInicial telaInicial;
     Carrinho telaCarrinho;
+    ArrayList<JSpinner> spinners = new ArrayList<>();
     
+//    private javax.swing.JSpinner spnChocAmarg;
+//    private javax.swing.JSpinner spnChocLeite;
+//    
+//    
 //    public Lanche(TelaInicial telaInicial){
 //        initComponents();
 //        this.telaInicial = telaInicial;
@@ -23,9 +36,11 @@ public class Lanche extends javax.swing.JFrame {
     
     public Lanche(){
         initComponents();
+       
     }
     
-
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -497,12 +512,68 @@ public class Lanche extends javax.swing.JFrame {
     public Carrinho getTelaCarrinho() {
         return telaCarrinho;
     }
-    
+//    
     
     
     
     private void btnConfirmarLancheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarLancheActionPerformed
         // TODO add your handling code here:
+        telaCarrinho.setTelaInicial(telaInicial);
+        telaCarrinho.setVisible(true);
+        setVisible(false);
+        
+        
+        
+        
+        int qntPipocaPeq = (int) spnPipP.getValue();
+        int qntPipocaMed = (int) spnPipM.getValue();
+        int qntPipocaGnd = (int) spnPipG.getValue();
+        
+        int qntLeite = (int) spnChocLeite.getValue();
+        int qntMeioAmargo = (int) spnChocAmarg.getValue();
+        
+        int qntSucoUvaPeq = (int) spnSucoUP.getValue();
+        int qntSucoUvaMed = (int) spnSucoUM.getValue();
+        int qntSucoUvaGnd = (int) spnSucoUG.getValue();
+        
+        int qntSucoLarPeq = (int) spnSucoLP.getValue();
+        int qntSucoLarMed = (int) spnSucoLM.getValue();
+        int qntSucoLarGnd = (int) spnSucoLG.getValue();
+        
+        int qntCocaPeq = (int) spnRefriCP.getValue();
+        int qntCocaMed = (int) spnRefriCM.getValue();
+        int qntCocaGnd = (int) spnRefriCG.getValue();
+        
+        int qntGuaPeq = (int) spnRefriGP.getValue();
+        int qntGuaMed = (int) spnRefriGM.getValue();
+        int qntGuaGnd = (int) spnRefriGG.getValue();
+        
+//        System.out.println(qntPipocaPeq);
+//        System.out.println(qntPipocaMed);
+//        System.out.println(qntPipocaGnd);
+        
+        Pipoca pipoca = new Pipoca(qntPipocaPeq, qntPipocaMed, qntPipocaGnd);
+        Chocolate chocolate = new Chocolate(qntLeite, qntMeioAmargo);
+        Bebida sucoUva = new Bebida("Suco de Uva", qntSucoUvaPeq, qntSucoUvaMed, qntSucoUvaGnd);
+        Bebida sucoLaranja = new Bebida("Suco de Laranja", qntSucoLarPeq, qntSucoLarMed, qntSucoLarGnd);
+        Bebida refriCoca = new Bebida ("Coca", qntCocaPeq, qntCocaMed, qntCocaGnd);
+        Bebida refriGua = new Bebida("Guaraná", qntGuaPeq, qntGuaMed, qntGuaGnd);
+        
+        ArrayList<ModeloLanches> lanches = new ArrayList<>();
+        lanches.add(pipoca);
+        lanches.add(sucoUva);
+        lanches.add(sucoLaranja);
+        lanches.add(refriCoca);
+        lanches.add(refriGua);
+        lanches.add(chocolate);
+        
+        
+        LancheItens lancheItens = new LancheItens(lanches);
+        
+        
+        
+        
+
     }//GEN-LAST:event_btnConfirmarLancheActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnVoltarActionPerformed
@@ -539,7 +610,8 @@ public class Lanche extends javax.swing.JFrame {
 
     private void btnLancheCarrinhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLancheCarrinhoActionPerformed
         // TODO add your handling code here:
-        telaCarrinho = telaInicial.getTelaCarrinho();
+        
+        telaCarrinho.setTelaInicial(telaInicial);
         telaCarrinho.setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_btnLancheCarrinhoActionPerformed

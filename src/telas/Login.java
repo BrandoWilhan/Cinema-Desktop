@@ -4,6 +4,12 @@
  */
 package telas;
 
+import cinema_cliente.Cliente;
+import java.util.ArrayList;
+import java.util.Map;
+import javax.sound.midi.SoundbankResource;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author breno
@@ -52,19 +58,19 @@ public class Login extends javax.swing.JFrame {
     private void initComponents() {
 
         jDesktopPane1 = new javax.swing.JDesktopPane();
-        jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        lblCpfLogin = new javax.swing.JLabel();
+        txtCpfLogin = new javax.swing.JTextField();
+        lblSenhaLogin = new javax.swing.JLabel();
         btnCancelarLogin = new javax.swing.JButton();
         btnEntrarLogin = new javax.swing.JButton();
         btnCadastrarLogin = new javax.swing.JButton();
+        pswSenhaLogin = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Login");
+        lblCpfLogin.setText("CPF");
 
-        jLabel2.setText("Senha");
+        lblSenhaLogin.setText("Senha");
 
         btnCancelarLogin.setText("Cancelar");
         btnCancelarLogin.addActionListener(new java.awt.event.ActionListener() {
@@ -74,6 +80,11 @@ public class Login extends javax.swing.JFrame {
         });
 
         btnEntrarLogin.setText("Entrar");
+        btnEntrarLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEntrarLoginActionPerformed(evt);
+            }
+        });
 
         btnCadastrarLogin.setText("Cadastrar");
         btnCadastrarLogin.addActionListener(new java.awt.event.ActionListener() {
@@ -82,13 +93,13 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        jDesktopPane1.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jTextField1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jTextField2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(lblCpfLogin, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(txtCpfLogin, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(lblSenhaLogin, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(btnCancelarLogin, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(btnEntrarLogin, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(btnCadastrarLogin, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(pswSenhaLogin, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -104,13 +115,13 @@ public class Login extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btnEntrarLogin))
                             .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel2))
-                                .addGap(18, 18, 18)
                                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(lblSenhaLogin)
+                                    .addComponent(lblCpfLogin))
+                                .addGap(18, 18, 18)
+                                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtCpfLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
+                                    .addComponent(pswSenhaLogin)))))
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
                         .addGap(219, 219, 219)
                         .addComponent(btnCadastrarLogin)))
@@ -121,12 +132,12 @@ public class Login extends javax.swing.JFrame {
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
                 .addGap(122, 122, 122)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblCpfLogin)
+                    .addComponent(txtCpfLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                    .addComponent(lblSenhaLogin)
+                    .addComponent(pswSenhaLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(47, 47, 47)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEntrarLogin)
@@ -161,9 +172,31 @@ public class Login extends javax.swing.JFrame {
     private void btnCadastrarLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarLoginActionPerformed
         // TODO add your handling code here:
         telaCadastro.setVisible(true);
+        telaCadastro.setTelaLogin(this);
         telaCadastro.setTelaInicial(telaInicial);
         setVisible(false);
     }//GEN-LAST:event_btnCadastrarLoginActionPerformed
+
+    private void btnEntrarLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarLoginActionPerformed
+        // TODO add your handling code here:
+        
+        String cpfLogin = txtCpfLogin.getText();
+        String senhaLogin = pswSenhaLogin.getText();
+        Map<String,String> senhas = telaCadastro.getSenhas();
+        
+        ArrayList<Cliente> clientes = telaCadastro.getClientes();
+        
+       
+        if (senhas.get(cpfLogin) == null){
+            JOptionPane.showMessageDialog(null, "CPF incorreto!", "Mensagem de Erro", JOptionPane.ERROR_MESSAGE);
+        } else if (senhas.get(cpfLogin).equals(senhaLogin)){
+            JOptionPane.showMessageDialog(null, "Login realizado com sucesso!", "Mensagem de Login", JOptionPane.PLAIN_MESSAGE);
+        } else{
+            JOptionPane.showMessageDialog(null, "Senha incorreta!", "Mensagem de Erro", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        
+    }//GEN-LAST:event_btnEntrarLoginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -205,9 +238,9 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton btnCancelarLogin;
     private javax.swing.JButton btnEntrarLogin;
     private javax.swing.JDesktopPane jDesktopPane1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JLabel lblCpfLogin;
+    private javax.swing.JLabel lblSenhaLogin;
+    private javax.swing.JPasswordField pswSenhaLogin;
+    private javax.swing.JTextField txtCpfLogin;
     // End of variables declaration//GEN-END:variables
 }

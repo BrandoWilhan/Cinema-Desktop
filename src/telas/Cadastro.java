@@ -5,8 +5,15 @@
 package telas;
 
 import cinema_cliente.Cliente;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,7 +25,15 @@ public class Cadastro extends javax.swing.JFrame {
     TelaInicial telaInicial;
     Login telaLogin;
     ArrayList <Cliente> clientes = new ArrayList();
-    ArrayList <char[]> senhas = new ArrayList();
+    
+    Map<String,String> senhas = new HashMap<String,String>();
+    
+    
+    
+    
+    
+    
+    
     /**
      * Creates new form Cadastro
      */
@@ -41,6 +56,22 @@ public class Cadastro extends javax.swing.JFrame {
     public void setTelaLogin(Login telaLogin) {
         this.telaLogin = telaLogin;
     }
+
+    public ArrayList<Cliente> getClientes() {
+        return clientes;
+    }
+
+    public void setClientes(ArrayList<Cliente> clientes) {
+        this.clientes = clientes;
+    }
+
+    public Map<String, String> getSenhas() {
+        return senhas;
+    }
+
+    public void setSenhas(Map<String, String> senhas) {
+        this.senhas = senhas;
+    }
     
     
     
@@ -59,13 +90,15 @@ public class Cadastro extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         txtNomeCadastro = new javax.swing.JTextField();
         txtCpfCadastro = new javax.swing.JTextField();
-        txtIdadeCadastro = new javax.swing.JTextField();
+        txtDataNascimentoCadastro = new javax.swing.JTextField();
         btnSalvarCadastro = new javax.swing.JButton();
         btnCancelarCadastro = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         pswCadastro = new javax.swing.JPasswordField();
         pswCadastroConfirma = new javax.swing.JPasswordField();
         jLabel6 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -73,11 +106,12 @@ public class Cadastro extends javax.swing.JFrame {
 
         jLabel2.setText("CPF");
 
-        jLabel3.setText("Idade");
+        jLabel3.setText("Data de Nascimento");
 
-        txtIdadeCadastro.addActionListener(new java.awt.event.ActionListener() {
+        txtDataNascimentoCadastro.setToolTipText("DDMMAAAA");
+        txtDataNascimentoCadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtIdadeCadastroActionPerformed(evt);
+                txtDataNascimentoCadastroActionPerformed(evt);
             }
         });
 
@@ -99,18 +133,24 @@ public class Cadastro extends javax.swing.JFrame {
 
         jLabel6.setText("Confirma Senha");
 
+        jLabel5.setText("Formato DDMMAAAA");
+
+        jLabel7.setText("Somente Números");
+
         jDesktopPane1.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(txtNomeCadastro, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(txtCpfCadastro, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(txtIdadeCadastro, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(txtDataNascimentoCadastro, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(btnSalvarCadastro, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(btnCancelarCadastro, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jLabel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(pswCadastro, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(pswCadastroConfirma, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jLabel6, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jLabel5, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jLabel7, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -127,9 +167,9 @@ public class Cadastro extends javax.swing.JFrame {
                             .addGroup(jDesktopPane1Layout.createSequentialGroup()
                                 .addGap(155, 155, 155)
                                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
                                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)))
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -137,12 +177,16 @@ public class Cadastro extends javax.swing.JFrame {
                                     .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING))))
                         .addGap(18, 18, 18)
                         .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtIdadeCadastro, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
+                            .addComponent(txtDataNascimentoCadastro, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
                             .addComponent(txtCpfCadastro, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
                             .addComponent(txtNomeCadastro)
                             .addComponent(pswCadastro)
                             .addComponent(pswCadastroConfirma))))
-                .addContainerGap(281, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(145, Short.MAX_VALUE))
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -154,11 +198,13 @@ public class Cadastro extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txtCpfCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCpfCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
                 .addGap(18, 18, 18)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(txtIdadeCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDataNascimentoCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
                 .addGap(18, 18, 18)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -193,12 +239,21 @@ public class Cadastro extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtIdadeCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdadeCadastroActionPerformed
+    private void txtDataNascimentoCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDataNascimentoCadastroActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtIdadeCadastroActionPerformed
+    }//GEN-LAST:event_txtDataNascimentoCadastroActionPerformed
 
     private void btnCancelarCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarCadastroActionPerformed
         // TODO add your handling code here:
+        
+        txtNomeCadastro.setText("");
+        txtCpfCadastro.setText("");
+        txtDataNascimentoCadastro.setText("");
+        pswCadastro.setText("");
+        pswCadastroConfirma.setText("");
+        
+        
+        
         telaInicial.setVisible(true);
         setVisible(false);
         
@@ -207,26 +262,26 @@ public class Cadastro extends javax.swing.JFrame {
 
     private void btnSalvarCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarCadastroActionPerformed
         // TODO add your handling code here:
+        
         String nome = txtNomeCadastro.getText();
         String cpf = txtCpfCadastro.getText();
-        short idade = (short) Integer.parseInt(txtIdadeCadastro.getText());
-        Cliente clt = new Cliente(nome, cpf, idade);
-        
-  
-        
-        if (nome.equals("") || cpf.equals("") || txtIdadeCadastro.getText().equals("")){    
+        String dataNascimento = txtDataNascimentoCadastro.getText();
+        String senha = pswCadastro.getText();
+        if (nome.equals("") || cpf.equals("") || txtDataNascimentoCadastro.getText().equals("") || senha.equals("")){    
             JOptionPane.showMessageDialog(null, "Todos os campos devem ser preenchidos!", "Mensagem de Erro", JOptionPane.ERROR_MESSAGE);
+        
+        
+        }else if (!senha.equals(pswCadastroConfirma.getText())){
+            JOptionPane.showMessageDialog(null, "As senhas não são idênticas!", "Mensagem de Erro", JOptionPane.ERROR_MESSAGE);
+        }else{
+//            
+            Cliente clt = new Cliente(nome, cpf, dataNascimento);
             
-        }else if (pswCadastro.getPassword() == pswCadastroConfirma.getPassword()){
-            JOptionPane.showMessageDialog(null, "As senhas não são idênticas", "Mensagem de Erro", JOptionPane.ERROR_MESSAGE);
-        }
-        else{
             clientes.add(clt);
-            senhas.add(pswCadastro.getPassword());
-            
+            senhas.put(cpf, senha);
             txtNomeCadastro.setText("");
             txtCpfCadastro.setText("");
-            txtIdadeCadastro.setText("");
+            txtDataNascimentoCadastro.setText("");
             pswCadastro.setText("");
             pswCadastroConfirma.setText("");
             
@@ -281,11 +336,13 @@ public class Cadastro extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPasswordField pswCadastro;
     private javax.swing.JPasswordField pswCadastroConfirma;
     private javax.swing.JTextField txtCpfCadastro;
-    private javax.swing.JTextField txtIdadeCadastro;
+    private javax.swing.JTextField txtDataNascimentoCadastro;
     private javax.swing.JTextField txtNomeCadastro;
     // End of variables declaration//GEN-END:variables
 }

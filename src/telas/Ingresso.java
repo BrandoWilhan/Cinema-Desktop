@@ -19,6 +19,7 @@ public class Ingresso extends javax.swing.JFrame
      * Creates new form Ingresso
      */
     TelaInicial telaInicial;
+    Assentos telaAssento;
 
     public Ingresso()
     {
@@ -26,7 +27,7 @@ public class Ingresso extends javax.swing.JFrame
         populateTable();
     }
 
-        public TelaInicial getTelaInicial() {
+    public TelaInicial getTelaInicial() {
         return telaInicial;
     }
 
@@ -294,6 +295,36 @@ public class Ingresso extends javax.swing.JFrame
         } else {
             //instância do ingresso
             Ticket ingresso = new Ticket(ingressoInteira, ingressoMeia, quantidadeTotal, filmeSelecionado);
+            
+            if(filmeSelecionadoaux == 0){
+                telaInicial.telasAssento1.setVisible(true);
+                //setVisible(false);
+            }
+            
+            if(filmeSelecionadoaux == 1){
+                telaInicial.telasAssento2.setVisible(true);
+                //setVisible(false);
+            }
+            
+            if(filmeSelecionadoaux == 2){
+                telaInicial.telasAssento3.setVisible(true);
+                //setVisible(false);
+            }
+            
+            if(filmeSelecionadoaux == 3){
+                telaInicial.telasAssento4.setVisible(true);
+                //setVisible(false);
+            }
+            
+            if(filmeSelecionadoaux == 4){
+                telaInicial.telasAssento5.setVisible(true);
+                //setVisible(false);
+            }
+            
+            if(filmeSelecionadoaux == 5){
+                telaInicial.telasAssento6.setVisible(true);
+                //setVisible(false);
+            }
         }
             
  
