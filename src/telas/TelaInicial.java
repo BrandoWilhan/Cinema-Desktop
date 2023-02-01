@@ -6,6 +6,7 @@ package telas;
 
 import java.util.ArrayList;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -17,12 +18,12 @@ public class TelaInicial extends javax.swing.JFrame {
      * Creates new form TelaInicial
      */
     
-    Lanche telaLanche;
-    Carrinho telaCarrinho; //instanciando cada uma das telas do programa centralizadamente
-    Ingresso telaIngresso; 
-    Cadastro telaCadastro;
-    Login telaLogin;
-    Pagamento telaPagamento;
+    private Lanche telaLanche;
+    private Carrinho telaCarrinho; //instanciando cada uma das telas do programa centralizadamente
+    private Ingresso telaIngresso; 
+    private Cadastro telaCadastro;
+    private Login telaLogin;
+    private Pagamento telaPagamento;
 //    Assentos telaAssento;
     Assentos telasAssento1,telasAssento2,telasAssento3,telasAssento4,telasAssento5,telasAssento6;
     
@@ -92,6 +93,30 @@ public class TelaInicial extends javax.swing.JFrame {
 
     public void setTelaIngresso(Ingresso telaIngresso) {
         this.telaIngresso = telaIngresso;
+    }
+
+    public Cadastro getTelaCadastro() {
+        return telaCadastro;
+    }
+
+    public void setTelaCadastro(Cadastro telaCadastro) {
+        this.telaCadastro = telaCadastro;
+    }
+
+    public Login getTelaLogin() {
+        return telaLogin;
+    }
+
+    public void setTelaLogin(Login telaLogin) {
+        this.telaLogin = telaLogin;
+    }
+
+    public Pagamento getTelaPagamento() {
+        return telaPagamento;
+    }
+
+    public void setTelaPagamento(Pagamento telaPagamento) {
+        this.telaPagamento = telaPagamento;
     }
 
     public Assentos getTelasAssento1() {
@@ -310,7 +335,7 @@ public class TelaInicial extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                
+
                 
                 Lanche telaLanche = new Lanche(); // Criando todas as telas para centralizar informações na Tela Inicial
                 Carrinho telaCarrinho = new Carrinho();

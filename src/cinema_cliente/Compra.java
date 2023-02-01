@@ -34,11 +34,14 @@ public class Compra {
     }
 
     public void setIngressos(ArrayList<Ticket> ingressos) {
-
         this.ingressos = ingressos;
     }
-    
 
+    public ArrayList<LancheItens> getLanches() {
+        return lanches;
+    }
+
+    
     public Ticket getIngresso(int index) {
         return ingressos.get(index);
     }

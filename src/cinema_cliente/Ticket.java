@@ -8,6 +8,7 @@ package cinema_cliente;
 public class Ticket {
     
     private int id;
+
     private int quantidadeInteira;
     private int quantidadeMeia;
     private int quantidadeTotal;
@@ -16,6 +17,7 @@ public class Ticket {
     public Ticket(){
         
     }
+
 
     public Ticket(int quantidadeInteira, int quantidadeMeia, int quantidadeTotal, Filme filme) {
         this.quantidadeInteira = quantidadeInteira;
@@ -30,6 +32,7 @@ public class Ticket {
         return id;
     }
 
+
     public int getQuantidadeInteira() {
         return quantidadeInteira;
     }
@@ -41,6 +44,7 @@ public class Ticket {
     public void setId(int id) {
         this.id = id;
     }
+
 
     public void setQuantidadeInteira(int quantidadeInteira) {
         this.quantidadeInteira = quantidadeInteira;

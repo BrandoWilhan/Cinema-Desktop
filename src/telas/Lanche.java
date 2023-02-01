@@ -7,7 +7,10 @@ import cinema_cliente.Compra;
 import cinema_cliente.LancheItens;
 import cinema_cliente.ModeloLanches;
 import cinema_cliente.Pipoca;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.JSpinner;
 
 /**
@@ -19,9 +22,11 @@ public class Lanche extends javax.swing.JFrame {
     /**
      * Creates new form lanche
      */
-    Compra compraLanche;
-    TelaInicial telaInicial;
-    Carrinho telaCarrinho;
+    
+    private TelaInicial telaInicial;
+    private Carrinho telaCarrinho;
+    private boolean aniversariante;
+    private Compra compraLanche;
     
     
 //    private javax.swing.JSpinner spnChocAmarg;
@@ -520,6 +525,12 @@ public class Lanche extends javax.swing.JFrame {
     private void btnConfirmarLancheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarLancheActionPerformed
         // TODO add your handling code here:
        
+        String dataNascimento = telaInicial.getTelaLogin().getClienteLogado().getDataNascimento(); //Obtendo a data de nascimento do cliente atualmente Logado
+        
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDateTime now = LocalDateTime.now();
+        aniversariante = dtf.format(now).equals(dataNascimento);
+        
         
         
         
@@ -549,7 +560,11 @@ public class Lanche extends javax.swing.JFrame {
 //        System.out.println(qntPipocaPeq);
 //        System.out.println(qntPipocaMed);
 //        System.out.println(qntPipocaGnd);
-        
+        if(aniversariante){
+            JOptionPane.showMessageDialog(null, "Feliz Aniversário! ", "Parabéns!", JOptionPane.PLAIN_MESSAGE);
+            qntPipocaMed += 1;
+        }
+                
         Pipoca pipoca = new Pipoca(qntPipocaPeq, qntPipocaMed, qntPipocaGnd);
         Chocolate chocolate = new Chocolate(qntLeite, qntMeioAmargo);
         Bebida sucoUva = new Bebida("Suco de Uva", qntSucoUvaPeq, qntSucoUvaMed, qntSucoUvaGnd);
@@ -565,13 +580,15 @@ public class Lanche extends javax.swing.JFrame {
         lanches.add(refriGua);
         lanches.add(chocolate);
         
-        
         LancheItens lancheItens = new LancheItens(lanches);
+        
         Compra compra = new Compra();
-        telaCarrinho = telaInicial.getTelaCarrinho();
         compra.setLancheItens(lancheItens);
+        
+        telaCarrinho = telaInicial.getTelaCarrinho();
         this.compraLanche = compra;
         telaCarrinho.setTelaInicial(telaInicial);
+        
         telaCarrinho.setVisible(true);
         setVisible(false);
         
