@@ -12,13 +12,13 @@ public class Compra {
     private float valorTotal;
     private String data;
     ArrayList<Ingresso> ingressos;
-    ArrayList<Lanche> lanches;
+    ArrayList<LancheItens> lanches;
 
     public Compra(int idCompra, float valorTotal, String data) {
         this.idCompra = idCompra;
         this.valorTotal = valorTotal;
         this.data = data;
-        this.lanches = new ArrayList<Lanche>();
+        this.lanches = new ArrayList<LancheItens>();
         this.ingressos = new ArrayList<Ingresso>();
     }
 
@@ -30,11 +30,11 @@ public class Compra {
         this.ingressos = ingressos;
     }
 
-    public ArrayList<Lanche> getLanches() {
+    public ArrayList<LancheItens> getLanches() {
         return lanches;
     }
 
-    public void setLanches(ArrayList<Lanche> lanches) {
+    public void setLanches(ArrayList<LancheItens> lanches) {
         this.lanches = lanches;
     }
     
@@ -46,11 +46,11 @@ public class Compra {
         this.ingressos.add(ingresso);    
     }
 
-    public Lanche getLanche(int index) {
+    public LancheItens getLanche(int index) {
         return lanches.get(index);
     }
 
-    public void setLanche(Lanche lanche) {
+    public void setLanche(LancheItens lanche) {
         this.lanches.add(lanche);
     }
 
