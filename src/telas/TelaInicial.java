@@ -183,7 +183,7 @@ public class TelaInicial extends javax.swing.JFrame {
     private void btnCarrinhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarrinhoActionPerformed
         // TODO add your handling code here:
         
-//        telaCarrinho.setTelaInicial(this);
+        telaCarrinho.setTelaInicial(this);
         telaCarrinho.setVisible(true);
         setVisible(false);
         

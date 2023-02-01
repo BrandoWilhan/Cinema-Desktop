@@ -5,6 +5,10 @@ import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
 import cinema_cliente.Compra;
 import cinema_cliente.Ingresso;
+import cinema_cliente.Lanche;
+import cinema_cliente.Pipoca;
+import cinema_cliente.Bebida;
+import cinema_cliente.Chocolate;
 /**
  *
  * @author mugen
@@ -13,7 +17,11 @@ public class Carrinho extends javax.swing.JFrame {
 
     private Compra compra = new Compra(0, 1, "31/01/2023");
     private Ingresso ingresso = new Ingresso(455, true, 50.0d, 18.0f);
-    private TelaInicial telaInicial;
+    private Pipoca pipoca = new Pipoca('m', 0, 1, 0);
+    private Bebida bebida = new Bebida('r', 'm',"guaraná", 0, 1, 0);
+    private Chocolate chocolate = new Chocolate("chocolate", 1);
+    private Lanche lanche = new Lanche(pipoca, bebida, chocolate);
+    public TelaInicial telaInicial;
     
 
     public TelaInicial getTelaInicial() {
@@ -40,7 +48,6 @@ public class Carrinho extends javax.swing.JFrame {
         btnRemover = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableComprasIngresso = new javax.swing.JTable();
-        btnVoltar = new javax.swing.JButton();
         btnHome = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tableComprasLanche = new javax.swing.JTable();
@@ -92,31 +99,24 @@ public class Carrinho extends javax.swing.JFrame {
         tableComprasIngresso.setEnabled(false);
         jScrollPane1.setViewportView(tableComprasIngresso);
 
-        btnVoltar.setFont(new java.awt.Font("DejaVu Sans", 0, 18)); // NOI18N
-        btnVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/back32.png"))); // NOI18N
-        btnVoltar.setText("Voltar");
-
         btnHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/home32.png"))); // NOI18N
+        btnHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHomeActionPerformed(evt);
+            }
+        });
 
         tableComprasLanche.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "ID Item", "Pipoca", "Bebida", "Chocolate"
+                "Pipoca", "Bebida", "Chocolate"
             }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
+        ));
         tableComprasLanche.setEnabled(false);
         jScrollPane2.setViewportView(tableComprasLanche);
 
@@ -125,7 +125,6 @@ public class Carrinho extends javax.swing.JFrame {
         paneCarrinho.setLayer(btnCancelar, javax.swing.JLayeredPane.DEFAULT_LAYER);
         paneCarrinho.setLayer(btnRemover, javax.swing.JLayeredPane.DEFAULT_LAYER);
         paneCarrinho.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        paneCarrinho.setLayer(btnVoltar, javax.swing.JLayeredPane.DEFAULT_LAYER);
         paneCarrinho.setLayer(btnHome, javax.swing.JLayeredPane.DEFAULT_LAYER);
         paneCarrinho.setLayer(jScrollPane2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -136,37 +135,30 @@ public class Carrinho extends javax.swing.JFrame {
             .addGroup(paneCarrinhoLayout.createSequentialGroup()
                 .addGroup(paneCarrinhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(paneCarrinhoLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnVoltar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnHome))
+                        .addGap(144, 144, 144)
+                        .addComponent(btnFinalizar)
+                        .addGap(129, 129, 129)
+                        .addComponent(btnCancelar)
+                        .addGap(136, 136, 136)
+                        .addComponent(btnRemover))
                     .addGroup(paneCarrinhoLayout.createSequentialGroup()
+                        .addGap(88, 88, 88)
                         .addGroup(paneCarrinhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
                             .addGroup(paneCarrinhoLayout.createSequentialGroup()
-                                .addGap(144, 144, 144)
-                                .addComponent(btnFinalizar)
-                                .addGap(129, 129, 129)
-                                .addComponent(btnCancelar)
-                                .addGap(136, 136, 136)
-                                .addComponent(btnRemover))
-                            .addGroup(paneCarrinhoLayout.createSequentialGroup()
-                                .addGap(88, 88, 88)
-                                .addGroup(paneCarrinhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addGroup(paneCarrinhoLayout.createSequentialGroup()
-                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(0, 138, Short.MAX_VALUE)))
-                .addContainerGap())
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(paneCarrinhoLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnHome)))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
         paneCarrinhoLayout.setVerticalGroup(
             paneCarrinhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(paneCarrinhoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(paneCarrinhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnVoltar)
-                    .addComponent(btnHome))
+                .addComponent(btnHome)
                 .addGap(23, 23, 23)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
@@ -204,19 +196,34 @@ public class Carrinho extends javax.swing.JFrame {
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         
     }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
+        telaInicial.setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_btnHomeActionPerformed
     public void carregarTabelaCompraIngresso() {
-        DefaultTableModel modelo = new DefaultTableModel(new Object[] {"ID item", "Ingresso"}, 0);
+        DefaultTableModel modelo1 = new DefaultTableModel(new Object[] {"ID item", "Ingresso"}, 0);
+        DefaultTableModel modelo2 = new DefaultTableModel(new Object[] {"Pipoca", "Bebida", "Chocolate"}, 0);
         
         compra.setIngresso(ingresso);
+        compra.setLanche(lanche);
         for (int i = 0; i < compra.getIngressos().size(); i++) {
             Object linha[] = new Object[]{compra.getIngresso(i).getId(),
                 compra.getIngresso(i).getValorIngresso()
                 };
-            modelo.addRow(linha);
+            modelo1.addRow(linha);
         }
-            
-          
-        tableComprasIngresso.setModel(modelo);
+        tableComprasIngresso.setModel(modelo1);
+        
+        for (int i = 0; i < compra.getLanches().size(); i++) {
+            Object linha[] = new Object[]{"Pipoca: "    + compra.getLanches().get(i).getPipoca().getTamanho(),
+                                          "Bebida: "    + compra.getLanches().get(i).getBebida().getTamanho(), 
+                                          "Chocolate: " + compra.getLanches().get(i).getChocolate().getSabor()
+                };
+            modelo2.addRow(linha);
+        }
+        tableComprasLanche.setModel(modelo2);
+        
     }
     
     public void carregarInformacoes() {
@@ -268,7 +275,6 @@ public class Carrinho extends javax.swing.JFrame {
     private javax.swing.JButton btnFinalizar;
     private javax.swing.JButton btnHome;
     private javax.swing.JButton btnRemover;
-    private javax.swing.JButton btnVoltar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
