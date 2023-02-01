@@ -36,10 +36,11 @@ public class Ingresso extends javax.swing.JFrame
         this.telaInicial = telaInicial;
     }
     
+    
+    //Inserção das informações pra popular a tabela
     Sala sala1 = new Sala("1");
     Sala sala2 = new Sala("2");
     Sala sala3 = new Sala("3");
-    
     Filme filme1 = new Filme("Avatar: O Caminho da Água", "14", sala1);
     Filme filme2 = new Filme("Pantera Negra: Wakanda para Sempre", "12", sala2);
     Filme filme3 = new Filme("O Homem do Norte", "18", sala3);
@@ -47,7 +48,7 @@ public class Ingresso extends javax.swing.JFrame
     Filme filme5 = new Filme("The Batman", "13", sala2);
     Filme filme6 = new Filme("Top Gun: Maverick", "12", sala3);
 
-    
+    //Função pra popular a tabela, deve ser chamada no construtor.
     public void populateTable(){
         String columns[] = {"Nome do Filme", "Classificação Indicativa", "Sala", "Horário"};
         String data [][] = {{filme1.getTitulo(), filme1.getClassificacao(), filme1.getSala().getNumeroSala(), "14:00"}, 
@@ -63,7 +64,7 @@ public class Ingresso extends javax.swing.JFrame
             //Impedir de ser possível de editar
             public boolean isCellEditable(int row, int column) {
             return false;
-    }
+            }
         };
         tblFilmes.setModel(model);
     }
@@ -280,6 +281,7 @@ public class Ingresso extends javax.swing.JFrame
         
         System.out.println(filmeSelecionadoaux);
         
+        //Coletar as informações de acordo com a linha seleciodada
         if(filmeSelecionadoaux == 0) filmeSelecionado = filme1;
         if(filmeSelecionadoaux == 1) filmeSelecionado = filme2;
         if(filmeSelecionadoaux == 2) filmeSelecionado = filme3;
@@ -297,6 +299,7 @@ public class Ingresso extends javax.swing.JFrame
             //instância do ingresso
             Ticket ingresso = new Ticket(ingressoInteira, ingressoMeia, quantidadeTotal, filmeSelecionado);
             
+            //instância das telas Assento
             Assentos telaAssentox1 = new Assentos(ingresso);
             Assentos telaAssentox2 = new Assentos(ingresso);
             Assentos telaAssentox3 = new Assentos(ingresso);

@@ -26,7 +26,6 @@ public class Assentos extends javax.swing.JFrame {
     Carrinho telaCarrinho;
     Ticket ingresso;
     
-    int quantidadeTotal = ingresso.getQuantidadeInteira()+ingresso.getQuantidadeMeia();
 
     public Assentos(Ticket ingresso) {
          initComponents();
@@ -432,24 +431,20 @@ public class Assentos extends javax.swing.JFrame {
         // TODO add your handling code here:
         adicionarList();
         selecionados.clear();
-        
+        int quantidadeTotal = ingresso.getQuantidadeInteira()+ingresso.getQuantidadeMeia();
         for (int i = 0; i < 22; i++) {
             int count = contarSelecionados(buttons);
             if(count == quantidadeTotal){
                 desativarSelecionados(buttons.get(i));
+                Carrinho carrinho = new Carrinho();
+                carrinho.setVisible(true);
+                setVisible(false);
+                break;
             } else{
                 JOptionPane.showMessageDialog(this, "Por favor selecione somente a quantidade de ingressos que comprou: " + quantidadeTotal, "Quantidade Inválida", JOptionPane.ERROR_MESSAGE);
+                break;
             }
         }
-        
-        Carrinho carrinho = new Carrinho();
-        carrinho.setVisible(true);
-        //telaCarrinho = telaInicial.getTelaCarrinho();
-        //compra.setIngressos(ingresso);
-        //telaCarrinho.setTelaInicial(telaInicial);
-        //telaCarrinho.setVisible(true);
-        setVisible(false);
-        
 
     }//GEN-LAST:event_bttnConfirmar1ActionPerformed
 

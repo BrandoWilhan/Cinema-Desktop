@@ -197,7 +197,7 @@ public class Carrinho extends javax.swing.JFrame {
         this.compra.setLancheItens(new LancheItens());
         this.compra.getLancheItens().setLanches(new ArrayList<>());
         
-        this.compra = this.telaInicial.getTelaLanche().compraLanche;
+        //this.compra = this.telaInicial.getTelaLanche().compraLanche;
         
         if(!compra.getIngressos().isEmpty())
             for (int i = 0; i < compra.getIngressos().size(); i++) {
