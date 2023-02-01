@@ -4,6 +4,7 @@ package telas;
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
 import cinema_cliente.Compra;
+import cinema_cliente.LancheItens;
  // @author mugen
 
 public class Carrinho extends javax.swing.JFrame {
@@ -193,10 +194,11 @@ public class Carrinho extends javax.swing.JFrame {
         DefaultTableModel modelo1 = new DefaultTableModel(new Object[] {"ID item", "Ingresso"}, 0);
         DefaultTableModel modelo2 = new DefaultTableModel(new Object[] {"Pipoca", "Bebida", "Chocolate"}, 0);
         
-        this.compra.setIngressos();
+        this.compra.setIngressos(new ArrayList<>());
+        this.compra.setLancheItens(new LancheItens());
+        this.compra.getLancheItens().setLanches(new ArrayList<>());
         
-        if(!(this.getTelaInicial() == null) && !(this.compra == null))    
-            this.compra = this.getTelaInicial().telaLanche.compraLanche;
+        this.compra = this.telaInicial.getTelaLanche().compraLanche;
         
         if(!compra.getIngressos().isEmpty())
             for (int i = 0; i < compra.getIngressos().size(); i++) {

@@ -55,10 +55,10 @@ public class TelaInicial extends javax.swing.JFrame {
     
     
     
-//    public TelaInicial() {
-//        initComponents();
-//     
-//    }
+    public TelaInicial() {
+        initComponents();
+     
+    }
 
     public Lanche getTelaLanche() {
         return telaLanche;
