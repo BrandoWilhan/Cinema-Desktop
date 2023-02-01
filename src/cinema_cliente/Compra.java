@@ -2,7 +2,7 @@ package cinema_cliente;
 
 
 import java.util.ArrayList;
-import java.util.Date;
+
 
 
 // @author mugen
@@ -15,28 +15,18 @@ public class Compra {
     ArrayList<LancheItens> lanches;
     LancheItens lancheItens;
 
+
+    public Compra() {
+    }
+
+    
     public Compra(int idCompra, float valorTotal, String data) {
         this.idCompra = idCompra;
         this.valorTotal = valorTotal;
         this.data = data;
+        
         this.lanches = new ArrayList<LancheItens>();
         this.ingressos = new ArrayList<Ticket>();
-       
-    }
-    
-
-    public LancheItens getLancheItens() {
-        return lancheItens;
-    }
-
-    public void setLancheItens(LancheItens lancheItens) {
-        this.lancheItens = lancheItens;
-    }
-    
-
-    
-    public Compra(){
-        
     }
 
     public ArrayList<Ticket> getIngressos() {
@@ -51,9 +41,6 @@ public class Compra {
         return lanches;
     }
 
-    public void setLanches(ArrayList<LancheItens> lanches) {
-        this.lanches = lanches;
-    }
     
     public Ticket getIngresso(int index) {
         return ingressos.get(index);
@@ -61,14 +48,6 @@ public class Compra {
 
     public void setIngresso(Ticket ingresso) {
         this.ingressos.add(ingresso);    
-    }
-
-    public LancheItens getLanche(int index) {
-        return lanches.get(index);
-    }
-
-    public void setLanche(LancheItens lanche) {
-        this.lanches.add(lanche);
     }
 
     public int getIdCompra() {
@@ -94,6 +73,17 @@ public class Compra {
     public void setData(String data) {
         this.data = data;
     }
+
+
+    public LancheItens getLancheItens() {
+        return lancheItens;
+    }
+
+    public void setLancheItens(LancheItens lancheItens) {
+        this.lancheItens = lancheItens;
+    }
+    
+
         
     public void calcularValorTotal() {
         

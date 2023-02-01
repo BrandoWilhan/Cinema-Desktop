@@ -26,6 +26,7 @@ public class Lanche extends javax.swing.JFrame {
     private TelaInicial telaInicial;
     private Carrinho telaCarrinho;
     private boolean aniversariante;
+    private Compra compraLanche;
     
     
 //    private javax.swing.JSpinner spnChocAmarg;
@@ -585,6 +586,7 @@ public class Lanche extends javax.swing.JFrame {
         compra.setLancheItens(lancheItens);
         
         telaCarrinho = telaInicial.getTelaCarrinho();
+        this.compraLanche = compra;
         telaCarrinho.setTelaInicial(telaInicial);
         
         telaCarrinho.setVisible(true);

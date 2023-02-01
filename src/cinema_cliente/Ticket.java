@@ -8,54 +8,63 @@ package cinema_cliente;
 public class Ticket {
     
     private int id;
-    private boolean meiaEntrada;
-    private double valorIngresso;
-    private float horarioSessao;
+
+    private int quantidadeInteira;
+    private int quantidadeMeia;
+    private int quantidadeTotal;
+    private Filme filme;
 
     public Ticket(){
         
     }
-    
-    public Ticket(int id, boolean meiaEntrada, double valorIngresso, float horarioSessao) {
-        this.id = id;
-        this.meiaEntrada = meiaEntrada;
-        this.valorIngresso = valorIngresso;
-        this.horarioSessao = horarioSessao;
+
+
+    public Ticket(int quantidadeInteira, int quantidadeMeia, int quantidadeTotal, Filme filme) {
+        this.quantidadeInteira = quantidadeInteira;
+        this.quantidadeMeia = quantidadeMeia;
+        this.quantidadeTotal = quantidadeTotal;
+        this.filme = filme;
     }
+    
+    
 
     public int getId() {
         return id;
     }
 
-    public boolean isMeiaEntrada() {
-        return meiaEntrada;
+
+    public int getQuantidadeInteira() {
+        return quantidadeInteira;
     }
 
-    public double getValorIngresso() {
-        return valorIngresso;
-    }
-
-    public float getHorarioSessao() {
-        return horarioSessao;
+    public int getQuantidadeMeia() {
+        return quantidadeMeia;
     }
 
     public void setId(int id) {
         this.id = id;
     }
 
-    public void setMeiaEntrada(boolean meiaEntrada) {
-        this.meiaEntrada = meiaEntrada;
+
+    public void setQuantidadeInteira(int quantidadeInteira) {
+        this.quantidadeInteira = quantidadeInteira;
     }
 
-    public void setValorIngresso(double valorIngresso) {
-        this.valorIngresso = valorIngresso;
+    public void setQuantidadeMeia(int quantidadeMeia) {
+        this.quantidadeMeia = quantidadeMeia;
     }
 
-    public void setHorarioSessao(float horarioSessao) {
-        this.horarioSessao = horarioSessao;
+    public Filme getFilme() {
+        return filme;
+    }
+
+    public void setFilme(Filme filme) {
+        this.filme = filme;
     }
     
     
+    
+   
     
     
 }

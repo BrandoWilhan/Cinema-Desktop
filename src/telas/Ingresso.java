@@ -1,7 +1,9 @@
 
 package telas;
 
+import cinema_cliente.Filme;
 import cinema_cliente.Sala;
+import cinema_cliente.Ticket;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
@@ -16,23 +18,53 @@ public class Ingresso extends javax.swing.JFrame
     /**
      * Creates new form Ingresso
      */
-    TelaInicial telaInicial; 
-    
+    TelaInicial telaInicial;
+    Ingresso telaIngresso;
+    Assentos telaAssento;
+
     public Ingresso()
     {
         initComponents();
         populateTable();
     }
+
+    public TelaInicial getTelaInicial() {
+        return telaInicial;
+    }
+
+    public void setTelaInicial(TelaInicial telaInicial) {
+        this.telaInicial = telaInicial;
+    }
     
+    Sala sala1 = new Sala("1");
+    Sala sala2 = new Sala("2");
+    Sala sala3 = new Sala("3");
+    
+    Filme filme1 = new Filme("Avatar: O Caminho da Água", "14", sala1);
+    Filme filme2 = new Filme("Pantera Negra: Wakanda para Sempre", "12", sala2);
+    Filme filme3 = new Filme("O Homem do Norte", "18", sala3);
+    Filme filme4 = new Filme("Não, Não Olhe", "14", sala1);
+    Filme filme5 = new Filme("The Batman", "13", sala2);
+    Filme filme6 = new Filme("Top Gun: Maverick", "12", sala3);
+
     
     public void populateTable(){
         String columns[] = {"Nome do Filme", "Classificação Indicativa", "Sala", "Horário"};
-        String data [][] = {{"Avatar: O Caminho da Água", "14", "1", "14:00"}, {"Pantera Negra: Wakanda para Sempre", "12", "2", "14:00"},
-            {"O Homem do Norte", "18", "3", "14:00"}, {"Não, Não Olhe", "14", "1", "16:00"}, {"The Batman", "13", "2", "16:00"}, 
-            {"Top Gun: Maverick", "12", "3", "16:00"}
+        String data [][] = {{filme1.getTitulo(), filme1.getClassificacao(), filme1.getSala().getNumeroSala(), "14:00"}, 
+            {filme2.getTitulo(), filme2.getClassificacao(), filme2.getSala().getNumeroSala(), "14:00"},
+            {filme3.getTitulo(), filme3.getClassificacao(), filme3.getSala().getNumeroSala(), "14:00"}, 
+            {filme4.getTitulo(), filme4.getClassificacao(), filme4.getSala().getNumeroSala(), "16:00"}, 
+            {filme5.getTitulo(), filme5.getClassificacao(), filme5.getSala().getNumeroSala(), "16:00"}, 
+            {filme6.getTitulo(), filme6.getClassificacao(), filme6.getSala().getNumeroSala(), "16:00"}
             
         };
-        DefaultTableModel model = new DefaultTableModel(data, columns);
+        DefaultTableModel model = new DefaultTableModel(data, columns){
+            @Override
+            //Impedir de ser possível de editar
+            public boolean isCellEditable(int row, int column) {
+            return false;
+    }
+        };
         tblFilmes.setModel(model);
     }
     /**
@@ -56,6 +88,7 @@ public class Ingresso extends javax.swing.JFrame
         jScrollPane1 = new javax.swing.JScrollPane();
         tblFilmes = new javax.swing.JTable();
         txtPesquisarFilme = new javax.swing.JTextField();
+        btnVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -106,8 +139,31 @@ public class Ingresso extends javax.swing.JFrame
             new String [] {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(tblFilmes);
+        if (tblFilmes.getColumnModel().getColumnCount() > 0) {
+            tblFilmes.getColumnModel().getColumn(0).setHeaderValue("Title 1");
+            tblFilmes.getColumnModel().getColumn(1).setHeaderValue("Title 2");
+            tblFilmes.getColumnModel().getColumn(2).setHeaderValue("Title 3");
+            tblFilmes.getColumnModel().getColumn(3).setHeaderValue("Title 4");
+        }
+
+        btnVoltar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/back32.png"))); // NOI18N
+        btnVoltar.setText("Voltar");
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarActionPerformed(evt);
+            }
+        });
 
         jDesktopPane1.setLayer(btnHome, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(lblIngresso, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -119,43 +175,47 @@ public class Ingresso extends javax.swing.JFrame
         jDesktopPane1.setLayer(spnQuantidadeInteira, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(txtPesquisarFilme, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(btnVoltar, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                .addGap(120, 120, 120)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblFilmes)
+                    .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                            .addComponent(lblIngressoMeia, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(spnQuantidadeInteira, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtPesquisarFilme, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(btnPesquisar))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 695, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addGap(120, 120, 120)
-                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblFilmes)
-                            .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                                    .addComponent(lblIngressoMeia, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(spnQuantidadeInteira, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txtPesquisarFilme, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(btnPesquisar))
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 695, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(btnConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblIngresso, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(spnQuantidadeMeia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblIngresso, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(spnQuantidadeMeia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(60, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnHome)
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnHome)
+                    .addComponent(btnVoltar))
                 .addGap(18, 18, 18)
                 .addComponent(lblFilmes)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -214,15 +274,93 @@ public class Ingresso extends javax.swing.JFrame
         int quantidadeTotal;
         int ingressoMeia = (Integer) spnQuantidadeMeia.getValue();
         int ingressoInteira = (Integer) spnQuantidadeInteira.getValue();
+        int filmeSelecionadoaux = tblFilmes.getSelectedRow();
         quantidadeTotal = ingressoInteira + ingressoMeia;
+        Filme filmeSelecionado = null;
+        
+        System.out.println(filmeSelecionadoaux);
+        
+        if(filmeSelecionadoaux == 0) filmeSelecionado = filme1;
+        if(filmeSelecionadoaux == 1) filmeSelecionado = filme2;
+        if(filmeSelecionadoaux == 2) filmeSelecionado = filme3;
+        if(filmeSelecionadoaux == 3) filmeSelecionado = filme4;
+        if(filmeSelecionadoaux == 4) filmeSelecionado = filme5;
+        if(filmeSelecionadoaux == 5) filmeSelecionado = filme6;
         
         spnQuantidadeInteira.setValue(0);
         spnQuantidadeMeia.setValue(0);
+
+        
+        if(filmeSelecionadoaux == -1 || quantidadeTotal == 0){
+            JOptionPane.showMessageDialog(this, "Por favor, selecione um Filme e uma quantidade de Ingressos", "Nenhum Filme Selecionado", JOptionPane.ERROR_MESSAGE);
+        } else {
+            //instância do ingresso
+            Ticket ingresso = new Ticket(ingressoInteira, ingressoMeia, quantidadeTotal, filmeSelecionado);
+            
+            Assentos telaAssentox1 = new Assentos(ingresso);
+            Assentos telaAssentox2 = new Assentos(ingresso);
+            Assentos telaAssentox3 = new Assentos(ingresso);
+            Assentos telaAssentox4 = new Assentos(ingresso);
+            Assentos telaAssentox5 = new Assentos(ingresso);
+            Assentos telaAssentox6 = new Assentos(ingresso);
+            
+            if(filmeSelecionadoaux == 0){
+                telaAssentox1.setVisible(true);
+                //telaInicial.telasAssento1.setVisible(true);
+                //telaIngresso.setTelaInicial(telaInicial);
+                //setVisible(false);
+            }
+            
+            if(filmeSelecionadoaux == 1){
+                telaAssentox2.setVisible(true);
+                //telaInicial.telasAssento1.setVisible(true);
+                //telaIngresso.setTelaInicial(telaInicial);
+                //setVisible(false);
+            }
+            
+            if(filmeSelecionadoaux == 2){
+                telaAssentox3.setVisible(true);
+                //telaInicial.telasAssento1.setVisible(true);
+                //telaIngresso.setTelaInicial(telaInicial);
+                //setVisible(false);
+            }
+            
+            if(filmeSelecionadoaux == 3){
+                telaAssentox4.setVisible(true);
+                //telaInicial.telasAssento1.setVisible(true);
+                //telaIngresso.setTelaInicial(telaInicial);
+                //setVisible(false);
+            }
+            
+            if(filmeSelecionadoaux == 4){
+                telaAssentox5.setVisible(true);
+                //telaInicial.telasAssento1.setVisible(true);
+                //telaIngresso.setTelaInicial(telaInicial);
+                //setVisible(false);
+            }
+            
+            if(filmeSelecionadoaux == 5){
+                telaAssentox6.setVisible(true);
+                //telaInicial.telasAssento1.setVisible(true);
+                //telaIngresso.setTelaInicial(telaInicial);
+                //setVisible(false);
+            }
+        }
+            
+ 
     }//GEN-LAST:event_btnConfirmarActionPerformed
 
     private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
         // TODO add your handling code here:
+        getTelaInicial().setVisible(true);
+        setVisible(false);
     }//GEN-LAST:event_btnHomeActionPerformed
+
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+        // TODO add your handling code here:
+        telaInicial.setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_btnVoltarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -265,6 +403,7 @@ public class Ingresso extends javax.swing.JFrame
             public void run()
             {
                 new Ingresso().setVisible(true);
+                
             }
         });
     }
@@ -273,6 +412,7 @@ public class Ingresso extends javax.swing.JFrame
     private javax.swing.JButton btnConfirmar;
     private javax.swing.JButton btnHome;
     private javax.swing.JButton btnPesquisar;
+    private javax.swing.JButton btnVoltar;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblFilmes;
