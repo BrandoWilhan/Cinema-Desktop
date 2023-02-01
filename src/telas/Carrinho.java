@@ -11,7 +11,6 @@ public class Carrinho extends javax.swing.JFrame {
 
     public TelaInicial telaInicial;
     private Compra compra = new Compra();
-    
 
     public TelaInicial getTelaInicial() {
         return telaInicial;
