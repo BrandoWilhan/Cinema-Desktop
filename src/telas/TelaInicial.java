@@ -41,6 +41,7 @@ public class TelaInicial extends javax.swing.JFrame {
     
     
     public TelaInicial(Lanche telaLanche, Carrinho telaCarrinho, Ingresso telaIngresso, Cadastro telaCadastro, Login telaLogin, Pagamento telaPagamento, Assentos telaAssento1,Assentos telaAssento2,Assentos telaAssento3,Assentos telaAssento4,Assentos telaAssento5,Assentos telaAssento6) {
+   
         initComponents();
         this.telaLanche = telaLanche;
         this.telaCarrinho = telaCarrinho;
@@ -60,23 +61,14 @@ public class TelaInicial extends javax.swing.JFrame {
     
     
     
-//    public TelaInicial(Lanche telaLanche, Ingresso telaIngresso, Cadastro telaCadastro,
-//            Login telaLogin, Pagamento telaPagamento, ArrayList<Assentos> telasAssentos) {
-//        initComponents();
-//        this.telaLanche = telaLanche;
-//        this.telaIngresso = telaIngresso;
-//        this.telaCadastro = telaCadastro;
-//        this.telaLogin = telaLogin;
-//        this.telaPagamento = telaPagamento;
-//        this.telasAssentos = telasAssentos;
-//    }
+
     
     
     
-//    public TelaInicial() {
-//        initComponents();
-//     
-//    }
+    public TelaInicial() {
+        initComponents();
+     
+    }
 
     public Lanche getTelaLanche() {
         return telaLanche;
@@ -326,6 +318,7 @@ public class TelaInicial extends javax.swing.JFrame {
                 Cadastro telaCadastro = new Cadastro();
                 Login telaLogin = new Login();
                 Pagamento telaPagamento = new Pagamento();
+
                 Assentos telasAssentos1 = new Assentos();
                 Assentos telasAssentos2 = new Assentos();
                 Assentos telasAssentos3 = new Assentos();
@@ -335,7 +328,7 @@ public class TelaInicial extends javax.swing.JFrame {
                 //ArrayList<Assentos> telasAssentos = new ArrayList<>(6);
                 //System.out.println(telasAssentos);
                 new TelaInicial(telaLanche, telaCarrinho, telaIngresso, telaCadastro, telaLogin, telaPagamento, telasAssentos1,telasAssentos2,telasAssentos3,telasAssentos4,telasAssentos5,telasAssentos6).setVisible(true);
-                
+
                 
                 
                 

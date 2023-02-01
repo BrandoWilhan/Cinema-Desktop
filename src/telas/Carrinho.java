@@ -4,25 +4,13 @@ package telas;
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
 import cinema_cliente.Compra;
-import cinema_cliente.Ingresso;
-import cinema_cliente.Lanche;
-import cinema_cliente.Pipoca;
-import cinema_cliente.Bebida;
-import cinema_cliente.Chocolate;
-/**
- *
- * @author mugen
- */
+import cinema_cliente.LancheItens;
+ // @author mugen
+
 public class Carrinho extends javax.swing.JFrame {
 
-    private Compra compra = new Compra(0, 1, "31/01/2023");
-    private Ingresso ingresso = new Ingresso(455, true, 50.0d, 18.0f);
-    private Pipoca pipoca = new Pipoca('m', 0, 1, 0);
-    private Bebida bebida = new Bebida('r', 'm',"guaraná", 0, 1, 0);
-    private Chocolate chocolate = new Chocolate("chocolate", 1);
-    private Lanche lanche = new Lanche(pipoca, bebida, chocolate);
     public TelaInicial telaInicial;
-    
+    private Compra compra = new Compra();
 
     public TelaInicial getTelaInicial() {
         return telaInicial;
@@ -205,30 +193,34 @@ public class Carrinho extends javax.swing.JFrame {
         DefaultTableModel modelo1 = new DefaultTableModel(new Object[] {"ID item", "Ingresso"}, 0);
         DefaultTableModel modelo2 = new DefaultTableModel(new Object[] {"Pipoca", "Bebida", "Chocolate"}, 0);
         
-        compra.setIngresso(ingresso);
-        compra.setLanche(lanche);
-        for (int i = 0; i < compra.getIngressos().size(); i++) {
-            Object linha[] = new Object[]{compra.getIngresso(i).getId(),
-                compra.getIngresso(i).getValorIngresso()
-                };
-            modelo1.addRow(linha);
-        }
-        tableComprasIngresso.setModel(modelo1);
+        this.compra.setIngressos(new ArrayList<>());
+        this.compra.setLancheItens(new LancheItens());
+        this.compra.getLancheItens().setLanches(new ArrayList<>());
         
-        for (int i = 0; i < compra.getLanches().size(); i++) {
-            Object linha[] = new Object[]{"Pipoca: "    + compra.getLanches().get(i).getPipoca().getTamanho(),
-                                          "Bebida: "    + compra.getLanches().get(i).getBebida().getTamanho(), 
-                                          "Chocolate: " + compra.getLanches().get(i).getChocolate().getSabor()
-                };
-            modelo2.addRow(linha);
-        }
+        this.compra = this.telaInicial.getTelaLanche().compraLanche;
+        
+        if(!compra.getIngressos().isEmpty())
+            for (int i = 0; i < compra.getIngressos().size(); i++) {
+                Object linha[] = new Object[]{compra.getIngressos().get(i).getId(),
+                    compra.getIngressos().get(i).getValorIngresso()
+                    };
+                modelo1.addRow(linha);
+            }
+            tableComprasIngresso.setModel(modelo1);
+        
+        if(!compra.getLancheItens().getLanches().isEmpty())
+            for (int i = 0; i < compra.getLancheItens().getLanches().size(); i++) {
+                Object linha[] = new Object[]{"Pipoca: "    + compra.getLancheItens().getPipoca().getQuantidadeGnd() + '\n' + compra.getLancheItens().getPipoca().getQuantidadeMed() + '\n' + compra.getLancheItens().getPipoca().getQuantidadePeq(),
+                                              "Bebida: "    + compra.getLancheItens().getBebida().getQuantidadeGnd() + '\n' + compra.getLancheItens().getBebida().getQuantidadeMed() + '\n' + compra.getLancheItens().getBebida().getQuantidadePeq(), 
+                                              "Chocolate: " + compra.getLancheItens().getChocolate().getQuantidadeLeite() + '\n' + compra.getLancheItens().getChocolate().getQuantidadeMeioAmargo()
+                    };
+                modelo2.addRow(linha);
+            }
         tableComprasLanche.setModel(modelo2);
         
     }
     
-    public void carregarInformacoes() {
-        
-    }
+    
     
     
     public static void main(String args[]) {

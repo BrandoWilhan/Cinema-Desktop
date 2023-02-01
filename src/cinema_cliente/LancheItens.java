@@ -24,6 +24,10 @@ public class LancheItens {
         this.chocolate = chocolate;
     }
     
+    public LancheItens() {
+        
+    }
+    
     public LancheItens(ArrayList<ModeloLanches> lanches) {
         this.lanches = lanches;
     }
@@ -35,9 +39,7 @@ public class LancheItens {
     public void setLanches(ArrayList<ModeloLanches> lanches) {
         this.lanches = lanches;
     }
-    
-
-    
+   
     
     public float getPrecoTotal() {
         return precoTotal;
