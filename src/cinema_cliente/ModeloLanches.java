@@ -10,7 +10,7 @@ package cinema_cliente;
  */
 public class ModeloLanches {
     float precoPeq, precoMed, precoGnd;
-    int quantidadePeq, quantidadeMed, quantidadeGnd;
+    int quantidadePeq, quantidadeMed, quantidadeGnd, quantidadeLeite, quantidadeMeioAmargo;
 
     
     public ModeloLanches(int quantidadePeq, int quantidadeMed, int quantidadeGnd){
@@ -19,8 +19,9 @@ public class ModeloLanches {
         this.quantidadeGnd = quantidadeGnd;
     }
     
-    public ModeloLanches(int quantidadePeq){
-        this.quantidadePeq = quantidadePeq;
+    public ModeloLanches(int quantidadeLeite, int quantidadeMeioAmargo){
+        this.quantidadeLeite = quantidadeLeite;
+        this.quantidadeMeioAmargo = quantidadeMeioAmargo;
 //        this.quantidadeMed = 0;
 //        this.quantidadeGnd = 0;
 //        this.precoGnd = 0;
