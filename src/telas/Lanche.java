@@ -19,7 +19,7 @@ public class Lanche extends javax.swing.JFrame {
     /**
      * Creates new form lanche
      */
-    
+    Compra compraLanche;
     TelaInicial telaInicial;
     Carrinho telaCarrinho;
     
@@ -570,6 +570,7 @@ public class Lanche extends javax.swing.JFrame {
         Compra compra = new Compra();
         telaCarrinho = telaInicial.getTelaCarrinho();
         compra.setLancheItens(lancheItens);
+        this.compraLanche = compra;
         telaCarrinho.setTelaInicial(telaInicial);
         telaCarrinho.setVisible(true);
         setVisible(false);

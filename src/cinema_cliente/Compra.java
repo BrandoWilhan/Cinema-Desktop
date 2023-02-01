@@ -2,7 +2,7 @@ package cinema_cliente;
 
 
 import java.util.ArrayList;
-import java.util.Date;
+
 
 
 // @author mugen
@@ -12,65 +12,22 @@ public class Compra {
     private float valorTotal;
     private String data;
     ArrayList<Ingresso> ingressos;
-    ArrayList<LancheItens> lanches;
     LancheItens lancheItens;
+
+
+    public Compra() {
+    }
 
     public Compra(int idCompra, float valorTotal, String data) {
         this.idCompra = idCompra;
         this.valorTotal = valorTotal;
         this.data = data;
-        this.lanches = new ArrayList<LancheItens>();
-        this.ingressos = new ArrayList<Ingresso>();
-       
-    }
-    
-
-    public LancheItens getLancheItens() {
-        return lancheItens;
-    }
-
-    public void setLancheItens(LancheItens lancheItens) {
+        this.ingressos = ingressos;
         this.lancheItens = lancheItens;
     }
     
-
     
-    public Compra(){
-        
-    }
-
-    public ArrayList<Ingresso> getIngressos() {
-        return ingressos;
-    }
-
-    public void setIngressos(ArrayList<Ingresso> ingressos) {
-        this.ingressos = ingressos;
-    }
-
-    public ArrayList<LancheItens> getLanches() {
-        return lanches;
-    }
-
-    public void setLanches(ArrayList<LancheItens> lanches) {
-        this.lanches = lanches;
-    }
     
-    public Ingresso getIngresso(int index) {
-        return ingressos.get(index);
-    }
-
-    public void setIngresso(Ingresso ingresso) {
-        this.ingressos.add(ingresso);    
-    }
-
-    public LancheItens getLanche(int index) {
-        return lanches.get(index);
-    }
-
-    public void setLanche(LancheItens lanche) {
-        this.lanches.add(lanche);
-    }
-
     public int getIdCompra() {
         return idCompra;
     }
@@ -94,6 +51,25 @@ public class Compra {
     public void setData(String data) {
         this.data = data;
     }
+
+    public ArrayList<Ingresso> getIngressos() {
+        return ingressos;
+    }
+
+    public void setIngressos(ArrayList<Ingresso> ingressos) {
+        this.ingressos = ingressos;
+    }
+
+    public LancheItens getLancheItens() {
+        return lancheItens;
+    }
+
+    public void setLancheItens(LancheItens lancheItens) {
+        this.lancheItens = lancheItens;
+    }
+    
+
+    
         
     public void calcularValorTotal() {
         
