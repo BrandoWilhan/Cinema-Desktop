@@ -211,6 +211,7 @@ public class TelaInicial extends javax.swing.JFrame {
         // TODO add your handling code here:
         setVisible(false);
         telaLogin.setTelaCadastro(telaCadastro);
+        
         telaLogin.setTelaInicial(this);
         telaLogin.setVisible(true);
     }//GEN-LAST:event_btnLoginActionPerformed

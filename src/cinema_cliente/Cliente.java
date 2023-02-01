@@ -8,23 +8,22 @@ public class Cliente {
 //    private boolean estudante;
     private String nome;
     private String cpfCliente;
-    private short idade;
+    private String dataNascimento;
     // cartao
     ArrayList<Cartao> cartoes;
 
-    public Cliente(String nome, String cpfCliente, short idade, ArrayList<Cartao> cartoes) {
+    public Cliente(String nome, String cpfCliente, String dataNascimento, ArrayList<Cartao> cartoes) {
         this.nome = nome;
         this.cpfCliente = cpfCliente;
-        this.idade = idade;
+        this.dataNascimento = dataNascimento;
         this.cartoes = cartoes;
     }
 
-    public Cliente(String nome, String cpfCliente, short idade) {
+    public Cliente(String nome, String cpfCliente, String dataNascimento) {
         this.nome = nome;
         this.cpfCliente = cpfCliente;
-        this.idade = idade;
+        this.dataNascimento = dataNascimento;
     }
-
 
     public Cliente() {
     }
@@ -45,12 +44,12 @@ public class Cliente {
         this.cpfCliente = cpfCliente;
     }
 
-    public short getIdade() {
-        return idade;
+    public String getDataNascimento() {
+        return dataNascimento;
     }
 
     public void setIdade(short idade) {
-        this.idade = idade;
+        this.dataNascimento = dataNascimento;
     }
 
     public ArrayList<Cartao> getCartoes() {
@@ -61,6 +60,9 @@ public class Cliente {
         this.cartoes = cartoes;
     }
 
+    
+    
+    
     
     
 }
