@@ -204,7 +204,7 @@ public class TelaInicial extends javax.swing.JFrame {
     private void btnCarrinhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarrinhoActionPerformed
         // Metódo para abrir a tela Carrinho ao apertar o botão da Tela Inicial
         
-//        telaCarrinho.setTelaInicial(this);
+        telaCarrinho.setTelaInicial(this);
         telaCarrinho.setVisible(true);
         setVisible(false);
         
