@@ -4,7 +4,10 @@
  */
 package telas;
 
+import cinema_cliente.Compra;
+import cinema_cliente.Ticket;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.JToggleButton;
 
 /**
@@ -17,21 +20,30 @@ public class Assentos extends javax.swing.JFrame {
      * Creates new form Assentosframe
      */
     
+    Ingresso telaIngresso;
+    Assentos telaAssento;
+    TelaInicial telaInicial;
+    Carrinho telaCarrinho;
+    Ticket ingresso;
+    
+    int quantidadeTotal = ingresso.getQuantidadeInteira()+ingresso.getQuantidadeMeia();
+
+    public Assentos(Ticket ingresso) {
+         initComponents();
+        this.ingresso = ingresso;
+    }
+    
     public Assentos() {
-        initComponents();
+         initComponents();
     }
-
-    public Assentos(int quantidadeTotal) {
-        this.quantidadeTotal = quantidadeTotal;
-    }
-
-    public int getQuantidadeTotal() {
-        return quantidadeTotal;
-    }
-    
 
     
-    private int quantidadeTotal;
+    public void setTelaInicial(TelaInicial telaInicial) {
+        this.telaInicial = telaInicial;
+    }
+    
+    
+    
     
     ArrayList<JToggleButton> buttons = new ArrayList<>();
     ArrayList<String> selecionados = new ArrayList<>();
@@ -66,6 +78,15 @@ public class Assentos extends javax.swing.JFrame {
         //if(button.isEnabled() == false)
     //}
     
+    public int contarSelecionados(ArrayList<JToggleButton> buttons){
+        int i = 0;
+        for (int j = 0; j < 22; j++) {
+         if(buttons.get(j).isSelected()){
+          i = i+1;  
+         }
+        }
+        return i;
+    }
     public void desativarSelecionados(JToggleButton buttons){
         if(buttons.isSelected()){
             buttons.setEnabled(false);
@@ -398,7 +419,9 @@ public class Assentos extends javax.swing.JFrame {
 
     private void bttnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnVoltarActionPerformed
         // TODO add your handling code here:
-        
+        //telaIngresso = telaInicial.telaIngresso;
+        //telaIngresso.setVisible(true);
+        setVisible(false);
     }//GEN-LAST:event_bttnVoltarActionPerformed
 
     private void bttC1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttC1ActionPerformed
@@ -409,11 +432,24 @@ public class Assentos extends javax.swing.JFrame {
         // TODO add your handling code here:
         adicionarList();
         selecionados.clear();
+        
         for (int i = 0; i < 22; i++) {
-            desativarSelecionados(buttons.get(i));
-            System.out.println(selecionados);
-            //System.out.println(quantidadeTotal);
+            int count = contarSelecionados(buttons);
+            if(count == quantidadeTotal){
+                desativarSelecionados(buttons.get(i));
+            } else{
+                JOptionPane.showMessageDialog(this, "Por favor selecione somente a quantidade de ingressos que comprou: " + quantidadeTotal, "Quantidade Inválida", JOptionPane.ERROR_MESSAGE);
+            }
         }
+        
+        Carrinho carrinho = new Carrinho();
+        carrinho.setVisible(true);
+        //telaCarrinho = telaInicial.getTelaCarrinho();
+        //compra.setIngressos(ingresso);
+        //telaCarrinho.setTelaInicial(telaInicial);
+        //telaCarrinho.setVisible(true);
+        setVisible(false);
+        
 
     }//GEN-LAST:event_bttnConfirmar1ActionPerformed
 

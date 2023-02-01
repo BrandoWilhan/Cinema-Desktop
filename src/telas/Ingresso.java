@@ -19,6 +19,8 @@ public class Ingresso extends javax.swing.JFrame
      * Creates new form Ingresso
      */
     TelaInicial telaInicial;
+    Ingresso telaIngresso;
+    Assentos telaAssento;
 
     public Ingresso()
     {
@@ -26,7 +28,7 @@ public class Ingresso extends javax.swing.JFrame
         populateTable();
     }
 
-        public TelaInicial getTelaInicial() {
+    public TelaInicial getTelaInicial() {
         return telaInicial;
     }
 
@@ -294,6 +296,55 @@ public class Ingresso extends javax.swing.JFrame
         } else {
             //instância do ingresso
             Ticket ingresso = new Ticket(ingressoInteira, ingressoMeia, quantidadeTotal, filmeSelecionado);
+            
+            Assentos telaAssentox1 = new Assentos(ingresso);
+            Assentos telaAssentox2 = new Assentos(ingresso);
+            Assentos telaAssentox3 = new Assentos(ingresso);
+            Assentos telaAssentox4 = new Assentos(ingresso);
+            Assentos telaAssentox5 = new Assentos(ingresso);
+            Assentos telaAssentox6 = new Assentos(ingresso);
+            
+            if(filmeSelecionadoaux == 0){
+                telaAssentox1.setVisible(true);
+                //telaInicial.telasAssento1.setVisible(true);
+                //telaIngresso.setTelaInicial(telaInicial);
+                //setVisible(false);
+            }
+            
+            if(filmeSelecionadoaux == 1){
+                telaAssentox2.setVisible(true);
+                //telaInicial.telasAssento1.setVisible(true);
+                //telaIngresso.setTelaInicial(telaInicial);
+                //setVisible(false);
+            }
+            
+            if(filmeSelecionadoaux == 2){
+                telaAssentox3.setVisible(true);
+                //telaInicial.telasAssento1.setVisible(true);
+                //telaIngresso.setTelaInicial(telaInicial);
+                //setVisible(false);
+            }
+            
+            if(filmeSelecionadoaux == 3){
+                telaAssentox4.setVisible(true);
+                //telaInicial.telasAssento1.setVisible(true);
+                //telaIngresso.setTelaInicial(telaInicial);
+                //setVisible(false);
+            }
+            
+            if(filmeSelecionadoaux == 4){
+                telaAssentox5.setVisible(true);
+                //telaInicial.telasAssento1.setVisible(true);
+                //telaIngresso.setTelaInicial(telaInicial);
+                //setVisible(false);
+            }
+            
+            if(filmeSelecionadoaux == 5){
+                telaAssentox6.setVisible(true);
+                //telaInicial.telasAssento1.setVisible(true);
+                //telaIngresso.setTelaInicial(telaInicial);
+                //setVisible(false);
+            }
         }
             
  
@@ -352,6 +403,7 @@ public class Ingresso extends javax.swing.JFrame
             public void run()
             {
                 new Ingresso().setVisible(true);
+                
             }
         });
     }
