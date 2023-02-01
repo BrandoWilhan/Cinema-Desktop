@@ -3,6 +3,7 @@ package telas;
 
 import cinema_cliente.Bebida;
 import cinema_cliente.Chocolate;
+import cinema_cliente.Compra;
 import cinema_cliente.LancheItens;
 import cinema_cliente.ModeloLanches;
 import cinema_cliente.Pipoca;
@@ -21,7 +22,7 @@ public class Lanche extends javax.swing.JFrame {
     
     TelaInicial telaInicial;
     Carrinho telaCarrinho;
-    ArrayList<JSpinner> spinners = new ArrayList<>();
+    
     
 //    private javax.swing.JSpinner spnChocAmarg;
 //    private javax.swing.JSpinner spnChocLeite;
@@ -518,10 +519,7 @@ public class Lanche extends javax.swing.JFrame {
     
     private void btnConfirmarLancheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarLancheActionPerformed
         // TODO add your handling code here:
-        telaCarrinho.setTelaInicial(telaInicial);
-        telaCarrinho.setVisible(true);
-        setVisible(false);
-        
+       
         
         
         
@@ -569,8 +567,12 @@ public class Lanche extends javax.swing.JFrame {
         
         
         LancheItens lancheItens = new LancheItens(lanches);
-        
-        
+        Compra compra = new Compra();
+        telaCarrinho = telaInicial.getTelaCarrinho();
+        compra.setLancheItens(lancheItens);
+        telaCarrinho.setTelaInicial(telaInicial);
+        telaCarrinho.setVisible(true);
+        setVisible(false);
         
         
 
