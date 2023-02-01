@@ -11,22 +11,26 @@ public class Compra {
     private int idCompra;
     private float valorTotal;
     private String data;
-    ArrayList<Ingresso> ingressos;
+    ArrayList<Ticket> ingressos;
     ArrayList<LancheItens> lanches;
 
+    public Compra() {
+    }
+
+    
     public Compra(int idCompra, float valorTotal, String data) {
         this.idCompra = idCompra;
         this.valorTotal = valorTotal;
         this.data = data;
         this.lanches = new ArrayList<LancheItens>();
-        this.ingressos = new ArrayList<Ingresso>();
+        this.ingressos = new ArrayList<Ticket>();
     }
 
-    public ArrayList<Ingresso> getIngressos() {
+    public ArrayList<Ticket> getIngressos() {
         return ingressos;
     }
 
-    public void setIngressos(ArrayList<Ingresso> ingressos) {
+    public void setIngressos(ArrayList<Ticket> ingressos) {
         this.ingressos = ingressos;
     }
 
@@ -38,11 +42,11 @@ public class Compra {
         this.lanches = lanches;
     }
     
-    public Ingresso getIngresso(int index) {
+    public Ticket getIngresso(int index) {
         return ingressos.get(index);
     }
 
-    public void setIngresso(Ingresso ingresso) {
+    public void setIngresso(Ticket ingresso) {
         this.ingressos.add(ingresso);    
     }
 
