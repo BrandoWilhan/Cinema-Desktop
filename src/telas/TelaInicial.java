@@ -24,12 +24,24 @@ public class TelaInicial extends javax.swing.JFrame {
     Login telaLogin;
     Pagamento telaPagamento;
 //    Assentos telaAssento;
-    ArrayList<Assentos> telasAssentos = new ArrayList<>(6);
+    Assentos telasAssento1,telasAssento2,telasAssento3,telasAssento4,telasAssento5,telasAssento6;
+    
+    //ArrayList<Assentos> telasAssentos = new ArrayList<>(6);
+    
+    //public void PopularTelasAssentos(){
+        //telasAssentos.add(telaAssento1);
+        //telasAssentos.add(telaAssento2);
+        //telasAssentos.add(telaAssento3);
+        //telasAssentos.add(telaAssento4);
+        //telasAssentos.add(telaAssento5);
+        //telasAssentos.add(telaAssento6);
+    //}
     
     
     
     
-    public TelaInicial(Lanche telaLanche, Carrinho telaCarrinho, Ingresso telaIngresso, Cadastro telaCadastro, Login telaLogin, Pagamento telaPagamento, ArrayList<Assentos> telasAssentos) {
+    public TelaInicial(Lanche telaLanche, Carrinho telaCarrinho, Ingresso telaIngresso, Cadastro telaCadastro, Login telaLogin, Pagamento telaPagamento, Assentos telaAssento1,Assentos telaAssento2,Assentos telaAssento3,Assentos telaAssento4,Assentos telaAssento5,Assentos telaAssento6) {
+   
         initComponents();
         this.telaLanche = telaLanche;
         this.telaCarrinho = telaCarrinho;
@@ -37,21 +49,19 @@ public class TelaInicial extends javax.swing.JFrame {
         this.telaCadastro = telaCadastro;
         this.telaLogin = telaLogin;
         this.telaPagamento = telaPagamento;
-        this.telasAssentos = telasAssentos;
+        this.telasAssento1 = telaAssento1;
+        this.telasAssento2 = telaAssento2;
+        this.telasAssento3 = telaAssento3;
+        this.telasAssento4 = telaAssento4;
+        this.telasAssento5 = telaAssento5;
+        this.telasAssento6 = telaAssento6;
+        //this.telasAssentos = telasAssentos;
+        //PopularTelasAssentos();
     }
     
     
     
-//    public TelaInicial(Lanche telaLanche, Ingresso telaIngresso, Cadastro telaCadastro,
-//            Login telaLogin, Pagamento telaPagamento, ArrayList<Assentos> telasAssentos) {
-//        initComponents();
-//        this.telaLanche = telaLanche;
-//        this.telaIngresso = telaIngresso;
-//        this.telaCadastro = telaCadastro;
-//        this.telaLogin = telaLogin;
-//        this.telaPagamento = telaPagamento;
-//        this.telasAssentos = telasAssentos;
-//    }
+
     
     
     
@@ -83,6 +93,38 @@ public class TelaInicial extends javax.swing.JFrame {
     public void setTelaIngresso(Ingresso telaIngresso) {
         this.telaIngresso = telaIngresso;
     }
+
+    public Assentos getTelasAssento1() {
+        return telasAssento1;
+    }
+
+    public Assentos getTelasAssento2() {
+        return telasAssento2;
+    }
+
+    public Assentos getTelasAssento3() {
+        return telasAssento3;
+    }
+
+    public Assentos getTelasAssento4() {
+        return telasAssento4;
+    }
+
+    public Assentos getTelasAssento5() {
+        return telasAssento5;
+    }
+
+    public Assentos getTelasAssento6() {
+        return telasAssento6;
+    }
+    
+    
+
+    //public ArrayList<Assentos> getTelasAssentos() {
+        //return telasAssentos;
+    //}
+    
+    
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -196,6 +238,7 @@ public class TelaInicial extends javax.swing.JFrame {
     private void btnIngressosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngressosActionPerformed
         // TODO add your handling code here:
 //        telaIngresso.setTelaInicial(this);
+        telaIngresso.setTelaInicial(this);
         telaIngresso.setVisible(true);
         setVisible(false);        
         
@@ -275,8 +318,17 @@ public class TelaInicial extends javax.swing.JFrame {
                 Cadastro telaCadastro = new Cadastro();
                 Login telaLogin = new Login();
                 Pagamento telaPagamento = new Pagamento();
-                ArrayList<Assentos> telasAssentos = new ArrayList<>(6);
-                new TelaInicial(telaLanche, telaCarrinho, telaIngresso, telaCadastro, telaLogin, telaPagamento, telasAssentos).setVisible(true);
+
+                Assentos telasAssentos1 = new Assentos();
+                Assentos telasAssentos2 = new Assentos();
+                Assentos telasAssentos3 = new Assentos();
+                Assentos telasAssentos4 = new Assentos();
+                Assentos telasAssentos5 = new Assentos();
+                Assentos telasAssentos6 = new Assentos();
+                //ArrayList<Assentos> telasAssentos = new ArrayList<>(6);
+                //System.out.println(telasAssentos);
+                new TelaInicial(telaLanche, telaCarrinho, telaIngresso, telaCadastro, telaLogin, telaPagamento, telasAssentos1,telasAssentos2,telasAssentos3,telasAssentos4,telasAssentos5,telasAssentos6).setVisible(true);
+
                 
                 
                 

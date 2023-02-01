@@ -4,22 +4,102 @@
  */
 package telas;
 
+import cinema_cliente.Compra;
+import cinema_cliente.Ticket;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.JToggleButton;
+
 /**
  *
  * @author joaou
  */
 public class Assentos extends javax.swing.JFrame {
 
-    private Object telaIngresso;
-
     /**
      * Creates new form Assentosframe
      */
     
+    Ingresso telaIngresso;
+    Assentos telaAssento;
+    TelaInicial telaInicial;
+    Carrinho telaCarrinho;
+    Ticket ingresso;
+    
+    int quantidadeTotal = ingresso.getQuantidadeInteira()+ingresso.getQuantidadeMeia();
+
+    public Assentos(Ticket ingresso) {
+         initComponents();
+        this.ingresso = ingresso;
+    }
     
     public Assentos() {
-        initComponents();
+         initComponents();
     }
+
+    
+    public void setTelaInicial(TelaInicial telaInicial) {
+        this.telaInicial = telaInicial;
+    }
+    
+    
+    
+    
+    ArrayList<JToggleButton> buttons = new ArrayList<>();
+    ArrayList<String> selecionados = new ArrayList<>();
+    //ArrayList<String> ocupados = new ArrayList<>();
+    
+    public void adicionarList(){
+        buttons.add(bttnA1);
+        buttons.add(bttnA2);
+        buttons.add(bttnA3);
+        buttons.add(bttnA4);
+        buttons.add(bttnA5);
+        buttons.add(bttnA6);
+        buttons.add(bttnB1);
+        buttons.add(bttnB2);
+        buttons.add(bttnB3);
+        buttons.add(bttnB4);
+        buttons.add(bttnB5);
+        buttons.add(bttnB6);
+        buttons.add(bttC1);
+        buttons.add(bttC2);
+        buttons.add(bttC3);
+        buttons.add(bttC4);
+        buttons.add(bttC5);
+        buttons.add(bttC6);
+        buttons.add(bttD1);
+        buttons.add(bttD2);
+        buttons.add(bttD3);
+        buttons.add(bttD4);
+    }
+    
+    //public void adicionarOcupados(JToggleButton button){
+        //if(button.isEnabled() == false)
+    //}
+    
+    public int contarSelecionados(ArrayList<JToggleButton> buttons){
+        int i = 0;
+        for (int j = 0; j < 22; j++) {
+         if(buttons.get(j).isSelected()){
+          i = i+1;  
+         }
+        }
+        return i;
+    }
+    public void desativarSelecionados(JToggleButton buttons){
+        if(buttons.isSelected()){
+            buttons.setEnabled(false);
+            buttons.setSelected(false);
+            selecionados.add(buttons.getText());
+        }
+    }
+
+    public ArrayList<String> getSelecionados() {
+        return selecionados;
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -74,9 +154,19 @@ public class Assentos extends javax.swing.JFrame {
 
         bttnCancelar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         bttnCancelar.setText("Cancelar");
+        bttnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnCancelarActionPerformed(evt);
+            }
+        });
 
         bttnConfirmar1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         bttnConfirmar1.setText("Confirmar");
+        bttnConfirmar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnConfirmar1ActionPerformed(evt);
+            }
+        });
 
         bttC5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/chair_seat_furniture_icon_209747.png"))); // NOI18N
         bttC5.setText("C5");
@@ -303,6 +393,7 @@ public class Assentos extends javax.swing.JFrame {
 
     private void bttD1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttD1ActionPerformed
         // TODO add your handling code here:
+
     }//GEN-LAST:event_bttD1ActionPerformed
 
     private void bttD2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttD2ActionPerformed
@@ -317,10 +408,6 @@ public class Assentos extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_bttD4ActionPerformed
 
-    private void bttC1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttC1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bttC1ActionPerformed
-
     private void bttnA1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnA1ActionPerformed
         // TODO add your handling code here:
         
@@ -332,7 +419,49 @@ public class Assentos extends javax.swing.JFrame {
 
     private void bttnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnVoltarActionPerformed
         // TODO add your handling code here:
+        //telaIngresso = telaInicial.telaIngresso;
+        //telaIngresso.setVisible(true);
+        setVisible(false);
     }//GEN-LAST:event_bttnVoltarActionPerformed
+
+    private void bttC1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttC1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bttC1ActionPerformed
+
+    private void bttnConfirmar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnConfirmar1ActionPerformed
+        // TODO add your handling code here:
+        adicionarList();
+        selecionados.clear();
+        
+        for (int i = 0; i < 22; i++) {
+            int count = contarSelecionados(buttons);
+            if(count == quantidadeTotal){
+                desativarSelecionados(buttons.get(i));
+            } else{
+                JOptionPane.showMessageDialog(this, "Por favor selecione somente a quantidade de ingressos que comprou: " + quantidadeTotal, "Quantidade Inválida", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+        
+        Carrinho carrinho = new Carrinho();
+        carrinho.setVisible(true);
+        //telaCarrinho = telaInicial.getTelaCarrinho();
+        //compra.setIngressos(ingresso);
+        //telaCarrinho.setTelaInicial(telaInicial);
+        //telaCarrinho.setVisible(true);
+        setVisible(false);
+        
+
+    }//GEN-LAST:event_bttnConfirmar1ActionPerformed
+
+    private void bttnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnCancelarActionPerformed
+        // TODO add your handling code here:
+        adicionarList();
+        for (int i = 0; i < 22; i++) {
+            if(buttons.get(i).isSelected() || selecionados.contains(buttons.get(i).getText())){
+                buttons.get(i).setSelected(false);
+            }
+        }
+    }//GEN-LAST:event_bttnCancelarActionPerformed
 
     /**
      * @param args the command line arguments
