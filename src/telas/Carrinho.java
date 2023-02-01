@@ -5,10 +5,13 @@ import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
 import cinema_cliente.Compra;
 import cinema_cliente.Ingresso;
-import cinema_cliente.Lanche;
+
+
+import cinema_cliente.LancheItens;
 import cinema_cliente.Pipoca;
 import cinema_cliente.Bebida;
 import cinema_cliente.Chocolate;
+
 /**
  *
  * @author mugen
@@ -17,11 +20,15 @@ public class Carrinho extends javax.swing.JFrame {
 
     private Compra compra = new Compra(0, 1, "31/01/2023");
     private Ingresso ingresso = new Ingresso(455, true, 50.0d, 18.0f);
+
+    private TelaInicial telaInicial;
+
     private Pipoca pipoca = new Pipoca('m', 0, 1, 0);
     private Bebida bebida = new Bebida('r', 'm',"guaraná", 0, 1, 0);
     private Chocolate chocolate = new Chocolate("chocolate", 1);
-    private Lanche lanche = new Lanche(pipoca, bebida, chocolate);
+    private LancheItens lanche = new LancheItens(pipoca, bebida, chocolate);
     public TelaInicial telaInicial;
+
     
 
     public TelaInicial getTelaInicial() {
