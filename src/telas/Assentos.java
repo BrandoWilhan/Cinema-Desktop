@@ -438,19 +438,16 @@ public class Assentos extends javax.swing.JFrame {
             int count = contarSelecionados(buttons);
             if(count == quantidadeTotal){
                 desativarSelecionados(buttons.get(i));
+                telaCarrinho = telaInicial.getTelaCarrinho();
+                telaCarrinho.setTelaInicial(telaInicial);
+                telaCarrinho.setVisible(true);
+                setVisible(false);
                 break;
             } else{
                 JOptionPane.showMessageDialog(this, "Por favor selecione somente a quantidade de ingressos que comprou: " + quantidadeTotal, "Quantidade Inválida", JOptionPane.ERROR_MESSAGE);
                 break;
             }
         }
-        
-        
-        telaCarrinho = telaInicial.getTelaCarrinho();
-        //compra.setIngressos(ingresso);
-        telaCarrinho.setTelaInicial(telaInicial);
-        telaCarrinho.setVisible(true);
-        setVisible(false);
         
 
     }//GEN-LAST:event_bttnConfirmar1ActionPerformed
