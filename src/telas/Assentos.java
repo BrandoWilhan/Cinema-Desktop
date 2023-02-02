@@ -438,8 +438,10 @@ public class Assentos extends javax.swing.JFrame {
             int count = contarSelecionados(buttons);
             if(count == quantidadeTotal){
                 desativarSelecionados(buttons.get(i));
+                break;
             } else{
                 JOptionPane.showMessageDialog(this, "Por favor selecione somente a quantidade de ingressos que comprou: " + quantidadeTotal, "Quantidade Inválida", JOptionPane.ERROR_MESSAGE);
+                break;
             }
         }
         

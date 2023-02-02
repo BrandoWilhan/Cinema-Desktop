@@ -26,6 +26,14 @@ public class Ticket {
         this.quantidadeTotal = quantidadeTotal;
         this.filme = filme;
     }
+
+    public int getQuantidadeTotal() {
+        return quantidadeTotal;
+    }
+
+    public void setQuantidadeTotal(int quantidadeTotal) {
+        this.quantidadeTotal = quantidadeTotal;
+    }
     
     
 
