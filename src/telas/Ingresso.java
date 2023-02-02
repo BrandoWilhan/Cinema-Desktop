@@ -1,9 +1,11 @@
 
 package telas;
 
+import cinema_cliente.Compra;
 import cinema_cliente.Filme;
 import cinema_cliente.Sala;
 import cinema_cliente.Ticket;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
@@ -21,7 +23,9 @@ public class Ingresso extends javax.swing.JFrame
     TelaInicial telaInicial;
     Ingresso telaIngresso;
     Assentos telaAssento;
-
+    Ticket ingresso;
+    Compra compraIngresso = new Compra();
+    
     public Ingresso()
     {
         initComponents();
@@ -32,8 +36,24 @@ public class Ingresso extends javax.swing.JFrame
         return telaInicial;
     }
 
+    public Ticket getIngresso() {
+        return ingresso;
+    }
+
+    public void setIngresso(Ticket ingresso) {
+        this.ingresso = ingresso;
+    }
+
     public void setTelaInicial(TelaInicial telaInicial) {
         this.telaInicial = telaInicial;
+    }
+
+    public Compra getCompraIngresso() {
+        return compraIngresso;
+    }
+
+    public void setCompraIngresso(Compra compraIngresso) {
+        this.compraIngresso = compraIngresso;
     }
     
     Sala sala1 = new Sala("1");
@@ -295,7 +315,15 @@ public class Ingresso extends javax.swing.JFrame
             JOptionPane.showMessageDialog(this, "Por favor, selecione um Filme e uma quantidade de Ingressos", "Nenhum Filme Selecionado", JOptionPane.ERROR_MESSAGE);
         } else {
             //instância do ingresso
-            Ticket ingresso = new Ticket(ingressoInteira, ingressoMeia, quantidadeTotal, filmeSelecionado);
+//            Ticket ingresso = new Ticket(ingressoInteira, ingressoMeia, quantidadeTotal, filmeSelecionado);
+            ingresso = new Ticket();
+            ingresso.setQuantidadeInteira(ingressoInteira);
+            ingresso.setQuantidadeMeia(ingressoMeia);
+            ingresso.setQuantidadeTotal(quantidadeTotal);
+            ingresso.setFilme(filmeSelecionado);
+            
+            ArrayList<Ticket> ingressoArrayList = new ArrayList<>();
+            ingressoArrayList.add(ingresso);
             
             Assentos telaAssentox1 = new Assentos(ingresso);
             telaAssentox1.setTelaInicial(telaInicial);
@@ -309,6 +337,8 @@ public class Ingresso extends javax.swing.JFrame
             telaAssentox5.setTelaInicial(telaInicial);
             Assentos telaAssentox6 = new Assentos(ingresso);
             telaAssentox6.setTelaInicial(telaInicial);
+            
+            compraIngresso.setIngressos(ingressoArrayList);
             
             if(filmeSelecionadoaux == 0){
                 telaAssentox1.setVisible(true);

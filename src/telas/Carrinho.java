@@ -11,7 +11,8 @@ import javax.swing.JOptionPane;
 public class Carrinho extends javax.swing.JFrame {
 
     private TelaInicial telaInicial;
-    private Compra compra = new Compra();
+    private Compra compraLanche;
+    private Compra compraIngressos;
 
     public TelaInicial getTelaInicial() {
         return telaInicial;
@@ -182,7 +183,7 @@ public class Carrinho extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarActionPerformed
-        if(this.compra.getValorTotal() > 0) {
+        if(this.compraLanche.getValorTotal()+compraIngressos.getValorTotal() > 0) {
             telaInicial.getTelaPagamento().setVisible(true);
             this.setVisible(false);
         }
@@ -213,29 +214,36 @@ public class Carrinho extends javax.swing.JFrame {
 //        
 //        this.compra = telaInicial.getTelaLanche().compraLanche;
         
-        compra = telaInicial.getTelaLanche().compraLanche;
+        compraLanche = telaInicial.getTelaLanche().compraLanche;
+        compraIngressos = telaInicial.getTelaIngresso().getCompraIngresso();
 //        
-        compra.setIngressos(new ArrayList<>());
-        compra.setLancheItens(new LancheItens());
-        compra.getLancheItens().setLanches(new ArrayList<>());
+//        compra.setIngressos(new ArrayList<>());
+//        compra.setLancheItens(new LancheItens());
+//        compra.getLancheItens().setLanches(new ArrayList<>());
 
-        
-            for (int i = 0; i < compra.getIngressos().size(); i++) {
-                Object linha[] = new Object[]{compra.getIngressos().get(i).getId(),
+        if(!compraIngressos.getIngressos().isEmpty()){
+            for (int i = 0; i < compraIngressos.getIngressos().size(); i++) {
+                Object linha[] = new Object[]{compraIngressos.getIngressos().get(i).getId(),
 
-                    compra.getIngressos().get(i).getFilme().getTitulo()
+                    compraIngressos.getIngressos().get(i).getFilme().getTitulo()
                     };
                 modelo1.addRow(linha);
             }
-            
-            for (int i = 0; i < compra.getLancheItens().getLanches().size(); i++) {
-                Object linha[] = new Object[]{"Pipoca: "    + compra.getLancheItens().getPipoca().getQuantidadeGnd() + '\n' + compra.getLancheItens().getPipoca().getQuantidadeMed() + '\n' + compra.getLancheItens().getPipoca().getQuantidadePeq(),
-                                              "Bebida: "    + compra.getLancheItens().getBebida().getQuantidadeGnd() + '\n' + compra.getLancheItens().getBebida().getQuantidadeMed() + '\n' + compra.getLancheItens().getBebida().getQuantidadePeq(), 
-                                              "Chocolate: " + compra.getLancheItens().getChocolate().getQuantidadeLeite() + '\n' + compra.getLancheItens().getChocolate().getQuantidadeMeioAmargo()
-                    };
-                modelo2.addRow(linha);
+        }
+        if(compraLanche != null){
+            if(!compraLanche.getLancheItens().getLanches().isEmpty()){
+                for (int i = 0; i < compraLanche.getLancheItens().getLanches().size(); i++) {
+                    Object linha[] = new Object[]{"Pipoca: "    + compraLanche.getLancheItens().getPipoca().getQuantidadeGnd() + '\n' + compraLanche.getLancheItens().getPipoca().getQuantidadeMed() + '\n' + compraLanche.getLancheItens().getPipoca().getQuantidadePeq(),
+                                                  "Bebida: "    + compraLanche.getLancheItens().getBebida().getQuantidadeGnd() + '\n' + compraLanche.getLancheItens().getBebida().getQuantidadeMed() + '\n' + compraLanche.getLancheItens().getBebida().getQuantidadePeq(), 
+                                                  "Chocolate: " + compraLanche.getLancheItens().getChocolate().getQuantidadeLeite() + '\n' + compraLanche.getLancheItens().getChocolate().getQuantidadeMeioAmargo()
+                        };
+                    modelo2.addRow(linha);
+                }
             }
         }
+            
+            
+        
             
         tableComprasIngresso.setModel(modelo1);
         tableComprasLanche.setModel(modelo2);

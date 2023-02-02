@@ -13,6 +13,7 @@ public class Compra {
     private String data;
     ArrayList<Ticket> ingressos;
     LancheItens lancheItens;
+    Ticket ingresso;
 
 
     public Compra() {
@@ -33,14 +34,23 @@ public class Compra {
     public void setIngressos(ArrayList<Ticket> ingressos) {
         this.ingressos = ingressos;
     }
-
     
-    public Ticket getIngresso(int index) {
+    
+    
+    public Ticket getIngressos(int index) {
         return ingressos.get(index);
     }
 
-    public void setIngresso(Ticket ingresso) {
+    public void setIngressos(Ticket ingresso) {
         this.ingressos.add(ingresso);    
+    }
+
+    public Ticket getIngresso() {
+        return ingresso;
+    }
+
+    public void setIngresso(Ticket ingresso) {
+        this.ingresso = ingresso;
     }
 
     public int getIdCompra() {
