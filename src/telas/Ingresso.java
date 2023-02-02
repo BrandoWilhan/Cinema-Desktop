@@ -298,11 +298,17 @@ public class Ingresso extends javax.swing.JFrame
             Ticket ingresso = new Ticket(ingressoInteira, ingressoMeia, quantidadeTotal, filmeSelecionado);
             
             Assentos telaAssentox1 = new Assentos(ingresso);
+            telaAssentox1.setTelaInicial(telaInicial);
             Assentos telaAssentox2 = new Assentos(ingresso);
+            telaAssentox2.setTelaInicial(telaInicial);
             Assentos telaAssentox3 = new Assentos(ingresso);
+            telaAssentox3.setTelaInicial(telaInicial);
             Assentos telaAssentox4 = new Assentos(ingresso);
+            telaAssentox4.setTelaInicial(telaInicial);
             Assentos telaAssentox5 = new Assentos(ingresso);
+            telaAssentox5.setTelaInicial(telaInicial);
             Assentos telaAssentox6 = new Assentos(ingresso);
+            telaAssentox6.setTelaInicial(telaInicial);
             
             if(filmeSelecionadoaux == 0){
                 telaAssentox1.setVisible(true);

@@ -24,6 +24,15 @@ public class TelaInicial extends javax.swing.JFrame {
     private Cadastro telaCadastro;
     private Login telaLogin;
     private Pagamento telaPagamento;
+    private boolean Logado = false;
+
+    public boolean isLogado() {
+        return Logado;
+    }
+
+    public void setLogado(boolean Logado) {
+        this.Logado = Logado;
+    }
 //    Assentos telaAssento;
     Assentos telasAssento1,telasAssento2,telasAssento3,telasAssento4,telasAssento5,telasAssento6;
     
