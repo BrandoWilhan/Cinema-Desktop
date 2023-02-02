@@ -4,6 +4,8 @@
  */
 package cinema_cliente;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 /**
@@ -13,10 +15,10 @@ import java.util.ArrayList;
 public class LancheItens {
     
     private float precoTotal;
-    Pipoca pipoca;
-    Bebida bebida;
-    Chocolate chocolate;
-    ArrayList<ModeloLanches> lanches;
+    private Pipoca pipoca;
+    private Bebida bebida;
+    private Chocolate chocolate;
+    private ArrayList<ModeloLanches> lanches;
 
     public LancheItens(Pipoca pipoca, Bebida bebida, Chocolate chocolate) {
         this.pipoca = pipoca;
@@ -69,7 +71,7 @@ public class LancheItens {
         this.chocolate = chocolate;
     }   
     
-    public float calculoPrecoTotal(){
+    public float calculoPrecoTotal(boolean aniversariante){
         
         precoTotal = 0;
         for (int i=0; i < lanches.size();i++){
@@ -87,6 +89,12 @@ public class LancheItens {
                 chocolate = (Chocolate) lanches.get(i);
                 precoTotal = precoTotal + chocolate.calculoPreco();
             }
+        }
+        
+        
+        
+        if (aniversariante){
+            precoTotal = precoTotal - 18.9f;
         }
         
         return precoTotal;

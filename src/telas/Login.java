@@ -20,9 +20,9 @@ public class Login extends javax.swing.JFrame {
      * Creates new form Login
      */
     
-    TelaInicial telaInicial;
-    Cadastro telaCadastro;
-    
+    private TelaInicial telaInicial;
+    private Cadastro telaCadastro;
+    private Cliente clienteLogado;
     
     
     public Login() {
@@ -43,6 +43,14 @@ public class Login extends javax.swing.JFrame {
 
     public void setTelaCadastro(Cadastro telaCadastro) {
         this.telaCadastro = telaCadastro;
+    }
+
+    public Cliente getClienteLogado() {
+        return clienteLogado;
+    }
+
+    public void setClienteLogado(Cliente clienteLogado) {
+        this.clienteLogado = clienteLogado;
     }
     
     
@@ -191,6 +199,11 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "CPF incorreto!", "Mensagem de Erro", JOptionPane.ERROR_MESSAGE);
         } else if (senhas.get(cpfLogin).equals(senhaLogin)){
             JOptionPane.showMessageDialog(null, "Login realizado com sucesso!", "Mensagem de Login", JOptionPane.PLAIN_MESSAGE);
+            for (int i=0; i < clientes.size(); i++){
+                if(clientes.get(i).getCpfCliente().equals(cpfLogin)){
+                    clienteLogado = clientes.get(i);
+                }
+            }
         } else{
             JOptionPane.showMessageDialog(null, "Senha incorreta!", "Mensagem de Erro", JOptionPane.ERROR_MESSAGE);
         }
