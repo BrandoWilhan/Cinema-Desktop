@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import cinema_cliente.Compra;
 import cinema_cliente.LancheItens;
 import javax.swing.JOptionPane;
+import cinema_cliente.Chocolate;
  // @author mugen
 
 public class Carrinho extends javax.swing.JFrame {
@@ -233,9 +234,9 @@ public class Carrinho extends javax.swing.JFrame {
         if(compraLanche != null){
             if(!compraLanche.getLancheItens().getLanches().isEmpty()){
                 for (int i = 0; i < compraLanche.getLancheItens().getLanches().size(); i++) {
-                    Object linha[] = new Object[]{"Pipoca: "    + compraLanche.getLancheItens().getPipoca().getQuantidadeGnd() + '\n' + compraLanche.getLancheItens().getPipoca().getQuantidadeMed() + '\n' + compraLanche.getLancheItens().getPipoca().getQuantidadePeq(),
-                                                  "Bebida: "    + compraLanche.getLancheItens().getBebida().getQuantidadeGnd() + '\n' + compraLanche.getLancheItens().getBebida().getQuantidadeMed() + '\n' + compraLanche.getLancheItens().getBebida().getQuantidadePeq(), 
-                                                  "Chocolate: " + compraLanche.getLancheItens().getChocolate().getQuantidadeLeite() + '\n' + compraLanche.getLancheItens().getChocolate().getQuantidadeMeioAmargo()
+                    Object linha[] = new Object[]{"Pipoca: "    + compraLanche.getLancheItens().getLanches().get(i).getQuantidadeGnd() + '\n' + compraLanche.getLancheItens().getLanches().get(i).getQuantidadeMed() + '\n' + compraLanche.getLancheItens().getLanches().get(i).getQuantidadePeq(),
+                                                  "Bebida: "    + compraLanche.getLancheItens().getLanches().get(i).getQuantidadeGnd() + '\n' + compraLanche.getLancheItens().getLanches().get(i).getQuantidadeMed() + '\n' + compraLanche.getLancheItens().getLanches().get(i).getQuantidadePeq(), 
+                                                  "Chocolate: " + compraLanche.getLancheItens().getLanches().get(i).getQuantidadePeq() + '\n' + compraLanche.getLancheItens().getLanches().get(i).getQuantidadeMed()
                         };
                     modelo2.addRow(linha);
                 }
