@@ -27,6 +27,7 @@ public class Lanche extends javax.swing.JFrame {
     private Carrinho telaCarrinho;
     private boolean aniversariante = false;
     Compra compraLanche;
+
     
     
 //    private javax.swing.JSpinner spnChocAmarg;

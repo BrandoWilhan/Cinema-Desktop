@@ -3,15 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/breno/Documents/GitHub/Cinema-Desktop/src/cinema_cliente/LancheItens.java</file>
-            <file>file:/C:/Users/breno/Documents/GitHub/Cinema-Desktop/src/cinema_cliente/TesteData.java</file>
-            <file>file:/C:/Users/breno/Documents/GitHub/Cinema-Desktop/src/cinema_cliente/Ticket.java</file>
-            <file>file:/C:/Users/breno/Documents/GitHub/Cinema-Desktop/src/cinema_cliente/Compra.java</file>
-            <file>file:/C:/Users/breno/Documents/GitHub/Cinema-Desktop/src/telas/Lanche.java</file>
-            <file>file:/C:/Users/breno/Documents/GitHub/Cinema-Desktop/src/cinema_cliente/Pipoca.java</file>
-            <file>file:/C:/Users/breno/Documents/GitHub/Cinema-Desktop/src/telas/Carrinho.java</file>
-            <file>file:/C:/Users/breno/Documents/GitHub/Cinema-Desktop/src/telas/TelaInicial.java</file>
-            <file>file:/C:/Users/breno/Documents/GitHub/Cinema-Desktop/src/telas/Login.java</file>
+
+            <file>file:/home/mugen/Projects/Cinema-Desktop/src/telas/Assentos.java</file>
+            <file>file:/home/mugen/Projects/Cinema-Desktop/src/cinema_cliente/LancheItens.java</file>
+            <file>file:/home/mugen/Projects/Cinema-Desktop/src/telas/Lanche.java</file>
+            <file>file:/home/mugen/Projects/Cinema-Desktop/src/cinema_cliente/Ticket.java</file>
+            <file>file:/home/mugen/Projects/Cinema-Desktop/src/cinema_cliente/Compra.java</file>
+            <file>file:/home/mugen/Projects/Cinema-Desktop/src/telas/Pagamento.java</file>
+            <file>file:/home/mugen/Projects/Cinema-Desktop/src/telas/Carrinho.java</file>
+            <file>file:/home/mugen/Projects/Cinema-Desktop/src/telas/Login.java</file>
+            <file>file:/home/mugen/Projects/Cinema-Desktop/src/telas/TelaInicial.java</file>
         </group>
     </open-files>
 </project-private>

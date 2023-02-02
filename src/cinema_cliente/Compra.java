@@ -12,7 +12,6 @@ public class Compra {
     private float valorTotal;
     private String data;
     ArrayList<Ticket> ingressos;
-    ArrayList<LancheItens> lanches;
     LancheItens lancheItens;
 
 
@@ -24,8 +23,6 @@ public class Compra {
         this.idCompra = idCompra;
         this.valorTotal = valorTotal;
         this.data = data;
-        
-        this.lanches = new ArrayList<LancheItens>();
         this.ingressos = new ArrayList<Ticket>();
     }
 
@@ -35,10 +32,6 @@ public class Compra {
 
     public void setIngressos(ArrayList<Ticket> ingressos) {
         this.ingressos = ingressos;
-    }
-
-    public ArrayList<LancheItens> getLanches() {
-        return lanches;
     }
 
     

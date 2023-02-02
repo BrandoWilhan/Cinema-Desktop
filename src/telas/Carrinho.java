@@ -5,6 +5,7 @@ import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
 import cinema_cliente.Compra;
 import cinema_cliente.LancheItens;
+import javax.swing.JOptionPane;
  // @author mugen
 
 public class Carrinho extends javax.swing.JFrame {
@@ -181,11 +182,21 @@ public class Carrinho extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarActionPerformed
-        
+        if(this.compra.getValorTotal() > 0) {
+            telaInicial.getTelaPagamento().setVisible(true);
+            this.setVisible(false);
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "Carrinho Vazio", "Valor não encontrado", JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_btnFinalizarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        
+        DefaultTableModel modelo1 = new DefaultTableModel(new Object[] {"ID item", "Ingresso"}, 0);
+        DefaultTableModel modelo2 = new DefaultTableModel(new Object[] {"Pipoca", "Bebida", "Chocolate"}, 0);
+      
+        tableComprasIngresso.setModel(modelo1);
+        tableComprasLanche.setModel(modelo2);
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
@@ -207,27 +218,16 @@ public class Carrinho extends javax.swing.JFrame {
         compra.setIngressos(new ArrayList<>());
         compra.setLancheItens(new LancheItens());
         compra.getLancheItens().setLanches(new ArrayList<>());
-        
 
         
-        if(!compra.getIngressos().isEmpty())
             for (int i = 0; i < compra.getIngressos().size(); i++) {
                 Object linha[] = new Object[]{compra.getIngressos().get(i).getId(),
-//                    compra.getIngressos().get(i).getValorIngresso()
-                        40.0f
+
+                    compra.getIngressos().get(i).getFilme().getTitulo()
                     };
                 modelo1.addRow(linha);
             }
-            tableComprasIngresso.setModel(modelo1);
-        
-        if(!compra.getLancheItens().getLanches().isEmpty())
-//            for (int i = 0; i < compra.getLancheItens().getLanches().size(); i++) {
-//                Object linha[] = new Object[]{"Pipoca: "    + compra.getLancheItens().getPipoca().getQuantidadeGnd() + '\n' + compra.getLancheItens().getPipoca().getQuantidadeMed() + '\n' + compra.getLancheItens().getPipoca().getQuantidadePeq(),
-//                                              "Bebida: "    + compra.getLancheItens().getBebida().getQuantidadeGnd() + '\n' + compra.getLancheItens().getBebida().getQuantidadeMed() + '\n' + compra.getLancheItens().getBebida().getQuantidadePeq(), 
-//                                              "Chocolate: " + compra.getLancheItens().getChocolate().getQuantidadeLeite() + '\n' + compra.getLancheItens().getChocolate().getQuantidadeMeioAmargo()
-//                    };
-//                modelo2.addRow(linha);
-//            }
+            
             for (int i = 0; i < compra.getLancheItens().getLanches().size(); i++) {
                 Object linha[] = new Object[]{"Pipoca: "    + compra.getLancheItens().getPipoca().getQuantidadeGnd() + '\n' + compra.getLancheItens().getPipoca().getQuantidadeMed() + '\n' + compra.getLancheItens().getPipoca().getQuantidadePeq(),
                                               "Bebida: "    + compra.getLancheItens().getBebida().getQuantidadeGnd() + '\n' + compra.getLancheItens().getBebida().getQuantidadeMed() + '\n' + compra.getLancheItens().getBebida().getQuantidadePeq(), 
@@ -235,6 +235,9 @@ public class Carrinho extends javax.swing.JFrame {
                     };
                 modelo2.addRow(linha);
             }
+        }
+            
+        tableComprasIngresso.setModel(modelo1);
         tableComprasLanche.setModel(modelo2);
         
     }

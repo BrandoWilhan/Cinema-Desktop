@@ -25,7 +25,7 @@ public class Assentos extends javax.swing.JFrame {
     TelaInicial telaInicial;
     Carrinho telaCarrinho;
     Ticket ingresso;
-    
+
     int quantidadeTotal;
 
     public Assentos(Ticket ingresso) {
@@ -433,6 +433,7 @@ public class Assentos extends javax.swing.JFrame {
         adicionarList();
         selecionados.clear();
         quantidadeTotal = ingresso.getQuantidadeInteira()+ingresso.getQuantidadeMeia();
+
         for (int i = 0; i < 22; i++) {
             int count = contarSelecionados(buttons);
             if(count == quantidadeTotal){
