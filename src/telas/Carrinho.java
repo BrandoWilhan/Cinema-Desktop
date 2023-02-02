@@ -220,14 +220,15 @@ public class Carrinho extends javax.swing.JFrame {
 //        compra.setIngressos(new ArrayList<>());
 //        compra.setLancheItens(new LancheItens());
 //        compra.getLancheItens().setLanches(new ArrayList<>());
+        if(compraIngressos.getIngressos() != null){
+            if(!compraIngressos.getIngressos().isEmpty()){
+                for (int i = 0; i < compraIngressos.getIngressos().size(); i++) {
+                    Object linha[] = new Object[]{compraIngressos.getIngressos().get(i).getId(),
 
-        if(!compraIngressos.getIngressos().isEmpty()){
-            for (int i = 0; i < compraIngressos.getIngressos().size(); i++) {
-                Object linha[] = new Object[]{compraIngressos.getIngressos().get(i).getId(),
-
-                    compraIngressos.getIngressos().get(i).getFilme().getTitulo()
-                    };
-                modelo1.addRow(linha);
+                        compraIngressos.getIngressos().get(i).getFilme().getTitulo()
+                        };
+                    modelo1.addRow(linha);
+                }
             }
         }
         if(compraLanche != null){
