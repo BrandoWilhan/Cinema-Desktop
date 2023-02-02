@@ -9,7 +9,7 @@ import cinema_cliente.LancheItens;
 
 public class Carrinho extends javax.swing.JFrame {
 
-    public TelaInicial telaInicial;
+    private TelaInicial telaInicial;
     private Compra compra = new Compra();
 
     public TelaInicial getTelaInicial() {
@@ -19,10 +19,12 @@ public class Carrinho extends javax.swing.JFrame {
     public void setTelaInicial(TelaInicial telaInicial) {
         this.telaInicial = telaInicial;
     }
+
+    
     
     public Carrinho() {
         initComponents();
-        carregarTabelaCompraIngresso();
+//        carregarTabelaCompraIngresso();
     }
 
     @SuppressWarnings("unchecked")
@@ -193,16 +195,26 @@ public class Carrinho extends javax.swing.JFrame {
         DefaultTableModel modelo1 = new DefaultTableModel(new Object[] {"ID item", "Ingresso"}, 0);
         DefaultTableModel modelo2 = new DefaultTableModel(new Object[] {"Pipoca", "Bebida", "Chocolate"}, 0);
         
-        this.compra.setIngressos(new ArrayList<>());
-        this.compra.setLancheItens(new LancheItens());
-        this.compra.getLancheItens().setLanches(new ArrayList<>());
+//        this.compra.setIngressos(new ArrayList<>());
+//        this.compra.setLancheItens(new LancheItens());
+//        this.compra.getLancheItens().setLanches(new ArrayList<>());
+//        
+//        this.compra = telaInicial.getTelaLanche().compraLanche;
         
-        this.compra = this.telaInicial.getTelaLanche().compraLanche;
+        compra = telaInicial.getTelaLanche().compraLanche;
+        
+        compra.setIngressos(new ArrayList<>());
+        compra.setLancheItens(new LancheItens());
+        compra.getLancheItens().setLanches(new ArrayList<>());
+        
+        
+
         
         if(!compra.getIngressos().isEmpty())
             for (int i = 0; i < compra.getIngressos().size(); i++) {
                 Object linha[] = new Object[]{compra.getIngressos().get(i).getId(),
-                    compra.getIngressos().get(i).getValorIngresso()
+//                    compra.getIngressos().get(i).getValorIngresso()
+                        40.0f
                     };
                 modelo1.addRow(linha);
             }

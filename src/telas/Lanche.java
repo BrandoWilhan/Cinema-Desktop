@@ -25,8 +25,8 @@ public class Lanche extends javax.swing.JFrame {
     
     private TelaInicial telaInicial;
     private Carrinho telaCarrinho;
-    private boolean aniversariante;
-    private Compra compraLanche;
+    private boolean aniversariante = false;
+    Compra compraLanche;
     
     
 //    private javax.swing.JSpinner spnChocAmarg;
@@ -525,11 +525,15 @@ public class Lanche extends javax.swing.JFrame {
     private void btnConfirmarLancheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarLancheActionPerformed
         // TODO add your handling code here:
        
-        String dataNascimento = telaInicial.getTelaLogin().getClienteLogado().getDataNascimento(); //Obtendo a data de nascimento do cliente atualmente Logado
         
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        LocalDateTime now = LocalDateTime.now();
-        aniversariante = dtf.format(now).equals(dataNascimento);
+        if (telaInicial.isLogado()){
+            String dataNascimento = telaInicial.getTelaLogin().getClienteLogado().getDataNascimento(); //Obtendo a data de nascimento do cliente atualmente Logado
+        
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            LocalDateTime now = LocalDateTime.now();
+            aniversariante = dtf.format(now).equals(dataNascimento);
+        }
+        
         
         
         
@@ -630,7 +634,7 @@ public class Lanche extends javax.swing.JFrame {
 
     private void btnLancheCarrinhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLancheCarrinhoActionPerformed
         // TODO add your handling code here:
-        
+        telaCarrinho = telaInicial.getTelaCarrinho();
         telaCarrinho.setTelaInicial(telaInicial);
         telaCarrinho.setVisible(true);
         setVisible(false);

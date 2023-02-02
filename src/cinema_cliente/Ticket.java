@@ -13,6 +13,7 @@ public class Ticket {
     private int quantidadeMeia;
     private int quantidadeTotal;
     private Filme filme;
+    
 
     public Ticket(){
         

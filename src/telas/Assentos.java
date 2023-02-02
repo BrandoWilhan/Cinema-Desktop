@@ -26,7 +26,7 @@ public class Assentos extends javax.swing.JFrame {
     Carrinho telaCarrinho;
     Ticket ingresso;
     
-    int quantidadeTotal = ingresso.getQuantidadeInteira()+ingresso.getQuantidadeMeia();
+    int quantidadeTotal;
 
     public Assentos(Ticket ingresso) {
          initComponents();
@@ -432,7 +432,7 @@ public class Assentos extends javax.swing.JFrame {
         // TODO add your handling code here:
         adicionarList();
         selecionados.clear();
-        
+        quantidadeTotal = ingresso.getQuantidadeInteira()+ingresso.getQuantidadeMeia();
         for (int i = 0; i < 22; i++) {
             int count = contarSelecionados(buttons);
             if(count == quantidadeTotal){
@@ -442,12 +442,11 @@ public class Assentos extends javax.swing.JFrame {
             }
         }
         
-        Carrinho carrinho = new Carrinho();
-        carrinho.setVisible(true);
-        //telaCarrinho = telaInicial.getTelaCarrinho();
+        
+        telaCarrinho = telaInicial.getTelaCarrinho();
         //compra.setIngressos(ingresso);
-        //telaCarrinho.setTelaInicial(telaInicial);
-        //telaCarrinho.setVisible(true);
+        telaCarrinho.setTelaInicial(telaInicial);
+        telaCarrinho.setVisible(true);
         setVisible(false);
         
 
