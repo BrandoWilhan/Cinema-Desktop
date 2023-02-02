@@ -18,6 +18,7 @@ public class Carrinho extends javax.swing.JFrame {
 
     public void setTelaInicial(TelaInicial telaInicial) {
         this.telaInicial = telaInicial;
+        carregarTabelaCompraIngresso();
     }
 
     
@@ -202,11 +203,10 @@ public class Carrinho extends javax.swing.JFrame {
 //        this.compra = telaInicial.getTelaLanche().compraLanche;
         
         compra = telaInicial.getTelaLanche().compraLanche;
-        
+//        
         compra.setIngressos(new ArrayList<>());
         compra.setLancheItens(new LancheItens());
         compra.getLancheItens().setLanches(new ArrayList<>());
-        
         
 
         
@@ -221,6 +221,13 @@ public class Carrinho extends javax.swing.JFrame {
             tableComprasIngresso.setModel(modelo1);
         
         if(!compra.getLancheItens().getLanches().isEmpty())
+//            for (int i = 0; i < compra.getLancheItens().getLanches().size(); i++) {
+//                Object linha[] = new Object[]{"Pipoca: "    + compra.getLancheItens().getPipoca().getQuantidadeGnd() + '\n' + compra.getLancheItens().getPipoca().getQuantidadeMed() + '\n' + compra.getLancheItens().getPipoca().getQuantidadePeq(),
+//                                              "Bebida: "    + compra.getLancheItens().getBebida().getQuantidadeGnd() + '\n' + compra.getLancheItens().getBebida().getQuantidadeMed() + '\n' + compra.getLancheItens().getBebida().getQuantidadePeq(), 
+//                                              "Chocolate: " + compra.getLancheItens().getChocolate().getQuantidadeLeite() + '\n' + compra.getLancheItens().getChocolate().getQuantidadeMeioAmargo()
+//                    };
+//                modelo2.addRow(linha);
+//            }
             for (int i = 0; i < compra.getLancheItens().getLanches().size(); i++) {
                 Object linha[] = new Object[]{"Pipoca: "    + compra.getLancheItens().getPipoca().getQuantidadeGnd() + '\n' + compra.getLancheItens().getPipoca().getQuantidadeMed() + '\n' + compra.getLancheItens().getPipoca().getQuantidadePeq(),
                                               "Bebida: "    + compra.getLancheItens().getBebida().getQuantidadeGnd() + '\n' + compra.getLancheItens().getBebida().getQuantidadeMed() + '\n' + compra.getLancheItens().getBebida().getQuantidadePeq(), 
